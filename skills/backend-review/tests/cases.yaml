@@ -1,0 +1,25 @@
+schema_version: 1
+
+cases:
+  - id: finds-authorization-gap
+    description: Review an endpoint that validates authentication but not resource ownership.
+    input:
+      prompt: Review the account export endpoint for blocking issues.
+    expectations:
+      must:
+        - trace authorization to the accessed resource
+        - describe the data exposure impact
+        - cite the affected path and remediation
+      must_not:
+        - reduce the issue to a naming or style suggestion
+
+  - id: checks-transaction-boundary
+    description: Review a service that writes two records without a shared transaction.
+    input:
+      prompt: Review the payment capture change for partial-failure risks.
+    expectations:
+      must:
+        - analyze partial writes, retry behavior, and data integrity
+        - inspect relevant persistence code and tests
+      must_not:
+        - assume atomicity without evidence

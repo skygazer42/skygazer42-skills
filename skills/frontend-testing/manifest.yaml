@@ -1,0 +1,44 @@
+schema_version: 1
+
+id: frontend.frontend-testing
+name: Frontend Testing
+version: 0.1.0
+status: beta
+
+description: >
+  Verify frontend behavior with existing automated tests and real-browser
+  checks, and add focused regression coverage when requested.
+
+category: frontend
+entrypoint: SKILL.md
+tags:
+  - frontend
+  - testing
+  - browser
+  - accessibility
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: true
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

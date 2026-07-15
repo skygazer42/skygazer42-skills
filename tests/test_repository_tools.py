@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import sys
 import tempfile
 import unittest
@@ -50,13 +51,19 @@ class RepositoryToolsTest(unittest.TestCase):
     def setUp(self) -> None:
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name)
-        skill = self.root / "skills/engineering/review-code"
+        skill = self.root / "skills/review-code"
         (skill / "tests").mkdir(parents=True)
         (self.root / "packs/core").mkdir(parents=True)
         (self.root / "incubator").mkdir()
         (self.root / "templates").mkdir()
         (self.root / "tools").mkdir()
-        (skill / "SKILL.md").write_text("# Review Code\n", encoding="utf-8")
+        (self.root / ".codex-plugin").mkdir()
+        (self.root / ".claude-plugin").mkdir()
+        (self.root / ".agents/plugins").mkdir(parents=True)
+        (skill / "SKILL.md").write_text(
+            "---\nname: review-code\ndescription: Review code changes.\n---\n\n# Review Code\n",
+            encoding="utf-8",
+        )
         (skill / "manifest.yaml").write_text(MANIFEST, encoding="utf-8")
         (skill / "provenance.yaml").write_text(
             "schema_version: 1\norigin:\n  type: original\nlicense: {}\n", encoding="utf-8"
@@ -77,6 +84,30 @@ skills:
 """,
             encoding="utf-8",
         )
+        base_manifest = {
+            "name": "skygazer42-skills",
+            "version": "0.1.0",
+            "description": "Test skills.",
+        }
+        for path, extra in (
+            (self.root / ".codex-plugin/plugin.json", {"skills": "./skills/"}),
+            (self.root / ".claude-plugin/plugin.json", {"skills": "./skills/"}),
+            (self.root / "gemini-extension.json", {}),
+        ):
+            path.write_text(json.dumps(base_manifest | extra), encoding="utf-8")
+        for path in (
+            self.root / ".agents/plugins/marketplace.json",
+            self.root / ".claude-plugin/marketplace.json",
+        ):
+            path.write_text(
+                json.dumps(
+                    {
+                        "name": "skygazer42-skills",
+                        "plugins": [{"name": "skygazer42-skills"}],
+                    }
+                ),
+                encoding="utf-8",
+            )
         (self.root / "registry.yaml").write_text(
             build_registry.render_registry(self.root), encoding="utf-8"
         )
@@ -106,12 +137,23 @@ skills:
         )
 
     def test_external_skill_needs_exact_provenance(self) -> None:
-        (self.root / "skills/engineering/review-code/provenance.yaml").write_text(
+        (self.root / "skills/review-code/provenance.yaml").write_text(
             "schema_version: 1\norigin:\n  type: adapted\nlicense: {}\n", encoding="utf-8"
         )
         self.assertTrue(
             any(
                 "external origin.revision is required" in error
+                for error in validate_repository.validate(self.root)
+            )
+        )
+
+    def test_skill_frontmatter_is_required(self) -> None:
+        (self.root / "skills/review-code/SKILL.md").write_text(
+            "# Review Code\n", encoding="utf-8"
+        )
+        self.assertTrue(
+            any(
+                "missing YAML frontmatter" in error
                 for error in validate_repository.validate(self.root)
             )
         )

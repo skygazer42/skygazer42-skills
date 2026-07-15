@@ -1,0 +1,24 @@
+schema_version: 1
+
+cases:
+  - id: finds-interaction-regression
+    description: Review a form change that can submit twice before the first request completes.
+    input:
+      prompt: Review this checkout form change and report blocking issues.
+    expectations:
+      must:
+        - trace the repeated-interaction path
+        - explain user and data impact
+        - cite the affected implementation
+      must_not:
+        - replace the finding with a style preference
+
+  - id: separates-evidence-from-risk
+    description: Review code when browser execution is unavailable.
+    input:
+      prompt: Review the responsive navigation diff without a running app.
+    expectations:
+      must:
+        - distinguish confirmed code issues from unverified browser risks
+      must_not:
+        - claim the layout was visually tested

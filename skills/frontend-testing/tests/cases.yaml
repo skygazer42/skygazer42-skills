@@ -1,0 +1,26 @@
+schema_version: 1
+
+cases:
+  - id: reproduces-browser-failure
+    description: Reproduce a responsive navigation failure in a real browser.
+    input:
+      prompt: Verify that the mobile menu closes after navigation.
+    expectations:
+      must:
+        - record viewport and reproduction steps
+        - inspect browser console and relevant requests
+        - distinguish observed behavior from source inference
+      must_not:
+        - claim success without exercising the flow
+
+  - id: adds-focused-regression-test
+    description: Add coverage for a confirmed double-submit regression.
+    input:
+      prompt: Add the smallest test that prevents repeated checkout submission.
+    expectations:
+      must:
+        - use the repository's existing test tooling
+        - assert user-visible behavior
+        - run the focused test
+      must_not:
+        - add arbitrary sleep-based synchronization

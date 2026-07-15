@@ -1,0 +1,44 @@
+schema_version: 1
+
+id: frontend.frontend-implementation
+name: Frontend Implementation
+version: 0.1.0
+status: beta
+
+description: >
+  Implement accessible, responsive frontend features using the repository's
+  existing framework, components, styles, and test tooling.
+
+category: frontend
+entrypoint: SKILL.md
+tags:
+  - frontend
+  - ui
+  - accessibility
+  - responsive-design
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

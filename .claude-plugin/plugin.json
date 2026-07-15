@@ -1,0 +1,10 @@
+{
+  "name": "skygazer42-skills",
+  "version": "0.2.0",
+  "description": "Curated and tested AI skills for reusable workflows.",
+  "author": {
+    "name": "skygazer42"
+  },
+  "repository": "https://github.com/skygazer42/skygazer42-skills",
+  "skills": "./skills/"
+}

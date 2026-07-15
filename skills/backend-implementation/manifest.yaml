@@ -1,0 +1,44 @@
+schema_version: 1
+
+id: backend.backend-implementation
+name: Backend Implementation
+version: 0.1.0
+status: beta
+
+description: >
+  Implement safe backend APIs, services, jobs, data changes, and integrations
+  using the repository's existing architecture and tooling.
+
+category: backend
+entrypoint: SKILL.md
+tags:
+  - backend
+  - api
+  - database
+  - security
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

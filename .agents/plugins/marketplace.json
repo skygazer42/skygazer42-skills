@@ -1,0 +1,20 @@
+{
+  "name": "skygazer42-skills",
+  "interface": {
+    "displayName": "Skygazer42 Skills"
+  },
+  "plugins": [
+    {
+      "name": "skygazer42-skills",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

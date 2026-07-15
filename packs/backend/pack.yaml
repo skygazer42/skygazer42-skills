@@ -1,0 +1,19 @@
+schema_version: 1
+
+id: pack.backend
+name: Backend Essentials
+version: 0.1.0
+
+description: >
+  Essential skills for implementing, reviewing, and debugging production
+  backend changes.
+
+skills:
+  - id: backend.backend-implementation
+    version: ">=0.1.0 <1.0.0"
+
+  - id: backend.backend-review
+    version: ">=0.1.0 <1.0.0"
+
+  - id: backend.backend-debugging
+    version: ">=0.1.0 <1.0.0"

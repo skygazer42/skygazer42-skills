@@ -1,0 +1,19 @@
+schema_version: 1
+
+id: pack.frontend
+name: Frontend Essentials
+version: 0.1.0
+
+description: >
+  Essential skills for implementing, reviewing, and testing production
+  frontend changes.
+
+skills:
+  - id: frontend.frontend-implementation
+    version: ">=0.1.0 <1.0.0"
+
+  - id: frontend.frontend-review
+    version: ">=0.1.0 <1.0.0"
+
+  - id: frontend.frontend-testing
+    version: ">=0.1.0 <1.0.0"

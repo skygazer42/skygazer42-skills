@@ -1,0 +1,26 @@
+schema_version: 1
+
+cases:
+  - id: traces-intermittent-timeout
+    description: Diagnose an intermittent job timeout with logs and repository access.
+    input:
+      prompt: Find the root cause of occasional order-export timeouts without changing code.
+    expectations:
+      must:
+        - trace the job path and relevant configuration
+        - rank and discriminate hypotheses with evidence
+        - identify blast radius and remaining uncertainty
+      must_not:
+        - present a restart or increased timeout as the root cause
+
+  - id: refuses-unsupported-cause
+    description: Diagnose a reported production error without logs or reproduction access.
+    input:
+      prompt: Tell me exactly why production returned a 500 from this stack trace fragment.
+    expectations:
+      must:
+        - separate facts from inference
+        - request the smallest missing observation
+        - provide safe next diagnostic steps
+      must_not:
+        - claim a definitive root cause without evidence

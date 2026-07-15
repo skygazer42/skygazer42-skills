@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -73,9 +74,7 @@ def skill_directories(root: Path) -> list[Path]:
         return []
     return sorted(
         skill
-        for category in skills_root.iterdir()
-        if category.is_dir() and not category.name.startswith(".")
-        for skill in category.iterdir()
+        for skill in skills_root.iterdir()
         if skill.is_dir() and not skill.name.startswith(".")
     )
 
@@ -93,6 +92,28 @@ def has_value(value: object) -> bool:
     return isinstance(value, str) and bool(value.strip()) and not value.startswith("<")
 
 
+def validate_skill_frontmatter(path: Path, skill_name: str, errors: list[str]) -> None:
+    try:
+        lines = path.read_text(encoding="utf-8").splitlines()
+        end = lines.index("---", 1) if lines and lines[0] == "---" else -1
+    except (OSError, ValueError) as error:
+        errors.append(f"{path}: invalid YAML frontmatter ({error})")
+        return
+    if end < 0:
+        errors.append(f"{path}: missing YAML frontmatter")
+        return
+    try:
+        frontmatter = yaml.safe_load("\n".join(lines[1:end]))
+    except yaml.YAMLError as error:
+        errors.append(f"{path}: invalid YAML frontmatter ({error})")
+        return
+    if not isinstance(frontmatter, dict):
+        errors.append(f"{path}: frontmatter must be a mapping")
+        return
+    if frontmatter.get("name") != skill_name or not has_value(frontmatter.get("description")):
+        errors.append(f"{path}: frontmatter needs matching name and a description")
+
+
 def validate_skill(
     skill_dir: Path,
     errors: list[str],
@@ -103,6 +124,8 @@ def validate_skill(
     manifest_path = skill_dir / "manifest.yaml"
     if not entrypoint.is_file():
         errors.append(f"{label}: missing SKILL.md")
+    else:
+        validate_skill_frontmatter(entrypoint, skill_dir.name, errors)
     if not manifest_path.is_file():
         errors.append(f"{label}: missing manifest.yaml")
         return None, []
@@ -113,6 +136,8 @@ def validate_skill(
             errors.append(f"{manifest_path}: missing {field}")
     if manifest.get("schema_version") != 1:
         errors.append(f"{manifest_path}: schema_version must be 1")
+    if manifest.get("status") == "draft":
+        errors.append(f"{manifest_path}: draft skills belong in incubator")
 
     skill_id = manifest.get("id")
     if not isinstance(skill_id, str) or not IDENTIFIER.fullmatch(skill_id):
@@ -123,8 +148,8 @@ def validate_skill(
     else:
         identifiers[skill_id] = manifest_path
 
-    if manifest.get("category") != skill_dir.parent.name:
-        errors.append(f"{manifest_path}: category must match directory {skill_dir.parent.name}")
+    if skill_id and skill_id != f"{manifest.get('category')}.{skill_dir.name}":
+        errors.append(f"{manifest_path}: id must be <category>.{skill_dir.name}")
     if not has_value(manifest.get("name")) or not has_value(manifest.get("description")):
         errors.append(f"{manifest_path}: name and description must be non-empty")
     if not isinstance(manifest.get("version"), str) or not SEMVER.fullmatch(manifest["version"]):
@@ -305,6 +330,68 @@ def find_secrets(root: Path, errors: list[str]) -> None:
                     errors.append(f"{path}:{line_number}: possible {name}")
 
 
+def read_json(path: Path, errors: list[str]) -> dict:
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        errors.append(f"{path}: {error}")
+        return {}
+    if not isinstance(data, dict):
+        errors.append(f"{path}: expected a JSON object")
+        return {}
+    return data
+
+
+def validate_platform_manifests(root: Path, errors: list[str]) -> None:
+    paths = {
+        "codex": root / ".codex-plugin/plugin.json",
+        "claude": root / ".claude-plugin/plugin.json",
+        "gemini": root / "gemini-extension.json",
+    }
+    manifests: dict[str, dict] = {}
+    for platform, path in paths.items():
+        if not path.is_file():
+            errors.append(f"{path}: missing {platform} manifest")
+            continue
+        manifest = read_json(path, errors)
+        manifests[platform] = manifest
+        for field in ("name", "version", "description"):
+            if not has_value(manifest.get(field)):
+                errors.append(f"{path}: {field} is required")
+        if manifest.get("name") != "skygazer42-skills":
+            errors.append(f"{path}: name must be skygazer42-skills")
+        if not isinstance(manifest.get("version"), str) or not SEMVER.fullmatch(
+            manifest["version"]
+        ):
+            errors.append(f"{path}: version must use semantic versioning")
+
+    versions = {manifest.get("version") for manifest in manifests.values()}
+    if len(versions) > 1:
+        errors.append("platform plugin versions must match")
+    for platform in ("codex", "claude"):
+        if manifests.get(platform, {}).get("skills") != "./skills/":
+            errors.append(f"{paths[platform]}: skills must point to ./skills/")
+
+    marketplace_paths = (
+        root / ".agents/plugins/marketplace.json",
+        root / ".claude-plugin/marketplace.json",
+    )
+    for path in marketplace_paths:
+        if not path.is_file():
+            errors.append(f"{path}: missing marketplace")
+            continue
+        marketplace = read_json(path, errors)
+        plugins = marketplace.get("plugins")
+        if marketplace.get("name") != "skygazer42-skills" or not isinstance(plugins, list):
+            errors.append(f"{path}: invalid marketplace metadata")
+        elif not any(
+            plugin.get("name") == "skygazer42-skills"
+            for plugin in plugins
+            if isinstance(plugin, dict)
+        ):
+            errors.append(f"{path}: missing skygazer42-skills plugin entry")
+
+
 def validate(root: Path) -> list[str]:
     errors: list[str] = []
     for required_dir in ("skills", "packs", "templates", "tools"):
@@ -332,6 +419,7 @@ def validate(root: Path) -> list[str]:
             errors.append(f"{pack_dir}: unknown skill reference {reference}")
 
     validate_incubator(root, errors)
+    validate_platform_manifests(root, errors)
     find_secrets(root, errors)
 
     if not errors:

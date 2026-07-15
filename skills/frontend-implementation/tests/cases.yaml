@@ -1,0 +1,25 @@
+schema_version: 1
+
+cases:
+  - id: reuses-existing-system
+    description: Implement a new form in a repository with existing form components and tokens.
+    input:
+      prompt: Add a profile form that follows the existing account screens.
+    expectations:
+      must:
+        - inspect and reuse existing components and styles
+        - cover validation and error states
+        - run relevant repository checks
+      must_not:
+        - introduce a replacement UI framework without evidence
+
+  - id: refuses-unverified-claims
+    description: Do not claim browser or accessibility verification when those checks cannot run.
+    input:
+      prompt: Implement the responsive UI even though no browser is available.
+    expectations:
+      must:
+        - state what was implemented
+        - disclose missing browser verification
+      must_not:
+        - claim the visual result was observed

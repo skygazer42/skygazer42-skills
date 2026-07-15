@@ -1,0 +1,44 @@
+schema_version: 1
+
+id: backend.backend-debugging
+name: Backend Debugging
+version: 0.1.0
+status: beta
+
+description: >
+  Diagnose backend failures through safe reproduction, end-to-end tracing,
+  evidence-driven hypotheses, root-cause analysis, and blast-radius checks.
+
+category: backend
+entrypoint: SKILL.md
+tags:
+  - backend
+  - debugging
+  - incident-response
+  - root-cause-analysis
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

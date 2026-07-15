@@ -1,0 +1,44 @@
+schema_version: 1
+
+id: frontend.frontend-review
+name: Frontend Review
+version: 0.1.0
+status: beta
+
+description: >
+  Review frontend changes for correctness, regressions, accessibility,
+  responsive behavior, performance, security, and test coverage.
+
+category: frontend
+entrypoint: SKILL.md
+tags:
+  - frontend
+  - code-review
+  - accessibility
+  - performance
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

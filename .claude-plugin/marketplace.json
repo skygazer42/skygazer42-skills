@@ -1,0 +1,14 @@
+{
+  "name": "skygazer42-skills",
+  "owner": {
+    "name": "skygazer42"
+  },
+  "description": "Curated and tested AI skills for reusable workflows.",
+  "plugins": [
+    {
+      "name": "skygazer42-skills",
+      "source": "./",
+      "description": "Curated and tested AI skills for reusable workflows."
+    }
+  ]
+}
