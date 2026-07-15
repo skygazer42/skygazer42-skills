@@ -1,0 +1,39 @@
+schema_version: 1
+
+id: category.skill-name
+name: Skill Name
+version: 0.1.0
+status: draft
+
+description: >
+  Describe the reusable capability and its intended scope.
+
+category: category
+entrypoint: SKILL.md
+tags: []
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: false
+  write_files: false
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

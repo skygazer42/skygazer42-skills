@@ -1,0 +1,19 @@
+schema_version: 1
+
+origin:
+  type: original
+  repository: ""
+  revision: ""
+  path: ""
+  author: ""
+
+license:
+  identifier: ""
+  file: ""
+
+import:
+  imported_at: ""
+  imported_by: ""
+
+modifications: []
+notes: []
