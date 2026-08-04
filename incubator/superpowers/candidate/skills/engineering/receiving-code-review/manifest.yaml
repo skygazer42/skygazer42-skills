@@ -1,0 +1,44 @@
+schema_version: 1
+
+id: engineering.receiving-code-review
+name: Receiving Code Review
+version: 0.1.0
+status: beta
+
+description: >
+  收到代码审查反馈后，在实现建议之前先做技术验证。
+  外部反馈保持怀疑，用户反馈理解后实现。不表演，不盲从。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - code-review
+  - collaboration
+  - discipline
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

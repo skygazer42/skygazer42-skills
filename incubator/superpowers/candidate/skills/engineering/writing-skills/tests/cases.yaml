@@ -1,0 +1,27 @@
+schema_version: 1
+
+cases:
+  - id: create-skill-with-tdd
+    description: 创建新 Skill 必须先跑基线再写 Skill。
+
+    must:
+      - "先跑压力场景记录基线行为（RED）"
+      - "写刚好解决基线失败的 Skill（GREEN）"
+      - "再跑场景验证遵从（REFACTOR）"
+      - "补齐 manifest/provenance/README/cases"
+
+    must_not:
+      - "在基线测试之前写 SKILL.md"
+      - "跳过压力测试直接部署"
+      - "一次创建多个 Skill 而不逐个测试"
+
+  - id: edit-existing-skill
+    description: 编辑已有 Skill 行为时同样要走 RED-GREEN-REFACTOR。
+
+    must:
+      - "先跑基线确认'没这个改动'时代理的行为"
+      - "写改动后验证遵从"
+
+    must_not:
+      - "把它当成'文档更新'跳过 TDD"
+      - "改动行为却不重跑测试"

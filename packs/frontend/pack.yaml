@@ -9,11 +9,11 @@ description: >
   frontend changes.
 
 skills:
-  - id: frontend.frontend-implementation
+  - id: web.frontend-implementation
     version: ">=0.1.0 <1.0.0"
 
-  - id: frontend.frontend-review
+  - id: web.frontend-review
     version: ">=0.1.0 <1.0.0"
 
-  - id: frontend.frontend-testing
+  - id: web.frontend-testing
     version: ">=0.1.0 <1.0.0"

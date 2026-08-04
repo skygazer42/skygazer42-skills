@@ -1,0 +1,43 @@
+schema_version: 1
+
+id: engineering.requesting-code-review
+name: Requesting Code Review
+version: 0.1.0
+status: beta
+
+description: >
+  完成任务、实现大功能或合并前，派发代码审查子代理验证工作是否符合需求。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - code-review
+  - quality
+  - collaboration
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

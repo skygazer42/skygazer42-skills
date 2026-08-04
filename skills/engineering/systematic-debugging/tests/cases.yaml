@@ -1,0 +1,36 @@
+schema_version: 1
+
+cases:
+  - id: typical-root-cause-investigation
+    description: >
+      遇到一个后端 API 500 错误，systematic-debugging 应走完四阶段流程，
+      定位根因后再修，并在必要时路由到 backend-debugging。
+
+    must:
+      - "先完成 Phase 1 根因调查再提修复"
+      - "读错误日志和堆栈跟踪"
+      - "尝试复现"
+      - "检查最近变更"
+      - "形成单一假设并最小测试"
+      - "修复前创建失败测试用例"
+      - "领域问题时路由到 backend.backend-debugging"
+
+    must_not:
+      - "在根因未确认时提修复方案"
+      - "一次改多个变量"
+      - "跳过复现步骤直接猜"
+      - "把重启/加重试/增大超时当成根因"
+
+  - id: three-plus-failed-fixes
+    description: >
+      已经尝试 ≥3 次修复仍失败时，应停止修复并质疑架构。
+
+    must:
+      - "识别 ≥3 次修复失败的模式"
+      - "停止尝试更多修复"
+      - "质疑架构级问题"
+      - "与用户讨论重构方案"
+
+    must_not:
+      - "继续尝试第 4、第 5 种修复"
+      - "把连续的修复失败归因为'运气不好'"

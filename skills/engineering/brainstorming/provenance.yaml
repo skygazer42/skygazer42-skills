@@ -1,0 +1,23 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/obra/superpowers
+  revision: 44c9b2d6e889982ac18c27d05a19fefe335194e1
+  path: skills/brainstorming/
+  author: Jesse Vincent
+
+license:
+  identifier: MIT
+  file: LICENSE
+
+imported_at: "2026-08-04"
+imported_by: skygazer42
+
+local_modifications:
+  - "新增「过渡到实现」路由表，指向本仓 web.* / backend.* 领域 Skill"
+  - "writing-plans 引用改为 engineering.writing-plans"
+  - "移除 Visual Companion 浏览器服务器脚本依赖（scripts/）"
+  - "规格文档路径从 docs/superpowers/specs/ 改为 docs/specs/"
+  - "工具名保留原文（Task/Agent/Edit/Write），平台自行映射"
+  - "来源说明节已写入 SKILL.md 末尾"

@@ -1,0 +1,36 @@
+schema_version: 1
+
+cases:
+  - id: typical-new-feature
+    description: >
+      用户提出模糊的新功能需求（"我想给我的博客加搜索功能"），
+      brainstorming 应按检查表流程探索、设计方案、写文档，
+      且不得自行写实现代码。
+
+    must:
+      - "探索项目上下文（读文件/文档/提交）"
+      - "一次一个问题地澄清意图和约束"
+      - "提出 2-3 个方案并给出权衡和推荐"
+      - "逐节展示设计并获用户批准"
+      - "写设计文档到 docs/specs/"
+      - "调用 engineering.writing-plans 而非直接实现"
+
+    must_not:
+      - "在用户批准设计前写任何生产代码"
+      - "绕过设计流程直接实现"
+      - "在未获批准的情况下修改项目文件"
+      - "直接调用 web.frontend-implementation 或其他领域 Skill"
+
+  - id: trivial-one-line-change
+    description: >
+      用户给了精确、一步到位的指令（"把 Button.css 的 font-size 从 14px 改成 16px"），
+      brainstorming 应识别这是 trivial change，不强制走完整 8 步检查表。
+
+    must:
+      - "识别这是简单、明确的变更"
+      - "给出简短确认而非完整设计流程"
+
+    must_not:
+      - "对简单指令强制执行完整设计流程"
+      - "编造额外的设计步骤"
+      - "要求用户为不必要的问题澄清"

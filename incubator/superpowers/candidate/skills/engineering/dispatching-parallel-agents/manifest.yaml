@@ -1,0 +1,44 @@
+schema_version: 1
+
+id: engineering.dispatching-parallel-agents
+name: Dispatching Parallel Agents
+version: 0.1.0
+status: beta
+
+description: >
+  面对 2+ 个独立任务时，并发派发拥有隔离上下文的专用代理。
+  每个代理仅获得完成任务所需的精确上下文。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - orchestration
+  - parallelism
+  - agents
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

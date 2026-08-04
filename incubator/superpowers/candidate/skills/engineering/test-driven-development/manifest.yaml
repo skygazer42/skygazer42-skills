@@ -1,0 +1,45 @@
+schema_version: 1
+
+id: engineering.test-driven-development
+name: Test-Driven Development
+version: 0.1.0
+status: beta
+
+description: >
+  在实现任何功能或修 bug 之前，先写失败测试。严格 Red-Green-Refactor 循环。
+  实现完成后路由到对应的领域 Skill 进行验证。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - tdd
+  - testing
+  - quality
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills:
+    - engineering.verification-before-completion
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

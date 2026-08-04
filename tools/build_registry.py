@@ -28,7 +28,7 @@ def required(data: dict, key: str, path: Path):
 
 def registry_data(root: Path) -> dict:
     skills = []
-    for manifest_path in sorted((root / "skills").glob("*/manifest.yaml")):
+    for manifest_path in sorted((root / "skills").glob("*/*/manifest.yaml")):
         manifest = load_yaml(manifest_path)
         skill_dir = manifest_path.parent
         skills.append(

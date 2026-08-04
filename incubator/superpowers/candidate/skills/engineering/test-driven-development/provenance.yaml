@@ -1,0 +1,23 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/obra/superpowers
+  revision: 44c9b2d6e889982ac18c27d05a19fefe335194e1
+  path: skills/test-driven-development/
+  author: Jesse Vincent
+
+license:
+  identifier: MIT
+  file: LICENSE
+
+imported_at: "2026-08-04"
+imported_by: skygazer42
+
+local_modifications:
+  - "新增「实现完成后路由到领域 Skill」节（web.* / backend.*）"
+  - "Skill 引用改为 engineering.verification-before-completion"
+  - "将 writing-good-tests.md 核心原则内联为「好测试」表"
+  - "合理化借口表翻译为中文"
+  - "工具名平台中立化"
+  - "来源说明节已写入 SKILL.md 末尾"

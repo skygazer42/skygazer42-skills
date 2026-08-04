@@ -1,0 +1,44 @@
+schema_version: 1
+
+id: engineering.finishing-a-development-branch
+name: Finishing a Development Branch
+version: 0.1.0
+status: beta
+
+description: >
+  实现完成、所有测试通过后，决定如何集成工作——本地合并、推送 PR 或保持不动。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - git
+  - integration
+  - delivery
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - git
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

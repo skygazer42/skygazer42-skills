@@ -7,7 +7,7 @@ skills:
   name: Backend Debugging
   version: 0.1.0
   status: beta
-  path: skills/backend-debugging
+  path: skills/backend/backend-debugging
   entrypoint: SKILL.md
   tags:
   - backend
@@ -18,7 +18,7 @@ skills:
   name: Backend Implementation
   version: 0.1.0
   status: beta
-  path: skills/backend-implementation
+  path: skills/backend/backend-implementation
   entrypoint: SKILL.md
   tags:
   - backend
@@ -29,40 +29,183 @@ skills:
   name: Backend Review
   version: 0.1.0
   status: beta
-  path: skills/backend-review
+  path: skills/backend/backend-review
   entrypoint: SKILL.md
   tags:
   - backend
   - code-review
   - security
   - reliability
-- id: frontend.frontend-implementation
+- id: engineering.brainstorming
+  name: Brainstorming
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/brainstorming
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - brainstorming
+  - design
+  - planning
+- id: engineering.dispatching-parallel-agents
+  name: Dispatching Parallel Agents
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/dispatching-parallel-agents
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - orchestration
+  - parallelism
+  - agents
+- id: engineering.executing-plans
+  name: Executing Plans
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/executing-plans
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - execution
+  - plans
+  - task-running
+- id: engineering.finishing-a-development-branch
+  name: Finishing a Development Branch
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/finishing-a-development-branch
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - git
+  - integration
+  - delivery
+- id: engineering.receiving-code-review
+  name: Receiving Code Review
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/receiving-code-review
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - code-review
+  - collaboration
+  - discipline
+- id: engineering.requesting-code-review
+  name: Requesting Code Review
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/requesting-code-review
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - code-review
+  - quality
+  - collaboration
+- id: engineering.subagent-driven-development
+  name: Subagent-Driven Development
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/subagent-driven-development
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - orchestration
+  - subagents
+  - implementation
+- id: engineering.systematic-debugging
+  name: Systematic Debugging
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/systematic-debugging
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - debugging
+  - root-cause-analysis
+  - methodology
+- id: engineering.test-driven-development
+  name: Test-Driven Development
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/test-driven-development
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - tdd
+  - testing
+  - quality
+- id: engineering.using-git-worktrees
+  name: Using Git Worktrees
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/using-git-worktrees
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - git
+  - worktree
+  - isolation
+- id: engineering.verification-before-completion
+  name: Verification Before Completion
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/verification-before-completion
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - verification
+  - quality
+  - discipline
+- id: engineering.writing-plans
+  name: Writing Plans
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/writing-plans
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - planning
+  - task-decomposition
+  - implementation
+- id: engineering.writing-skills
+  name: Writing Skills
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/writing-skills
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - skill-authoring
+  - tdd
+  - documentation
+- id: web.frontend-implementation
   name: Frontend Implementation
   version: 0.1.0
   status: beta
-  path: skills/frontend-implementation
+  path: skills/web/frontend-implementation
   entrypoint: SKILL.md
   tags:
   - frontend
   - ui
   - accessibility
   - responsive-design
-- id: frontend.frontend-review
+- id: web.frontend-review
   name: Frontend Review
   version: 0.1.0
   status: beta
-  path: skills/frontend-review
+  path: skills/web/frontend-review
   entrypoint: SKILL.md
   tags:
   - frontend
   - code-review
   - accessibility
   - performance
-- id: frontend.frontend-testing
+- id: web.frontend-testing
   name: Frontend Testing
   version: 0.1.0
   status: beta
-  path: skills/frontend-testing
+  path: skills/web/frontend-testing
   entrypoint: SKILL.md
   tags:
   - frontend

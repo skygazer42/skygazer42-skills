@@ -72,11 +72,14 @@ def skill_directories(root: Path) -> list[Path]:
     skills_root = root / "skills"
     if not skills_root.is_dir():
         return []
-    return sorted(
-        skill
-        for skill in skills_root.iterdir()
-        if skill.is_dir() and not skill.name.startswith(".")
-    )
+    result: list[Path] = []
+    for category_dir in sorted(skills_root.iterdir()):
+        if not category_dir.is_dir() or category_dir.name.startswith("."):
+            continue
+        for skill_dir in sorted(category_dir.iterdir()):
+            if skill_dir.is_dir() and not skill_dir.name.startswith("."):
+                result.append(skill_dir)
+    return result
 
 
 def pack_directories(root: Path) -> list[Path]:
@@ -138,6 +141,14 @@ def validate_skill(
         errors.append(f"{manifest_path}: schema_version must be 1")
     if manifest.get("status") == "draft":
         errors.append(f"{manifest_path}: draft skills belong in incubator")
+
+    # 不变量 C：物理父目录名必须等于 manifest.category
+    parent_category = skill_dir.parent.name
+    if manifest.get("category") != parent_category:
+        errors.append(
+            f"{manifest_path}: category '{manifest.get('category')}' "
+            f"must equal parent directory '{parent_category}' (不变量 C)"
+        )
 
     skill_id = manifest.get("id")
     if not isinstance(skill_id, str) or not IDENTIFIER.fullmatch(skill_id):

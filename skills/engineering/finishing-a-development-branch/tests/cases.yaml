@@ -1,0 +1,26 @@
+schema_version: 1
+
+cases:
+  - id: tests-pass-present-menu
+    description: 测试通过后展示集成选项菜单。
+
+    must:
+      - "先跑完整测试套件再展示菜单"
+      - "展示恰好 3 个选项（命名分支）或 2 个（detached HEAD）"
+      - "等用户选择再执行"
+      - "推送/PR 创建需用户明确授权"
+
+    must_not:
+      - "测试未全绿时展示菜单"
+      - "未经用户选择自行决定集成方式"
+      - "未经确认丢弃工作"
+
+  - id: tests-fail-stop
+    description: 测试失败时必须停止，不展示菜单。
+
+    must:
+      - "报告失败并停止"
+      - "不在测试失败时展示集成菜单"
+
+    must_not:
+      - "忽略测试失败继续展示菜单"

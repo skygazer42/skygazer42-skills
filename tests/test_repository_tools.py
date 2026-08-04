@@ -51,7 +51,7 @@ class RepositoryToolsTest(unittest.TestCase):
     def setUp(self) -> None:
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name)
-        skill = self.root / "skills/review-code"
+        skill = self.root / "skills/engineering/review-code"
         (skill / "tests").mkdir(parents=True)
         (self.root / "packs/core").mkdir(parents=True)
         (self.root / "incubator").mkdir()
@@ -137,7 +137,7 @@ skills:
         )
 
     def test_external_skill_needs_exact_provenance(self) -> None:
-        (self.root / "skills/review-code/provenance.yaml").write_text(
+        (self.root / "skills/engineering/review-code/provenance.yaml").write_text(
             "schema_version: 1\norigin:\n  type: adapted\nlicense: {}\n", encoding="utf-8"
         )
         self.assertTrue(
@@ -148,7 +148,7 @@ skills:
         )
 
     def test_skill_frontmatter_is_required(self) -> None:
-        (self.root / "skills/review-code/SKILL.md").write_text(
+        (self.root / "skills/engineering/review-code/SKILL.md").write_text(
             "# Review Code\n", encoding="utf-8"
         )
         self.assertTrue(

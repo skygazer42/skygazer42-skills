@@ -1,0 +1,14 @@
+schema_version: 1
+
+repository: https://github.com/obra/superpowers
+revision: 44c9b2d6e889982ac18c27d05a19fefe335194e1
+path: skills/
+license: MIT
+
+captured_at: "2026-08-04"
+captured_by: skygazer42
+
+notes: >
+  完整仓库 clone，含 14 个 Skill。原仓库为多平台 Skill 集合
+  （Claude Code / Codex / Gemini CLI），本仓仅内化 Skill 正文与
+  必要元数据，平台适配器另议。

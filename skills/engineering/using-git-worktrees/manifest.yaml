@@ -1,0 +1,45 @@
+schema_version: 1
+
+id: engineering.using-git-worktrees
+name: Using Git Worktrees
+version: 0.1.0
+status: beta
+
+description: >
+  在开始需要隔离的功能开发或执行实现计划之前，确保隔离工作区存在。
+  优先原生工具，必要时回退到 git worktree。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - git
+  - worktree
+  - isolation
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - git
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

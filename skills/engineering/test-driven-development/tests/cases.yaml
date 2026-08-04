@@ -1,0 +1,32 @@
+schema_version: 1
+
+cases:
+  - id: typical-tdd-cycle
+    description: >
+      拿到一个新功能需求后，严格走 Red-Green-Refactor 循环。
+
+    must:
+      - "先写失败测试再写生产代码"
+      - "验证测试因正确原因失败（功能缺失，非拼写错误）"
+      - "写刚好通过测试的最小代码"
+      - "全绿后才重构"
+      - "完成后路由到 engineering.verification-before-completion"
+
+    must_not:
+      - "在测试之前写任何生产代码"
+      - "跳过验证 RED 步骤"
+      - "测试立即通过时直接接受（应视为测试写错了）"
+
+  - id: code-before-test-violation
+    description: >
+      发现已有未测试的实现代码时，应坚持删除并重来。
+
+    must:
+      - "识别为 TDD 违规"
+      - "要求删除已有实现代码"
+      - "从 RED 重新开始"
+
+    must_not:
+      - "保留已有代码作'参考'"
+      - "接受'已经花了很多时间'等合理化借口"
+      - "事后补测试而不删除实现代码"

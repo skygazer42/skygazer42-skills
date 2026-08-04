@@ -1,0 +1,33 @@
+schema_version: 1
+
+cases:
+  - id: typical-plan-from-spec
+    description: >
+      拿到一份已批准的 spec 后，writing-plans 应拆出可执行的 task 列表，
+      每个 task 含文件路径和代码，并路由到正确的领域 Skill。
+
+    must:
+      - "读 spec 和代码库"
+      - "检查范围，识别是否需要拆多个计划"
+      - "输出含精确文件路径、代码和验证命令的 task"
+      - "用计划 header 模板"
+      - "保存到 docs/plans/"
+      - "执行交接时给出领域 Skill 路由"
+
+    must_not:
+      - "在 spec 未批准时写计划"
+      - "写生产代码"
+      - "产出的 task 含 TBD/TODO/占位符"
+
+  - id: multi-subsystem-spec
+    description: >
+      规格明显覆盖多个独立子系统时，应建议拆分而非强行写一份巨型计划。
+
+    must:
+      - "识别规格覆盖多个独立子系统"
+      - "建议拆成多份独立计划"
+      - "等用户确认后再继续"
+
+    must_not:
+      - "强行写一份巨型计划覆盖所有子系统"
+      - "不告知用户就自行拆分"

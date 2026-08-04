@@ -1,0 +1,29 @@
+schema_version: 1
+
+cases:
+  - id: execute-plan-task-by-task-with-review
+    description: 拿到实现计划后逐 task 派发子代理并审查。
+
+    must:
+      - "读计划并创建 todo"
+      - "每个 task 派发独立 implementer 子代理"
+      - "每个 task 后做 spec 合规 + 代码质量审查"
+      - "修复循环最多 5 轮"
+      - "全部完成后做全分支最终审查"
+
+    must_not:
+      - "跳过 task 审查关"
+      - "跳过 spec 合规检查"
+      - "在修复循环超过 5 轮时继续死循环"
+
+  - id: plan-contradiction-found
+    description: 派发前扫描发现 task 矛盾时应一次性批量向用户提问。
+
+    must:
+      - "派发前扫描 task 间矛盾和规则冲突"
+      - "一次性批量呈现所有发现"
+      - "等用户确认后再开始派发"
+
+    must_not:
+      - "每发现一个问题就打断用户一次"
+      - "忽略矛盾直接开始执行"

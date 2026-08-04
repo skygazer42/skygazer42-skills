@@ -1,0 +1,46 @@
+schema_version: 1
+
+id: engineering.systematic-debugging
+name: Systematic Debugging
+version: 0.1.0
+status: beta
+
+description: >
+  遇到任何 bug、测试失败或异常行为时，在提出修复之前先走四阶段根因调查流程。
+  与 backend-debugging 互补——它提供通用方法论，backend-debugging 提供领域诊断。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - debugging
+  - root-cause-analysis
+  - methodology
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills:
+    - engineering.test-driven-development
+    - engineering.verification-before-completion
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

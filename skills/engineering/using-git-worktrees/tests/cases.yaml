@@ -1,0 +1,26 @@
+schema_version: 1
+
+cases:
+  - id: detect-existing-worktree
+    description: 已在 worktree 中时跳过创建。
+
+    must:
+      - "检测到已在 linked worktree"
+      - "报告已有隔离工作区"
+      - "不创建新 worktree"
+
+    must_not:
+      - "在已有 worktree 时再创建一个"
+
+  - id: create-with-fallback
+    description: 普通仓库中，无原生工具时用 git worktree 回退。
+
+    must:
+      - "检测为普通仓库"
+      - "征得用户同意后创建"
+      - "验证 .gitignore 忽略 worktree 目录"
+      - "报告创建结果和路径"
+
+    must_not:
+      - "未经同意创建 worktree"
+      - "创建在未 .gitignore 的目录"

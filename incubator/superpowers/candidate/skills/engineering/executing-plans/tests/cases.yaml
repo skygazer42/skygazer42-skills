@@ -1,0 +1,26 @@
+schema_version: 1
+
+cases:
+  - id: execute-plan-task-by-task
+    description: 拿到实现计划后逐 task 执行，遇阻塞时停止求助。
+
+    must:
+      - "加载计划并批判性审查"
+      - "创建 todo 逐 task 执行"
+      - "每步按计划精确跑验证"
+      - "遇阻塞时停止并求助"
+
+    must_not:
+      - "跳过验证步骤"
+      - "遇阻塞时猜测并继续"
+      - "在未完成所有 task 时声称完成"
+
+  - id: plan-has-critical-gaps
+    description: 计划有严重缺口时应在开始前提出。
+
+    must:
+      - "审查计划时识别严重缺口"
+      - "在开始执行前向用户提出"
+
+    must_not:
+      - "明知有缺口还强行执行"

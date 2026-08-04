@@ -1,0 +1,46 @@
+schema_version: 1
+
+id: engineering.writing-plans
+name: Writing Plans
+version: 0.1.0
+status: beta
+
+description: >
+  在拿到规格或需求、开始动代码之前，把任务拆成可执行的实现计划。
+  每个 task 含文件路径、代码、测试和验证命令。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - planning
+  - task-decomposition
+  - implementation
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills:
+    - engineering.subagent-driven-development
+    - engineering.executing-plans
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml
