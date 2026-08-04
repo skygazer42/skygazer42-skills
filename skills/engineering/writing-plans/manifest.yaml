@@ -26,7 +26,6 @@ contents:
 dependencies:
   skills:
     - engineering.subagent-driven-development
-    - engineering.executing-plans
   commands: []
   environment_variables: []
 

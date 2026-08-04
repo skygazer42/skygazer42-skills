@@ -15,6 +15,6 @@ imported_at: "2026-08-04"
 imported_by: skygazer42
 
 local_modifications:
-  - "Skill 引用中立化"
-  - "翻译为中文并精简"
+  - "第一轮：Skill 引用中立化、翻译精简"
+  - "第二轮：借鉴 OpenSpec archive 概念——新增 Step 6 '更新 Living Specs'（合并后回写设计文档）"
   - "来源说明节已写入 SKILL.md 末尾"

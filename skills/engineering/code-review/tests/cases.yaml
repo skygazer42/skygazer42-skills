@@ -1,0 +1,29 @@
+schema_version: 1
+
+cases:
+  - id: request-review-after-task
+    description: 完成 task 后派发通用审查 + 领域审查。
+
+    must:
+      - "获取准确的 BASE/HEAD SHA"
+      - "按严重度处理反馈"
+      - "按领域路由到领域审查 Skill"
+
+    must_not:
+      - "跳过审查因为'太简单'"
+      - "忽略 Critical 问题继续后续 task"
+
+  - id: verify-before-implementing-feedback
+    description: 收到反馈后先验证再实现，技术不正确时有理有据反驳。
+
+    must:
+      - "完整读反馈再反应"
+      - "对照代码库验证每条"
+      - "技术上不正确时反驳"
+      - "逐条实现，每条跑测试"
+
+    must_not:
+      - "表演性同意"
+      - "验证前实现"
+      - "盲从错误建议"
+      - "只懂部分就做部分、不懂的以后再问"

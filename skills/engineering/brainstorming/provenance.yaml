@@ -15,9 +15,8 @@ imported_at: "2026-08-04"
 imported_by: skygazer42
 
 local_modifications:
-  - "新增「过渡到实现」路由表，指向本仓 web.* / backend.* 领域 Skill"
-  - "writing-plans 引用改为 engineering.writing-plans"
-  - "移除 Visual Companion 浏览器服务器脚本依赖（scripts/）"
-  - "规格文档路径从 docs/superpowers/specs/ 改为 docs/specs/"
-  - "工具名保留原文（Task/Agent/Edit/Write），平台自行映射"
+  - "第一轮：新增路由表、引用改为 engineering.*、移除 Visual Companion、路径改为 docs/specs/"
+  - "第二轮：借鉴 OpenSpec explore stance——从'检查表驱动'改为'姿态驱动+自然结晶'"
+  - "第二轮：新增「不同入口的处理」（借鉴 OpenSpec 多场景引导）"
+  - "第二轮：新增'你不需要做的事'节"
   - "来源说明节已写入 SKILL.md 末尾"

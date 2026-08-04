@@ -84,6 +84,27 @@ gemini extensions uninstall skygazer42-skills
 | `backend.backend-review` | 审查正确性、安全、并发和可靠性（只读） | [→](skills/backend/backend-review/README.md) |
 | `backend.backend-debugging` | 定位根因、影响范围和修复建议（不改代码） | [→](skills/backend/backend-debugging/README.md) |
 
+#### engineering（已上线）— 工程流程与编排
+
+| Skill | 一句话 | 详情 |
+| --- | --- | --- |
+| `engineering.brainstorming` | 创意前先设计，一次一个问题厘清需求 | [→](skills/engineering/brainstorming/README.md) |
+| `engineering.writing-plans` | 把设计规格拆成可执行实现计划 | [→](skills/engineering/writing-plans/README.md) |
+| `engineering.test-driven-development` | 先写失败测试，Red-Green-Refactor 循环 | [→](skills/engineering/test-driven-development/README.md) |
+| `engineering.systematic-debugging` | 四阶段根因调查，修根因不修症状 | [→](skills/engineering/systematic-debugging/README.md) |
+| `engineering.verification-before-completion` | 声称完成前先跑验证拿证据 | [→](skills/engineering/verification-before-completion/README.md) |
+| `engineering.subagent-driven-development` | 执行计划——子代理驱动（带审查）或内联执行 | [→](skills/engineering/subagent-driven-development/README.md) |
+| `engineering.code-review` | 请求代码审查 + 接收反馈后先验证再实现 | [→](skills/engineering/code-review/README.md) |
+| `engineering.finishing-a-development-branch` | 实现完成 → 验证测试 → 合并/PR/保持 + 更新规格 | [→](skills/engineering/finishing-a-development-branch/README.md) |
+| `engineering.using-git-worktrees` | 为功能工作创建隔离工作区 | [→](skills/engineering/using-git-worktrees/README.md) |
+| `engineering.writing-skills` | 用 TDD 方法论创建和验证新 Skill | [→](skills/engineering/writing-skills/README.md) |
+
+#### open-source（已上线）
+
+| Skill | 一句话 | 详情 |
+| --- | --- | --- |
+| `open-source.beautify-github-readme` | 美化 GitHub 个人主页——不改内容，纯视觉增强 | [→](skills/open-source/beautify-github-readme/README.md) |
+
 ### 视觉创作（规划中）
 
 image / video / presentation 等。
@@ -91,10 +112,6 @@ image / video / presentation 等。
 ### 办公生产力（规划中）
 
 spreadsheet 等。
-
-### 规划 / 任务拆解（规划中）
-
-一个站在实现 / 审查 / 测试 / 排障之上的规划层 skill——接需求 → 技术决策 → 判断涉及前端 / 后端 / 设计等领域 → 拆解并路由到对应实现 skill。跨领域，最终类别名与 ID 留待单独内化时敲定。
 
 ## 权限概览
 
@@ -106,6 +123,8 @@ spreadsheet 等。
 | `backend.backend-implementation` | 否 | 是 | 是 | 是 |
 | `backend.backend-review` | 否 | 是 | 否 | 是 |
 | `backend.backend-debugging` | 否 | 是 | 否 | 是 |
+| engineering 类全部 Skill | 否 | 是 | 是/否 | 是/否 |
+| `open-source.beautify-github-readme` | 否 | 是 | 是 | 否 |
 
 ## 仓库结构
 
@@ -115,10 +134,13 @@ skills/
 │   ├── frontend-implementation/
 │   ├── frontend-review/
 │   └── frontend-testing/
-└── backend/
-    ├── backend-implementation/
-    ├── backend-review/
-    └── backend-debugging/
+├── backend/
+│   ├── backend-implementation/
+│   ├── backend-review/
+│   └── backend-debugging/
+├── engineering/           (13 个工程流程 Skill)
+└── open-source/
+    └── beautify-github-readme/
 ```
 
 ## 贡献与维护

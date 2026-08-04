@@ -2,20 +2,20 @@ schema_version: 1
 
 id: engineering.subagent-driven-development
 name: Subagent-Driven Development
-version: 0.1.0
+version: 0.2.0
 status: beta
 
 description: >
-  按实现计划在当前 session 中派发独立子代理逐 task 执行，
-  每个 task 后做 spec 合规 + 代码质量审查，最后全分支审查。
+  按实现计划执行全部 task——子代理驱动（推荐，带审查）或内联执行（简单场景）。
+  支持独立 task 并发派发。最终全分支审查 + 收尾。
 
 category: engineering
 entrypoint: SKILL.md
 tags:
   - engineering
   - orchestration
+  - execution
   - subagents
-  - implementation
 
 contents:
   examples:
@@ -26,7 +26,7 @@ contents:
 dependencies:
   skills:
     - engineering.using-git-worktrees
-    - engineering.requesting-code-review
+    - engineering.code-review
     - engineering.finishing-a-development-branch
   commands: []
   environment_variables: []

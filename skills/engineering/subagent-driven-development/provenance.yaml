@@ -15,7 +15,7 @@ imported_at: "2026-08-04"
 imported_by: skygazer42
 
 local_modifications:
-  - "Skill 引用改为 engineering.* 命名空间"
-  - "简化流程描述，保留核心决策点"
-  - "原版附属文件（implementer-prompt.md 等）移入 references/"
+  - "第一轮：Skill 引用改为 engineering.*，简化流程"
+  - "第二轮：合并 executing-plans（双模式）和 dispatching-parallel-agents（并行派发）"
+  - "第二轮：requesting-code-review 引用改为 engineering.code-review"
   - "来源说明节已写入 SKILL.md 末尾"

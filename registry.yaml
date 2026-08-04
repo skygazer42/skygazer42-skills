@@ -47,28 +47,17 @@ skills:
   - brainstorming
   - design
   - planning
-- id: engineering.dispatching-parallel-agents
-  name: Dispatching Parallel Agents
+- id: engineering.code-review
+  name: Code Review
   version: 0.1.0
   status: beta
-  path: skills/engineering/dispatching-parallel-agents
+  path: skills/engineering/code-review
   entrypoint: SKILL.md
   tags:
   - engineering
-  - orchestration
-  - parallelism
-  - agents
-- id: engineering.executing-plans
-  name: Executing Plans
-  version: 0.1.0
-  status: beta
-  path: skills/engineering/executing-plans
-  entrypoint: SKILL.md
-  tags:
-  - engineering
-  - execution
-  - plans
-  - task-running
+  - code-review
+  - quality
+  - collaboration
 - id: engineering.finishing-a-development-branch
   name: Finishing a Development Branch
   version: 0.1.0
@@ -80,39 +69,17 @@ skills:
   - git
   - integration
   - delivery
-- id: engineering.receiving-code-review
-  name: Receiving Code Review
-  version: 0.1.0
-  status: beta
-  path: skills/engineering/receiving-code-review
-  entrypoint: SKILL.md
-  tags:
-  - engineering
-  - code-review
-  - collaboration
-  - discipline
-- id: engineering.requesting-code-review
-  name: Requesting Code Review
-  version: 0.1.0
-  status: beta
-  path: skills/engineering/requesting-code-review
-  entrypoint: SKILL.md
-  tags:
-  - engineering
-  - code-review
-  - quality
-  - collaboration
 - id: engineering.subagent-driven-development
   name: Subagent-Driven Development
-  version: 0.1.0
+  version: 0.2.0
   status: beta
   path: skills/engineering/subagent-driven-development
   entrypoint: SKILL.md
   tags:
   - engineering
   - orchestration
+  - execution
   - subagents
-  - implementation
 - id: engineering.systematic-debugging
   name: Systematic Debugging
   version: 0.1.0
@@ -179,6 +146,18 @@ skills:
   - skill-authoring
   - tdd
   - documentation
+- id: open-source.beautify-github-readme
+  name: Beautify GitHub README
+  version: 0.1.0
+  status: beta
+  path: skills/open-source/beautify-github-readme
+  entrypoint: SKILL.md
+  tags:
+  - open-source
+  - github
+  - readme
+  - profile
+  - beautify
 - id: web.frontend-implementation
   name: Frontend Implementation
   version: 0.1.0

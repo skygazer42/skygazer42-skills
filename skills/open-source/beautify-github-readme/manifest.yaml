@@ -1,21 +1,22 @@
 schema_version: 1
 
-id: engineering.dispatching-parallel-agents
-name: Dispatching Parallel Agents
+id: open-source.beautify-github-readme
+name: Beautify GitHub README
 version: 0.1.0
 status: beta
 
 description: >
-  面对 2+ 个独立任务时，并发派发拥有隔离上下文的专用代理。
-  每个代理仅获得完成任务所需的精确上下文。
+  美化 GitHub 个人主页 README——不改实质内容，叠加徽章、统计卡片、
+  排版优化和视觉布局，让个人主页更好看更专业。
 
-category: engineering
+category: open-source
 entrypoint: SKILL.md
 tags:
-  - engineering
-  - orchestration
-  - parallelism
-  - agents
+  - open-source
+  - github
+  - readme
+  - profile
+  - beautify
 
 contents:
   examples:
@@ -31,7 +32,7 @@ dependencies:
 permissions:
   network: false
   read_files: true
-  write_files: false
+  write_files: true
   execute_commands: false
 
 compatibility:

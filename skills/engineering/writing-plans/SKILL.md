@@ -46,7 +46,7 @@ description: Use when you have a spec or requirements for a multi-step task, bef
 ```markdown
 # [功能名] 实现计划
 
-> **给 agentic worker：** 必须用 engineering.subagent-driven-development（推荐）或 engineering.executing-plans 逐个 task 执行。
+> **给 agentic worker：** 必须用 `engineering.subagent-driven-development` 执行计划——子代理驱动（推荐，带审查）或内联执行（简单场景）。
 
 **目标：**[一句话说清要构建什么]
 
@@ -61,15 +61,9 @@ description: Use when you have a spec or requirements for a multi-step task, bef
 
 计划保存后，给出执行选项，并根据工作领域路由到领域 Skill：
 
-**"计划完成，已保存到 `docs/plans/<filename>.md`。两种执行方式：**
-
-**1. Subagent-Driven（推荐）**——每个 task 派独立子代理，task 间审查，快速迭代
-
-**2. Inline Execution**——在当前会话中批量执行，有检查点"
-
-**若选 Subagent-Driven：**必须用 `engineering.subagent-driven-development`。每个 task 独立子代理 + 两阶段审查。
-
-**若选 Inline Execution：**必须用 `engineering.executing-plans`。批量执行 + 检查点审查。
+**执行方式由 `engineering.subagent-driven-development` 提供：**
+- **模式 A（推荐）**：子代理驱动——每个 task 独立子代理 + task 间审查。
+- **模式 B**：内联执行——当前会话中批量执行，简单 task 或无子代理能力时用。
 
 **根据 spec 涉及的工作领域，task 执行者应路由到对应的领域 Skill：**
 

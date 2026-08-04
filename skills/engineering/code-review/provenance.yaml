@@ -4,7 +4,7 @@ origin:
   type: external
   repository: https://github.com/obra/superpowers
   revision: 44c9b2d6e889982ac18c27d05a19fefe335194e1
-  path: skills/executing-plans/
+  path: skills/requesting-code-review/
   author: Jesse Vincent
 
 license:
@@ -15,7 +15,7 @@ imported_at: "2026-08-04"
 imported_by: skygazer42
 
 local_modifications:
-  - "Skill 引用改为 engineering.* 命名空间"
-  - "新增「执行时路由到领域 Skill」节"
-  - "简化平台说明"
-  - "来源说明节已写入 SKILL.md 末尾"
+  - "合并 requesting-code-review + receiving-code-review 为一个 skill 的两个阶段"
+  - "新增领域审查路由（web.frontend-review / backend.backend-review）"
+  - "Skill 引用中立化"
+  - "翻译精简"
