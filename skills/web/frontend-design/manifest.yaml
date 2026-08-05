@@ -1,0 +1,45 @@
+schema_version: 1
+
+id: web.frontend-design
+name: Frontend Design
+version: 0.1.0
+status: beta
+
+description: >
+  构建或重塑 UI 时的独特视觉设计指导——审美方向、配色、排版、布局，
+  拒绝模板化默认。定设计方向，落地交给 web.frontend-implementation。
+
+category: web
+entrypoint: SKILL.md
+tags:
+  - web
+  - frontend
+  - design
+  - ui
+  - aesthetics
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

@@ -72,9 +72,13 @@ gemini extensions uninstall skygazer42-skills
 
 | Skill | 一句话 | 详情 |
 | --- | --- | --- |
+| `web.frontend-design` | 营销/创意网页视觉设计，对标 Awwwards（定方向） | [→](skills/web/frontend-design/README.md) |
+| `web.interface-design` | SaaS/产品界面，好用 + 品牌感（定方向） | [→](skills/web/interface-design/README.md) |
+| `web.enterprise-design` | 企业内部系统，极致克制、功能第一（定方向） | [→](skills/web/enterprise-design/README.md) |
 | `web.frontend-implementation` | 实现页面、组件、表单和前端交互（会修改文件） | [→](skills/web/frontend-implementation/README.md) |
 | `web.frontend-review` | 审查前端正确性、无障碍、性能和安全（只读） | [→](skills/web/frontend-review/README.md) |
 | `web.frontend-testing` | 用浏览器验证 UI 流程或补充回归测试 | [→](skills/web/frontend-testing/README.md) |
+| `web.web-clone` | 1:1 复刻现有网站——镜像、逆向、溯源、验证 | [→](skills/web/web-clone/README.md) |
 
 #### backend（已上线）
 
@@ -89,7 +93,9 @@ gemini extensions uninstall skygazer42-skills
 | Skill | 一句话 | 详情 |
 | --- | --- | --- |
 | `engineering.brainstorming` | 创意前先设计，一次一个问题厘清需求 | [→](skills/engineering/brainstorming/README.md) |
+| `engineering.grilling` | 无情审问方案，压力测试思路（批判姿态） | [→](skills/engineering/grilling/README.md) |
 | `engineering.writing-plans` | 把设计规格拆成可执行实现计划 | [→](skills/engineering/writing-plans/README.md) |
+| `engineering.architecture-review` | 找深化机会，浅模块变深模块（架构层审查） | [→](skills/engineering/architecture-review/README.md) |
 | `engineering.test-driven-development` | 先写失败测试，Red-Green-Refactor 循环 | [→](skills/engineering/test-driven-development/README.md) |
 | `engineering.systematic-debugging` | 四阶段根因调查，修根因不修症状 | [→](skills/engineering/systematic-debugging/README.md) |
 | `engineering.verification-before-completion` | 声称完成前先跑验证拿证据 | [→](skills/engineering/verification-before-completion/README.md) |
@@ -104,6 +110,14 @@ gemini extensions uninstall skygazer42-skills
 | Skill | 一句话 | 详情 |
 | --- | --- | --- |
 | `open-source.beautify-github-readme` | 美化 GitHub 个人主页——不改内容，纯视觉增强 | [→](skills/open-source/beautify-github-readme/README.md) |
+
+### 营销增长
+
+#### marketing（已上线）
+
+| Skill | 一句话 | 详情 |
+| --- | --- | --- |
+| `marketing.seo` | 网站 SEO 审计/诊断/实施，证据优先不编造指标 | [→](skills/marketing/seo/README.md) |
 
 ### 视觉创作（规划中）
 

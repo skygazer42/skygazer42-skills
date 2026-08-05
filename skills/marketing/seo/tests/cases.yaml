@@ -1,0 +1,32 @@
+schema_version: 1
+
+cases:
+  - id: technical-seo-audit
+    description: >
+      对一个站点做 SEO 审计，按依赖顺序评估，每条发现标注证据级别，
+      按业务影响排序，只审计不改代码。
+
+    must:
+      - "确定搜索面/工作模式/证据模式，建立覆盖账本"
+      - "按依赖顺序评估（访问→索引→canonical→技术→内容→架构）"
+      - "每条发现标 observed/inferred/missing evidence 并引用证据"
+      - "按业务影响优先级排序，快赢/战略/实验分开"
+      - "audit 模式只看不改代码"
+
+    must_not:
+      - "在 audit 模式下修改代码/内容/webmaster 设置"
+      - "把标题长度/关键词密度等变成通用排名 pass/fail 规则"
+      - "未经授权提交 URL、改索引控制、发布或删页"
+
+  - id: no-fabricated-metrics
+    description: >
+      证据缺失时用 unknown，不编造指标、不保证排名。
+
+    must:
+      - "证据缺失时用 unknown"
+      - "说明需要什么证据才能给结论"
+
+    must_not:
+      - "编造搜索量/难度/排名/流量/外链等指标"
+      - "保证爬取/索引/排名/AI 引用/流量/收入"
+      - "仅凭时间巧合就把流量变化归因于某个原因"

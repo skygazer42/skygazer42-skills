@@ -1,0 +1,32 @@
+schema_version: 1
+
+cases:
+  - id: distinctive-design-from-brief
+    description: >
+      拿到一个设计 brief 后，产出独特的、扎根主题的设计方向，
+      拒绝模板化默认，落地交给 implementation。
+
+    must:
+      - "先扎根主题（定产品、受众、页面任务）"
+      - "建 token 系统（Color/Type/Layout/Signature）"
+      - "对照 brief 审查计划，砍掉通用默认的部分"
+      - "确认独特性后才写代码"
+      - "设计落地交给 web.frontend-implementation"
+
+    must_not:
+      - "直接套用 AI 默认三样式（奶油衬线 / 黑底亮绿 / 大报式）而不做主题化"
+      - "在 brief 留白的轴上把自由花在通用默认上"
+      - "堆砌不服务 brief 的装饰和动画"
+
+  - id: brief-specifies-default-look
+    description: >
+      brief 明确指定了恰好是 AI 默认样式之一的方向时，
+      精确遵循 brief 而非擅自改动。
+
+    must:
+      - "遵循 brief 明确指定的视觉方向"
+      - "在指定方向内仍把 signature 和排版做出独特性"
+
+    must_not:
+      - "因为'这是 AI 默认样式'就违背用户明确要求"
+      - "擅自把用户指定的方向改成别的"

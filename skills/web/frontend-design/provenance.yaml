@@ -1,0 +1,23 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/anthropics/skills
+  revision: b29e7cf65e5cb78a5ac33d582270551bc74a14eb
+  path: skills/frontend-design/
+  author: Anthropic
+
+license:
+  identifier: Apache-2.0
+  file: LICENSE.txt
+
+imported_at: "2026-08-04"
+imported_by: skygazer42
+
+local_modifications:
+  - "正文译为中文，保留关键设计术语首现英文和 hex 值示例"
+  - "新增「与相邻 Skill 的边界」——design 定方向、implementation 负责落地"
+  - "新增设计确定后路由到 web.frontend-implementation 的说明"
+  - "保留 Apache 2.0 LICENSE.txt 随 Skill 一起"
+  - "第二轮：新增「顶级设计标准」节（Awwwards 对标、Lucide 图标、禁 emoji、先锋视觉、物理动效、沉浸式）"
+  - "来源说明节已写入 SKILL.md 末尾"

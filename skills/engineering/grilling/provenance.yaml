@@ -1,0 +1,22 @@
+schema_version: 1
+
+origin:
+  type: adapted
+  repository: https://github.com/mattpocock/skills
+  revision: 2ab958093e83e0ec752e6c1c5932da465bf23e0c
+  path: skills/productivity/grill-me/ + skills/productivity/grilling/
+  author: Matt Pocock
+
+license:
+  identifier: MIT
+  file: LICENSE
+
+imported_at: "2026-08-04"
+imported_by: skygazer42
+
+local_modifications:
+  - "去依赖：原 grill-me 依赖 /grilling，本 Skill 合并两者的核心为独立体"
+  - "提取 grilling 核心：一次一问、给推荐答案、查事实留决策、达成共识前不行动"
+  - "新增与 brainstorming 的姿态对比（批判 vs 建设）和典型链路"
+  - "新增达成共识后路由到 writing-plans / brainstorming"
+  - "翻译为中文"

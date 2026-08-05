@@ -1,0 +1,46 @@
+schema_version: 1
+
+id: engineering.grilling
+name: Grilling
+version: 0.1.0
+status: beta
+
+description: >
+  无情审问一个计划、设计或决策，一次一个问题走决策树，压力测试思路直到达成共识。
+  与 brainstorming 互补——一个探索、一个攻击。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - planning
+  - critique
+  - decision-making
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills:
+    - engineering.brainstorming
+    - engineering.writing-plans
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

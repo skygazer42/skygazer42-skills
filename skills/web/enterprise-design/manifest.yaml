@@ -1,0 +1,47 @@
+schema_version: 1
+
+id: web.enterprise-design
+name: Enterprise Design
+version: 0.1.0
+status: beta
+
+description: >
+  设计公司/企业内部系统——ERP、内部管理、政企后台、业务工作台。极致克制、
+  功能第一、低培训成本，用户是被迫使用的员工。建立在 interface-design 通用原则之上，
+  只讲企业专属取向与关注点（权限/审计/遗留/合规/批量）。
+
+category: web
+entrypoint: SKILL.md
+tags:
+  - web
+  - enterprise
+  - interface-design
+  - erp
+  - admin
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills:
+    - web.interface-design
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

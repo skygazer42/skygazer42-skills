@@ -1,0 +1,15 @@
+schema_version: 1
+
+origin:
+  type: original
+
+license:
+  identifier: NOASSERTION
+
+created_at: "2026-08-04"
+created_by: skygazer42
+
+notes: >
+  方法论提炼自真实复刻工程 boyang-hu/oryzo-rebuild（oryzo.ai 的 1:1 复刻，
+  含 20 轮里程碑日志与踩坑记录）。四步法（镜像/逆向/溯源移植/里程碑三重验证）
+  和铁律（不瞎猜、量化比对、全新加载验收、死代码照抄、缺资产补录）均来自该工程实践。

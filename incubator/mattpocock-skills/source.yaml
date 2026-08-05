@@ -1,0 +1,16 @@
+schema_version: 1
+
+repository: https://github.com/mattpocock/skills
+revision: 2ab958093e83e0ec752e6c1c5932da465bf23e0c
+path: skills/
+license: MIT
+
+captured_at: "2026-08-04"
+captured_by: skygazer42
+
+notes: >
+  Matt Pocock 的 skill 集合。本仓借鉴其中 grill-me/grilling（灵魂拷问）
+  和 improve-codebase-architecture/codebase-design（深模块架构审查）的核心理念，
+  重写为不依赖 mattpocock 生态的独立 Skill。原版依赖链（/grilling、
+  /codebase-design、/domain-modeling、CONTEXT.md、ADR、HTML-REPORT.md）
+  按 AGENTS.md §8.3 做了去依赖和精简。

@@ -1,0 +1,14 @@
+schema_version: 1
+
+repository: https://github.com/anthropics/skills
+revision: b29e7cf65e5cb78a5ac33d582270551bc74a14eb
+path: skills/frontend-design/
+license: Apache-2.0
+
+captured_at: "2026-08-04"
+captured_by: skygazer42
+
+notes: >
+  Anthropic 官方设计 Skill，生态安装量第一（约 277K）。核心是
+  "拒绝模板化默认、给每个 brief 独特视觉身份"。Apache 2.0 许可，
+  需随副本保留 LICENSE.txt。

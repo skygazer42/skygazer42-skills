@@ -1,0 +1,17 @@
+schema_version: 1
+
+origin:
+  type: original
+
+license:
+  identifier: NOASSERTION
+
+created_at: "2026-08-04"
+created_by: skygazer42
+
+notes: >
+  原创 Skill。web 设计谱系的最克制一端：营销创意（frontend-design）→
+  SaaS 产品（interface-design）→ 企业内部系统（本 Skill）。建立在
+  interface-design 通用系统原则之上，只讲企业专属取向（被迫使用的用户、
+  近乎无设计的设计）与关注点（RBAC/审计/遗留兼容/合规/批量操作）。
+  对标 SAP Fiori / IBM Carbon / Ant Design Pro / Salesforce Lightning。

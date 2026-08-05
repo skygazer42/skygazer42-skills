@@ -36,6 +36,17 @@ skills:
   - code-review
   - security
   - reliability
+- id: engineering.architecture-review
+  name: Architecture Review
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/architecture-review
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - architecture
+  - code-quality
+  - testability
 - id: engineering.brainstorming
   name: Brainstorming
   version: 0.1.0
@@ -69,6 +80,17 @@ skills:
   - git
   - integration
   - delivery
+- id: engineering.grilling
+  name: Grilling
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/grilling
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - planning
+  - critique
+  - decision-making
 - id: engineering.subagent-driven-development
   name: Subagent-Driven Development
   version: 0.2.0
@@ -146,6 +168,18 @@ skills:
   - skill-authoring
   - tdd
   - documentation
+- id: marketing.seo
+  name: SEO
+  version: 0.1.0
+  status: beta
+  path: skills/marketing/seo
+  entrypoint: SKILL.md
+  tags:
+  - marketing
+  - seo
+  - audit
+  - search
+  - technical-seo
 - id: open-source.beautify-github-readme
   name: Beautify GitHub README
   version: 0.1.0
@@ -158,6 +192,30 @@ skills:
   - readme
   - profile
   - beautify
+- id: web.enterprise-design
+  name: Enterprise Design
+  version: 0.1.0
+  status: beta
+  path: skills/web/enterprise-design
+  entrypoint: SKILL.md
+  tags:
+  - web
+  - enterprise
+  - interface-design
+  - erp
+  - admin
+- id: web.frontend-design
+  name: Frontend Design
+  version: 0.1.0
+  status: beta
+  path: skills/web/frontend-design
+  entrypoint: SKILL.md
+  tags:
+  - web
+  - frontend
+  - design
+  - ui
+  - aesthetics
 - id: web.frontend-implementation
   name: Frontend Implementation
   version: 0.1.0
@@ -191,6 +249,30 @@ skills:
   - testing
   - browser
   - accessibility
+- id: web.interface-design
+  name: Interface Design
+  version: 0.1.0
+  status: beta
+  path: skills/web/interface-design
+  entrypoint: SKILL.md
+  tags:
+  - web
+  - interface-design
+  - dashboard
+  - saas
+  - ui
+- id: web.web-clone
+  name: Web Clone
+  version: 0.1.0
+  status: beta
+  path: skills/web/web-clone
+  entrypoint: SKILL.md
+  tags:
+  - web
+  - clone
+  - reverse-engineering
+  - replication
+  - webgl
 packs:
 - id: pack.backend
   name: Backend Essentials

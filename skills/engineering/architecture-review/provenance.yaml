@@ -1,0 +1,23 @@
+schema_version: 1
+
+origin:
+  type: adapted
+  repository: https://github.com/mattpocock/skills
+  revision: 2ab958093e83e0ec752e6c1c5932da465bf23e0c
+  path: skills/engineering/improve-codebase-architecture/ + skills/engineering/codebase-design/
+  author: Matt Pocock
+
+license:
+  identifier: MIT
+  file: LICENSE
+
+imported_at: "2026-08-04"
+imported_by: skygazer42
+
+local_modifications:
+  - "去依赖：内联深模块词汇和 deletion test（原依赖独立 /codebase-design）"
+  - "剃刀：砍掉强制 HTML/Tailwind/Mermaid CDN 报告，改为'可视化可选'"
+  - "剃刀：移除 domain-modeling / CONTEXT.md / ADR 硬依赖"
+  - "grilling 步骤指向本仓 engineering.grilling"
+  - "新增与本仓各审查 Skill 的层面区分"
+  - "翻译为中文"

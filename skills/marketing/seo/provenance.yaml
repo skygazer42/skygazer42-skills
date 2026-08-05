@@ -1,0 +1,23 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/joeseesun/qiaomu-seo
+  revision: b892b70639ac2839e7fa61302ff54a60a6cc9b74
+  path: /
+  author: 向阳乔木
+
+license:
+  identifier: MIT
+  file: LICENSE
+
+imported_at: "2026-08-04"
+imported_by: skygazer42
+
+local_modifications:
+  - "frontmatter name 从 qiaomu-seo 改为 seo（匹配目录名，本仓命名规范）"
+  - "归入 marketing 分类（本仓新建类别）"
+  - "SKILL.md 末尾新增「来源与本仓适配」节，含与 web/backend 实现 Skill 的路由"
+  - "保留 references/scripts/data/schemas 原文（专业 SEO 知识不逐字改写）"
+  - "保留 MIT LICENSE 与作者版权声明"
+  - "精简上游宣传/平台专属：agents/ evals/ reports/ assets/ manifest.json generate_manifest.py"

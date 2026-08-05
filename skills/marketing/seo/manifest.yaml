@@ -1,0 +1,48 @@
+schema_version: 1
+
+id: marketing.seo
+name: SEO
+version: 0.1.0
+status: beta
+
+description: >
+  审计、诊断、研究、规划、实施和验证网站 SEO，覆盖 Google/Bing/AI 搜索。
+  技术 SEO、爬取渲染索引、结构化数据、Core Web Vitals、关键词研究、内容质量、
+  迁移、国际化、AI 搜索可见性。证据优先，不编造指标、不保证排名。
+
+category: marketing
+entrypoint: SKILL.md
+tags:
+  - marketing
+  - seo
+  - audit
+  - search
+  - technical-seo
+
+contents:
+  references: references
+  scripts: scripts
+  data: data
+  schemas: schemas
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - python3
+  environment_variables: []
+
+permissions:
+  network: true
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

@@ -1,0 +1,33 @@
+schema_version: 1
+
+cases:
+  - id: dashboard-system-design
+    description: >
+      设计一个数据密集的后台 dashboard，追求信息清晰、一致、高效，
+      建立 token 和组件系统，覆盖完备状态。
+
+    must:
+      - "理清主要用户任务和信息架构"
+      - "建立设计 token（间距尺度/语义色/字号阶梯）和组件模式"
+      - "用信息密度与层级组织，规划清晰扫描路径"
+      - "设计数据展示（表格/图表/指标）和完备状态"
+      - "统一 Lucide 图标、禁 emoji、克制动效"
+      - "落地交给 web.frontend-implementation"
+
+    must_not:
+      - "给系统工作界面套实验性排版/物理动效/先锋视觉"
+      - "每个页面即兴发挥、不建立一致模式"
+      - "用 emoji 当图标"
+      - "遗漏空状态/错误态/无权限等状态"
+
+  - id: misapplied-creative-style
+    description: >
+      用户要给 admin 后台加创意/实验视觉时，提示取向冲突并给克制建议。
+
+    must:
+      - "提示系统界面取向是最少惊讶，实验排版伤可用性"
+      - "建议把创意克制放在品牌层，核心界面保持规范"
+      - "确需 Awwwards 级创意站时路由到 web.frontend-design"
+
+    must_not:
+      - "直接给数据密集工作界面套实验性排版和物理动效"

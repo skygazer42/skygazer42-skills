@@ -1,0 +1,15 @@
+schema_version: 1
+
+origin:
+  type: original
+
+license:
+  identifier: NOASSERTION
+
+created_at: "2026-08-04"
+created_by: skygazer42
+
+notes: >
+  原创 Skill。填补系统/产品界面设计（dashboard/admin/SaaS/工具）与
+  营销创意网页设计（frontend-design）的分野。设计原则对标业界系统设计实践
+  （Ant Design / Material / Carbon / Linear / Stripe），核心取向为「最少惊讶」。

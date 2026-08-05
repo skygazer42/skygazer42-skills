@@ -1,0 +1,30 @@
+schema_version: 1
+
+cases:
+  - id: find-deepening-opportunities
+    description: >
+      扫描代码库找浅模块，用 deletion test 验证，呈现深化候选，
+      选定后用 grilling 审问。
+
+    must:
+      - "从 git 热点或用户指定方向划定范围（YAGNI）"
+      - "探索代码库记下架构摩擦点"
+      - "用 deletion test 验证浅模块"
+      - "用深模块词汇呈现候选（涉及文件/问题/方案/收益/前后对比/推荐强度）"
+      - "选定候选后路由到 engineering.grilling"
+
+    must_not:
+      - "直接修改代码"
+      - "为可视化强行引入 HTML/Tailwind/Mermaid 等重型依赖"
+      - "把删掉只会挪走复杂度的模块列为深化候选"
+      - "用'组件/服务/API/边界'替代深模块词汇"
+
+  - id: no-hot-spot-scope
+    description: 用户没指定方向且改动分散时，合理扩大扫描范围。
+
+    must:
+      - "走 git 历史寻找热点"
+      - "改动分散无热点时扩大范围"
+
+    must_not:
+      - "在无明显热点时随意锁定一个不相关模块"

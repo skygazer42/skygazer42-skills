@@ -1,0 +1,46 @@
+schema_version: 1
+
+id: web.web-clone
+name: Web Clone
+version: 0.1.0
+status: beta
+
+description: >
+  1:1 工程化复刻现有网站——镜像全部资产、逆向技术栈、对照产物逐行为溯源移植、
+  里程碑推进 + 三重验证。核心规则：有线索按线索、没线索不瞎猜。
+
+category: web
+entrypoint: SKILL.md
+tags:
+  - web
+  - clone
+  - reverse-engineering
+  - replication
+  - webgl
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills:
+    - web.frontend-testing
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: true
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

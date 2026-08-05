@@ -1,0 +1,32 @@
+schema_version: 1
+
+cases:
+  - id: enterprise-internal-system
+    description: >
+      设计一个企业内部系统模块，在通用系统原则之上应用极致克制取向，
+      处理企业专属关注点（权限/审计/批量/密集数据）。
+
+    must:
+      - "复用 interface-design 的通用系统原则（不重复造）"
+      - "应用企业取向：极致克制、低认知负荷、低培训、稳定优先"
+      - "处理专属关注点：RBAC 权限、审计追溯、批量操作、密集表格表单"
+      - "中性配色 + Lucide 图标 + 禁 emoji + 近乎无感动效"
+      - "落地交给 web.frontend-implementation"
+
+    must_not:
+      - "给内部系统加装饰性视觉/品牌打磨/新潮交互"
+      - "为'好看'牺牲密度、效率和低培训成本"
+      - "把无障碍/合规当加分项而非法规要求"
+      - "创新交互增加用户学习成本"
+
+  - id: rejected-brand-polish
+    description: >
+      用户要给内部系统加 SaaS 式品牌打磨时，提示取向冲突并给克制建议。
+
+    must:
+      - "提示被迫使用的用户不需要取悦，新潮交互增加培训成本"
+      - "建议把视觉预算用在减少出错而非变漂亮"
+      - "确为对外 SaaS 产品时路由到 web.interface-design"
+
+    must_not:
+      - "直接给内部系统套品牌打磨和新潮交互牺牲效率"
