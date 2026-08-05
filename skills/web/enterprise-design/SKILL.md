@@ -35,6 +35,7 @@ SaaS 产品的用户可以流失，所以要好用**又**有品牌感。企业�
 
 - 中性、低饱和的配色；克制到近乎朴素。品牌色只用在最小必要处（logo、主操作）。
 - 统一 [Lucide](https://lucide.dev) 图标，**禁 emoji**。
+- 中文界面排版纪律参考 `web.frontend-design` 的 `references/chinese-typography.md`；企业系统动效极克制，动效工艺见其 `references/motion-craft.md`。
 - 动效只服务于反馈和连续性（保存中、展开收起），快到几乎无感。绝不炫技。
 - 对标 **SAP Fiori / IBM Carbon / Ant Design Pro / Salesforce Lightning / 微软 Fluent（企业侧）**，而非 Linear/Stripe 那种有品牌打磨的 SaaS。
 

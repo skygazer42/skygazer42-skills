@@ -20,7 +20,7 @@ tags:
 
 contents:
   examples:
-  references:
+  references: references
   scripts:
   tests: tests
 

@@ -37,6 +37,7 @@ description: 设计对外的 SaaS/产品界面——应用、数据看板、工�
 ## 图标与克制
 
 - 统一使用 [Lucide](https://lucide.dev) 图标——一致、专业、克制。
+- 中文界面排版纪律、以及（克制的）动效工艺，参考 `web.frontend-design` 的 references（`chinese-typography.md` / `motion-craft.md`）。
 - **界面禁止使用 emoji。**
 - 克制动效：系统界面的动效服务于「反馈」和「连续性」（状态切换、展开收起），不是炫技。快、轻、可预测。尊重 `reduced motion`。
 

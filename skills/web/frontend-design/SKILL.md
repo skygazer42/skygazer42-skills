@@ -59,6 +59,13 @@ description: 为营销/创意类网页做独特、有意图的视觉设计——
 
 **注意：** 提升的上限取决于模型对 UI 审美语料的吸收程度。所以更要靠上面的具体锚点（Awwwards 对标、Lucide、禁 emoji、物理动效）把标准钉死，而不是泛泛说「做好看点」。
 
+## 动效工艺与中文排版（参考库）
+
+做动效或中文界面时，读取本 skill 的 references：
+
+- **动效工艺**（Emil Kowalski 哲学）：动画决策框架、缓动、频率纪律见 `references/motion-craft.md`；手势驱动 UI（sheet/drawer/swipe）见 `references/apple-fluid-interfaces.md`；动效术语见 `references/animation-vocabulary.md`；审查动效见 `references/motion-review.md`。
+- **中文排版**（W3C clreq + Ant + Apple HIG）：中文字体加载纪律、系统字体栈，凡界面含中文优先适用，见 `references/chinese-typography.md`。
+
 ## 克制与自我批评
 
 把你的大胆花在一个地方。让 signature 元素成为那个唯一难忘的东西，周围一切保持安静和克制，砍掉任何不服务 brief 的装饰。**不冒险本身也是一种风险。** 建到一个质量底线而不声张：响应式到移动端、可见的键盘焦点、尊重 reduced motion。边构建边批评自己——如果环境支持就截图（一图胜千 token）。记住 Chanel 的建议：出门前照镜子，摘掉一件配饰。

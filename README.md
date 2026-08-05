@@ -103,7 +103,7 @@ gemini extensions uninstall skygazer42-skills
 | `engineering.code-review` | 请求代码审查 + 接收反馈后先验证再实现 | [→](skills/engineering/code-review/README.md) |
 | `engineering.finishing-a-development-branch` | 实现完成 → 验证测试 → 合并/PR/保持 + 更新规格 | [→](skills/engineering/finishing-a-development-branch/README.md) |
 | `engineering.using-git-worktrees` | 为功能工作创建隔离工作区 | [→](skills/engineering/using-git-worktrees/README.md) |
-| `engineering.writing-skills` | 用 TDD 方法论创建和验证新 Skill | [→](skills/engineering/writing-skills/README.md) |
+| `engineering.skill-authoring` | 创建/重构/评估 skill 的 skill（本仓创作规范） | [→](skills/engineering/skill-authoring/README.md) |
 
 #### open-source（已上线）
 
@@ -118,6 +118,14 @@ gemini extensions uninstall skygazer42-skills
 | Skill | 一句话 | 详情 |
 | --- | --- | --- |
 | `marketing.seo` | 网站 SEO 审计/诊断/实施，证据优先不编造指标 | [→](skills/marketing/seo/README.md) |
+
+### 写作
+
+#### writing（已上线）
+
+| Skill | 一句话 | 详情 |
+| --- | --- | --- |
+| `writing.authentic-writing` | 去 AI 味写作——作者档案 + 多轮审稿 + 规则迭代 | [→](skills/writing/authentic-writing/README.md) |
 
 ### 视觉创作（规划中）
 

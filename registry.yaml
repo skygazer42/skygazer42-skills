@@ -273,6 +273,18 @@ skills:
   - reverse-engineering
   - replication
   - webgl
+- id: writing.authentic-writing
+  name: Authentic Writing
+  version: 0.1.0
+  status: beta
+  path: skills/writing/authentic-writing
+  entrypoint: SKILL.md
+  tags:
+  - writing
+  - authenticity
+  - de-ai
+  - personal-voice
+  - editing
 packs:
 - id: pack.backend
   name: Backend Essentials

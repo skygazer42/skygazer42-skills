@@ -1,0 +1,46 @@
+schema_version: 1
+
+id: writing.authentic-writing
+name: Authentic Writing
+version: 0.1.0
+status: beta
+
+description: >
+  写出有作者真实声音、去掉 AI 味的文章。建立作者档案（是谁/事实边界/绝不写什么）+
+  分类型写法 + 初稿后多轮独立审稿 + 规则迭代。核心：去 AI 味的本质是写出作者自己。
+
+category: writing
+entrypoint: SKILL.md
+tags:
+  - writing
+  - authenticity
+  - de-ai
+  - personal-voice
+  - editing
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills:
+    - engineering.subagent-driven-development
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

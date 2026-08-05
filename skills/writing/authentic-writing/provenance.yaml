@@ -1,0 +1,17 @@
+schema_version: 1
+
+origin:
+  type: original
+
+license:
+  identifier: NOASSERTION
+
+created_at: "2026-08-05"
+created_by: skygazer42
+
+notes: >
+  方法论提炼自金尘马公开文章《看完这篇文章，你就知道如何去掉那该死的 AI 味了》
+  所阐述的「写作专家系统」理念（作者档案 + 分类型写法 + 绝不写清单 +
+  初稿后多轮独立审稿 + 规则迭代）。该文作者的 Skill 尚未开源，本 Skill 为基于其
+  公开方法论的独立中文实现，理念归功原作者。呼应本仓 subagent-driven-development
+  的分轮审查与设计剃刀的规则精简。

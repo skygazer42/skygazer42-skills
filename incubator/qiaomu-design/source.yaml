@@ -1,0 +1,14 @@
+schema_version: 1
+
+repository: https://github.com/joeseesun/qiaomu-design
+revision: 39dac8238a6ba44a4e39c1f0f6ca641224b01879
+path: /
+license: MIT
+
+captured_at: "2026-08-05"
+captured_by: skygazer42
+
+notes: >
+  大型"偏执型设计顾问"skill（623 行 SKILL + 2563 行 references + design-systems 库）。
+  与本仓 web 设计三件套（frontend-design/interface-design/enterprise-design）大量重叠。
+  决策：不下线、不新建，仅选择性吸收互补内容（动效工艺 + 中文排版）进 frontend-design。
