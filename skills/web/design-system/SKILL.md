@@ -252,4 +252,6 @@ assets/designs/slides/claudekit-pitch-251223.html
 
 1. 上游 SKILL.md 原文完整保留，仅末尾追加本节。
 2. 按本仓库目录契约补充 manifest.yaml、中文 README.md、provenance.yaml、tests/cases.yaml。
-3. 归入 `web` 分类，作为设计智能参考库。
+3. 归入 `web` 分类，作为设计系统构建方法论。
+4. 补齐 scripts/、data/、references/、templates/（上游同 revision 文件）。
+5. `assets/` 下的 `design-tokens.json`/`design-tokens.css`/`claudekit-pitch-*.html` 等为**生成产物**（由 `scripts/generate-tokens.cjs` 生成）或参考示例，上游同样未随附，使用前先生成；无需视为缺失。

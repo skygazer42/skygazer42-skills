@@ -18,3 +18,5 @@ local_modifications:
   - "首次内化：从 nextlevelbuilder/ui-ux-pro-max-skill 提取，SKILL.md 原文完整保留"
   - "补全仓库契约文件（manifest.yaml/README.md/provenance.yaml/tests/cases.yaml）"
   - "归入 web 分类，作为 UI/UX 设计智能参考库"
+  - "补齐 scripts/（core.py/design_system.py/search.py/validate_data.py）+ data/（CSV 数据库）与 references/（quick-reference.md/pro-rules.md），使 SKILL.md 中引用的命令与规则文件真正可用"
+  - "新增 references/zh-guide.md（中文速查指南），提炼自中文教程站点 bbylw/ui-ux-pro-max-skill-cn@dd17b01（MIT，Copyright 2026 free）"

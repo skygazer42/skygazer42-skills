@@ -39,10 +39,10 @@ UI/UX 设计智能参考库——可搜索的本地数据库，含 84 种风格�
 
 ## 默认边界
 
-- **读文件**：是
-- **写文件**：否
-- **执行命令**：否
-- **网络**：否
+- **读文件**：是（读取本 Skill 内 CSV 数据库）
+- **写文件**：是（`--persist` 时把设计系统写入项目 `design-system/`）
+- **执行命令**：是（运行 `scripts/search.py` 查询设计系统）
+- **网络**：否（Google Fonts 链接为输出建议，不联网拉取）
 
 ## 与相邻 Skill 的区别
 
@@ -56,3 +56,4 @@ UI/UX 设计智能参考库——可搜索的本地数据库，含 84 种风格�
 
 - **版本**：`0.1.0` / `beta`
 - **来源**：基于 [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)（MIT License），做本仓适配。
+- **中文速查指南**：补充自 [bbylw/ui-ux-pro-max-skill-cn](https://github.com/bbylw/ui-ux-pro-max-skill-cn)（MIT），见 `references/zh-guide.md`。

@@ -39,9 +39,9 @@
 ## 默认边界
 
 - **读文件**：是
-- **写文件**：否
-- **执行命令**：否
-- **网络**：否
+- **写文件**：是（`generate-tokens.cjs` 生成 CSS/Tailwind、`generate-slide.py` 生成幻灯片）
+- **执行命令**：是（运行 `scripts/` 下生成/校验脚本，需 python3 与 node）
+- **网络**：是（`scripts/fetch-background.py` 可下载 Pexels 背景图；核心 token 生成不需网络）
 
 ## 与相邻 Skill 的区别
 

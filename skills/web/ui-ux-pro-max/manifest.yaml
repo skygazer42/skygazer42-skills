@@ -27,20 +27,21 @@ tags:
 
 contents:
   examples:
-  references:
-  scripts:
+  references: references
+  scripts: scripts
   tests: tests
 
 dependencies:
   skills: []
-  commands: []
+  commands:
+    - python3 (或 python / py -3)
   environment_variables: []
 
 permissions:
   network: false
   read_files: true
-  write_files: false
-  execute_commands: false
+  write_files: true
+  execute_commands: true
 
 compatibility:
   adapters: []

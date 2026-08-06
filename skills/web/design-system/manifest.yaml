@@ -23,20 +23,23 @@ tags:
 
 contents:
   examples:
-  references:
-  scripts:
+  references: references
+  scripts: scripts
+  templates: templates
   tests: tests
 
 dependencies:
   skills: []
-  commands: []
+  commands:
+    - python3 (或 python / py -3)
+    - node (generate-tokens.cjs / embed-tokens.cjs 生成 CSS/Tailwind 时)
   environment_variables: []
 
 permissions:
-  network: false
+  network: true
   read_files: true
-  write_files: false
-  execute_commands: false
+  write_files: true
+  execute_commands: true
 
 compatibility:
   adapters: []
