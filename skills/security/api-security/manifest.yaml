@@ -1,0 +1,52 @@
+schema_version: 1
+
+id: security.api-security
+name: API Security Testing
+version: 0.1.0
+status: beta
+
+description: >
+  授权 API 安全测试。覆盖 REST、GraphQL、WebSocket、SOAP 全协议，
+  包括 API 发现、JWT/OAuth 认证测试、BOLA/IDOR/BFLA 授权检测、
+  限速绕过和 CI/CD 集成。
+
+category: security
+entrypoint: SKILL.md
+tags:
+  - security
+  - api
+  - rest
+  - graphql
+  - websocket
+  - jwt
+  - oauth
+  - bola
+  - idor
+
+contents:
+  examples:
+  references: references
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - curl
+    - python3
+  environment_variables: []
+
+permissions:
+  network: true
+  read_files: true
+  write_files: false
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

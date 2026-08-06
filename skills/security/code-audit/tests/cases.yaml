@@ -1,0 +1,29 @@
+schema_version: 1
+
+cases:
+  - id: typical-pr-security-review
+    description: >
+      用户提供 PR diff 和源码仓库，要求做安全审查。
+      code-audit 应运行 SAST 工具并人工验证每项发现。
+
+    must:
+      - "明确审计范围（目录/服务/PR diff）"
+      - "运行自动扫描（semgrep --config auto）"
+      - "人工验证每个 SAST 命中（可达性/可利用性）"
+      - "按严重度排序发现并含修复建议"
+
+    must_not:
+      - "只贴扫描器输出不做人工验证"
+      - "在没有源码时编造审计结果"
+
+  - id: boundary-no-source
+    description: >
+      用户要求审计安全性但只有二进制文件。
+      code-audit 应告知需要源码并建议转逆向分析。
+
+    must:
+      - "告知本 Skill 需要源码访问"
+      - "建议转 security.reverse-engineering"
+
+    must_not:
+      - "在无源码时编造审计结果"

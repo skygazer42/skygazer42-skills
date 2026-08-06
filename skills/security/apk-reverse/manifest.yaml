@@ -1,0 +1,51 @@
+schema_version: 1
+
+id: security.apk-reverse
+name: APK Reverse Engineering
+version: 0.1.0
+status: beta
+
+description: >
+  在 CLI 环境下做 Android APK 逆向。覆盖 APK 解包、Java 反编译（jadx）、
+  smali 修改、重打包、Frida 动态 Hook，以及按需切换到 native 分析。
+
+category: security
+entrypoint: SKILL.md
+tags:
+  - security
+  - android
+  - apk
+  - reverse-engineering
+  - frida
+  - jadx
+  - smali
+
+contents:
+  examples:
+  references: references
+  scripts: scripts
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - jadx
+    - apktool
+    - frida
+    - adb
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

@@ -192,6 +192,112 @@ skills:
   - readme
   - profile
   - beautify
+- id: research.last30days
+  name: Last 30 Days Research
+  version: 0.1.0
+  status: beta
+  path: skills/research/last30days
+  entrypoint: SKILL.md
+  tags:
+  - research
+  - search
+  - reddit
+  - twitter
+  - youtube
+  - tiktok
+  - hackernews
+  - polymarket
+  - github
+  - social-media
+  - multi-source
+  - trends
+- id: security.api-security
+  name: API Security Testing
+  version: 0.1.0
+  status: beta
+  path: skills/security/api-security
+  entrypoint: SKILL.md
+  tags:
+  - security
+  - api
+  - rest
+  - graphql
+  - websocket
+  - jwt
+  - oauth
+  - bola
+  - idor
+- id: security.apk-reverse
+  name: APK Reverse Engineering
+  version: 0.1.0
+  status: beta
+  path: skills/security/apk-reverse
+  entrypoint: SKILL.md
+  tags:
+  - security
+  - android
+  - apk
+  - reverse-engineering
+  - frida
+  - jadx
+  - smali
+- id: security.code-audit
+  name: Source Code Security Audit
+  version: 0.1.0
+  status: beta
+  path: skills/security/code-audit
+  entrypoint: SKILL.md
+  tags:
+  - security
+  - code-audit
+  - sast
+  - semgrep
+  - codeql
+  - white-box
+- id: security.malware-analysis
+  name: Malware Analysis
+  version: 0.1.0
+  status: beta
+  path: skills/security/malware-analysis
+  entrypoint: SKILL.md
+  tags:
+  - security
+  - malware
+  - yara
+  - sigma
+  - sandbox
+  - threat-intelligence
+  - ioc
+- id: security.mobile-reverse
+  name: Mobile Reverse Engineering
+  version: 0.1.0
+  status: beta
+  path: skills/security/mobile-reverse
+  entrypoint: SKILL.md
+  tags:
+  - security
+  - mobile
+  - android
+  - ios
+  - frida
+  - objection
+  - ssl-pinning
+  - mastg
+- id: security.reverse-engineering
+  name: Reverse Engineering
+  version: 0.1.0
+  status: beta
+  path: skills/security/reverse-engineering
+  entrypoint: SKILL.md
+  tags:
+  - security
+  - reverse-engineering
+  - binary-analysis
+  - ctf
+  - frida
+  - angr
+  - gdb
+  - radare2
 - id: web.enterprise-design
   name: Enterprise Design
   version: 0.1.0

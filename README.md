@@ -111,6 +111,17 @@ gemini extensions uninstall skygazer42-skills
 | --- | --- | --- |
 | `open-source.beautify-github-readme` | 美化 GitHub 个人主页——不改内容，纯视觉增强 | [→](skills/open-source/beautify-github-readme/README.md) |
 
+#### security（已上线）— 授权安全测试与逆向
+
+| Skill | 一句话 | 详情 |
+| --- | --- | --- |
+| `security.reverse-engineering` | 通用逆向：GDB/Frida/angr/Unicorn/Qiling，二进制/APK/WASM/固件 | [→](skills/security/reverse-engineering/README.md) |
+| `security.apk-reverse` | Android APK 解包/jadx 反编译/smali 修改/Frida Hook/重打包 | [→](skills/security/apk-reverse/README.md) |
+| `security.mobile-reverse` | Android+iOS：Frida/Objection/SSL Pinning/Root 检测绕过/OWASP MASTG | [→](skills/security/mobile-reverse/README.md) |
+| `security.malware-analysis` | 恶意样本六阶段分析/YARA/Sigma/沙箱编排/IOC 提取 | [→](skills/security/malware-analysis/README.md) |
+| `security.api-security` | REST/GraphQL/WebSocket 全协议：BOLA/IDOR/JWT/OAuth/10 阶段方法论 | [→](skills/security/api-security/README.md) |
+| `security.code-audit` | 源码白盒审计：Semgrep/CodeQL/危险 API/鉴权审查/修复验证 | [→](skills/security/code-audit/README.md) |
+
 ### 营销增长
 
 #### marketing（已上线）
@@ -118,6 +129,14 @@ gemini extensions uninstall skygazer42-skills
 | Skill | 一句话 | 详情 |
 | --- | --- | --- |
 | `marketing.seo` | 网站 SEO 审计/诊断/实施，证据优先不编造指标 | [→](skills/marketing/seo/README.md) |
+
+### 调研
+
+#### research（已上线）— 多源调研与信息搜集
+
+| Skill | 一句话 | 详情 |
+| --- | --- | --- |
+| `research.last30days` | 多源调研引擎：并行搜索 Reddit/X/YouTube/TikTok/HN/Polymarket/GitHub/Web，按用户互动排序，AI 融合成摘要 | [→](skills/research/last30days/README.md) |
 
 ### 写作
 
@@ -147,6 +166,13 @@ spreadsheet 等。
 | `backend.backend-debugging` | 否 | 是 | 否 | 是 |
 | engineering 类全部 Skill | 否 | 是 | 是/否 | 是/否 |
 | `open-source.beautify-github-readme` | 否 | 是 | 是 | 否 |
+| `security.reverse-engineering` | 否 | 是 | 否 | 是 |
+| `security.apk-reverse` | 否 | 是 | 否 | 是 |
+| `security.mobile-reverse` | 否 | 是 | 否 | 是 |
+| `security.malware-analysis` | 否 | 是 | 否 | 是 |
+| `security.api-security` | 是 | 是 | 否 | 是 |
+| `security.code-audit` | 否 | 是 | 否 | 是 |
+| `research.last30days` | 是 | 是 | 否 | 是 |
 
 ## 仓库结构
 
@@ -161,8 +187,17 @@ skills/
 │   ├── backend-review/
 │   └── backend-debugging/
 ├── engineering/           (13 个工程流程 Skill)
-└── open-source/
-    └── beautify-github-readme/
+├── open-source/
+│   └── beautify-github-readme/
+├── security/
+│   ├── reverse-engineering/
+│   ├── apk-reverse/
+│   ├── mobile-reverse/
+│   ├── malware-analysis/
+│   ├── api-security/
+│   └── code-audit/
+└── research/
+    └── last30days/
 ```
 
 ## 贡献与维护

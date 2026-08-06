@@ -1,0 +1,47 @@
+schema_version: 1
+
+id: security.code-audit
+name: Source Code Security Audit
+version: 0.1.0
+status: beta
+
+description: >
+  授权源码安全审计和 SAST 工作流。覆盖 Semgrep/CodeQL 模式、
+  危险 API 扫描、鉴权审查和修复验证。
+
+category: security
+entrypoint: SKILL.md
+tags:
+  - security
+  - code-audit
+  - sast
+  - semgrep
+  - codeql
+  - white-box
+
+contents:
+  examples:
+  references: references
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - semgrep
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

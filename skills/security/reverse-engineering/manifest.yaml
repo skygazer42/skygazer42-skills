@@ -1,0 +1,52 @@
+schema_version: 1
+
+id: security.reverse-engineering
+name: Reverse Engineering
+version: 0.1.0
+status: beta
+
+description: >
+  逆向工程通用技能。当需要理解编译、混淆、打包或虚拟化的目标时使用——
+  包括二进制、APK、WASM、固件、自定义 VM、字节码和反分析逻辑。
+  不适用于漏洞已知且只需利用的场景，或纯 Web/取证/密码学问题。
+
+category: security
+entrypoint: SKILL.md
+tags:
+  - security
+  - reverse-engineering
+  - binary-analysis
+  - ctf
+  - frida
+  - angr
+  - gdb
+  - radare2
+
+contents:
+  examples:
+  references: references
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - gdb
+    - radare2
+    - python3
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

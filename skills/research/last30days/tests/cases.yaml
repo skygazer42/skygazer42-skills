@@ -1,0 +1,32 @@
+schema_version: 1
+
+cases:
+  - id: typical-person-research
+    description: >
+      用户运行 `/last30days Peter Steinberger` 调研某个人物。
+      Skill 应并行搜索多平台，按互动数据排序，AI 融合成摘要。
+
+    must:
+      - "并行搜索 Reddit/X/GitHub/YouTube 等平台"
+      - "按真实用户互动（upvotes/likes/odds）排序"
+      - "AI Judge 融合多源结果并生成摘要"
+      - "每个证据簇含来源平台和互动数据"
+
+    must_not:
+      - "编造不存在的数据"
+      - "在无密钥时假装 X/YouTube/TikTok 可用"
+      - "跳过 keyless 降级路径直接报错"
+
+  - id: boundary-no-api-keys
+    description: >
+      用户未配置任何 API 密钥，运行 `/last30days AI video tools`。
+      Skill 应走 keyless 降级路径，不编造数据。
+
+    must:
+      - "走 keyless 路径（RSS/scraping 降级）"
+      - "Reddit/HN/Polymarket/GitHub 仍可用（零配置）"
+      - "标记不可用的平台（X/YouTube/TikTok）"
+
+    must_not:
+      - "为不可用平台编造数据"
+      - "因缺少 API 密钥而整体失败"

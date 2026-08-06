@@ -1,0 +1,53 @@
+schema_version: 1
+
+id: security.mobile-reverse
+name: Mobile Reverse Engineering
+version: 0.1.0
+status: beta
+
+description: >
+  授权 Android 或 iOS 应用逆向工程与安全测试。覆盖 APK/IPA 分析、
+  运行时动态插桩（Frida/Objection）、SSL Pinning 绕过、Root/越狱检测绕过、
+  移动端加密提取和 OWASP MASTG 渗透测试。
+
+category: security
+entrypoint: SKILL.md
+tags:
+  - security
+  - mobile
+  - android
+  - ios
+  - frida
+  - objection
+  - ssl-pinning
+  - mastg
+
+contents:
+  examples:
+  references: references
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - frida
+    - objection
+    - jadx
+    - apktool
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

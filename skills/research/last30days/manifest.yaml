@@ -1,0 +1,58 @@
+schema_version: 1
+
+id: research.last30days
+name: Last 30 Days Research
+version: 0.1.0
+status: beta
+
+description: >
+  多源调研引擎。并行搜索 Reddit、X、YouTube、TikTok、Hacker News、
+  Polymarket、GitHub 和 Web，按真实用户互动（赞/投票/金钱）排序，
+  由 AI 融合成摘要。回答"过去 30 天人们真正在说什么"。
+
+category: research
+entrypoint: SKILL.md
+tags:
+  - research
+  - search
+  - reddit
+  - twitter
+  - youtube
+  - tiktok
+  - hackernews
+  - polymarket
+  - github
+  - social-media
+  - multi-source
+  - trends
+
+contents:
+  examples:
+  references: references
+  scripts: scripts
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - python3
+    - node
+  environment_variables:
+    - SCRAPECREATORS_API_KEY
+    - OPENAI_API_KEY
+    - XAI_API_KEY
+
+permissions:
+  network: true
+  read_files: true
+  write_files: false
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

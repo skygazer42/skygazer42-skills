@@ -1,0 +1,191 @@
+---
+name: mobile-reverse
+description: 授权 Android 或 iOS 应用逆向工程与安全测试。覆盖 APK/IPA 分析、运行时动态插桩、SSL Pinning 绕过、Root/越狱检测绕过、移动端加密提取、OWASP MASTG 渗透测试。
+---
+
+# 移动端逆向工程
+
+## 使用前确认
+
+1. 确认有授权：目标为已授权测试的移动应用、CTF 题目或沙盒实验。
+2. 确认任务命中了本 Skill 的适用范围（APK/IPA 分析/插桩/SSL Pinning/平台检测绕过）。
+3. 确认所需工具已安装（Frida/Objection/JADX/apktool 等）。
+
+## 适用场景
+
+- Android APK 逆向与安全测试
+- iOS IPA 逆向与安全测试
+- 移动应用运行时动态插桩
+- SSL Pinning / Root 检测 / 越狱检测绕过
+- 移动端加密算法提取（AES/RSA/HMAC 密钥）
+- 移动应用渗透测试（OWASP MASTG）
+- 非 Root/越狱环境下的应用测试
+
+## 四阶段工作流
+
+### Phase 1: 信息收集
+
+**Android：**
+- APK 获取（Google Play / APKMirror / adb pull）
+- Manifest 分析：权限、导出组件、Intent Filter、backup 标志
+- androguard: `androguard analyze APK` → 组件/权限/签名
+- APKLeaks: 硬编码 API Key / Token / Secret 扫描
+- 加固检测: 是否加壳（360/腾讯/梆梆/爱加密）
+
+**iOS：**
+- IPA 获取（App Store / ipatool / Apple Configurator）
+- 解密 App Store 二进制: frida-ios-dump / Clutch
+- Info.plist 分析: ATS 配置、URL Scheme、Queries Schemes
+- class-dump: 导出 ObjC 类结构
+- 加固检测: 是否使用 Swift/ObjC 混淆
+
+### Phase 2: 静态分析
+
+**跨平台：**
+- JADX-GUI: APK → Java 源码（Android）
+- Ghidra / Hopper: .so / Mach-O 反编译
+- radare2 / Cutter: CLI 快速侦察
+
+**Android 专项：**
+- `apktool d app.apk` → smali 代码 + 资源
+- dex2jar: DEX → JAR → JD-GUI
+- smali/baksmali: Dalvik 字节码修改
+
+**iOS 专项：**
+- class-dump: 导出 ObjC 头文件
+- Swift 符号恢复: swift-demangle
+- dsymutil: 调试符号提取
+- `otool -L`: 查看动态库依赖
+- jtool2: Mach-O 分析
+
+### Phase 3: 动态分析
+
+**Frida — 通用动态插桩：**
+- `frida-ps -U`: 列出设备进程
+- `frida-trace -U -i "open*" com.app`: 追踪函数调用
+- 自定义 Hook 脚本: 修改参数/返回值、调用私有方法
+
+**Objection — Frida 增强层（无需写脚本）：**
+- `objection -g "com.app" explore`
+- `android root disable` / `ios jailbreak disable`
+- `android sslpinning disable` / `ios sslpinning disable`
+- `android keystore list` / `ios keychain dump`
+- `env` / `ls` / `sqlite connect`
+
+**Frida Gadget（免 Root/越狱）：**
+- 注入 frida-gadget.so / FridaGadget.dylib 到 APK/IPA
+- 重新签名 → 安装 → 无需设备权限即可 Hook
+- `objection patchapk --source app.apk`（全自动）
+
+### Phase 4: 网络分析
+
+- Burp Suite: 拦截 HTTP/HTTPS，修改请求/响应
+- mitmproxy: 脚本化代理（Python API）
+- Wireshark: PCAP 抓包分析
+- 证书安装: Android 用户证书 → 系统证书（Magisk + MoveCert）
+- SSL Pinning 绕过: Frida/Objection/Xposed/SSL Kill Switch 2
+- WebSocket / gRPC 流量分析
+
+## 常见绕过速查
+
+### SSL Pinning
+
+```bash
+# Objection（最简）
+objection -g "com.app" explore
+android sslpinning disable
+
+# Frida 通用脚本
+frida -U -l ssl_pinning_bypass.js -f com.app
+```
+
+### Root / 越狱检测
+
+```bash
+# Objection
+android root disable
+ios jailbreak disable
+
+# Frida 自定义（多层检测）
+Java.perform(function() {
+    var RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
+    RootBeer.isRooted.implementation = function() { return false; };
+});
+```
+
+### 反调试
+
+```bash
+# Android
+frida -U -l anti_debug_bypass.js -f com.app
+# 绕过: ptrace(TracerPid)、/proc/self/status、isDebuggerConnected()
+
+# iOS
+frida -U -l ios_anti_debug.js -f com.app
+# 绕过: PT_DENY_ATTACH、sysctl
+```
+
+## 移动端加密提取
+
+```javascript
+// Android — Hook Cipher.getInstance 获取密钥+算法
+Java.perform(function() {
+    var Cipher = Java.use("javax.crypto.Cipher");
+    Cipher.getInstance.overload('java.lang.String').implementation = function(algo) {
+        console.log("[Cipher] Algorithm: " + algo);
+        return this.getInstance(algo);
+    };
+    Cipher.init.overload('int', 'java.security.Key').implementation = function(mode, key) {
+        console.log("[Cipher] Key: " + bytesToHex(key.getEncoded()));
+        return this.init(mode, key);
+    };
+});
+
+// iOS — Hook CCCrypt
+Interceptor.attach(Module.findExportByName("libcommonCrypto.dylib", "CCCrypt"), {
+    onEnter: function(args) {
+        console.log("CCCrypt op: " + args[0] + " alg: " + args[1]);
+        console.log("Key: " + hexdump(args[3], { length: args[4].toInt32() }));
+    }
+});
+```
+
+## 工具链
+
+| 工具 | 平台 | 用途 |
+|------|:--:|------|
+| JADX-GUI | A | Java 反编译 |
+| apktool | A | APK 解包/重建 |
+| Ghidra | A+I | 多架构反编译 |
+| Hopper | I | iOS 专用反汇编 |
+| Frida | A+I | 动态插桩 |
+| Objection | A+I | Frida REPL 增强 |
+| MobSF | A+I | 自动化 SAST+DAST |
+| class-dump | I | ObjC 类导出 |
+| frida-ios-dump | I | IPA 解密 |
+| jtool2 | I | Mach-O 分析 |
+| Burp Suite | A+I | HTTP 拦截 |
+| mitmproxy | A+I | 脚本化代理 |
+
+> A=Android, I=iOS
+
+## 补充参考
+
+`references/` 目录包含：
+- `frida-objection-deep.md` — Frida + Objection 深度用法
+- `ios-reverse-guide.md` — iOS 逆向专项
+- `anti-detection-bypass.md` — Root/越狱/反调试/SSL Pinning 绕过
+
+## 任务完成自检
+
+- [ ] 是否执行了工作流中的每一步（而不是只阅读）？
+- [ ] 是否产出了可复现证据（命令/脚本/截图/报告）？
+- [ ] 是否限定在授权目标范围内？
+
+## 来源与改造说明
+
+本 Skill 基于 [zhaoxuya520/reverse-skill](https://github.com/zhaoxuya520/reverse-skill) 的 `mobile-reverse` 模块（MIT License，commit `d8bf345`）。本地改造：
+
+1. 删除对共享运行时（`field-journal`、`tool-index`）的交叉引用。
+2. 中文化 + 按本仓库 `SKILL.md` 惯例重写。
+3. 保留 `references/`（3 个文件）。
