@@ -1,0 +1,47 @@
+schema_version: 1
+
+id: engineering.mcp-builder
+name: MCP Server Builder
+version: 0.1.0
+status: beta
+
+description: >
+  MCP 服务器构建方法论——系统化构建生产级 MCP 工具，
+  让 AI 助手连接外部能力。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - mcp
+  - tools
+  - integration
+  - server
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - python3
+    - node
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

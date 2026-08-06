@@ -1,0 +1,16 @@
+schema_version: 1
+
+cases:
+  - id: typical-build-mcp-server
+    description: >
+      用户需要为外部 API 构建 MCP 服务器，让 AI 助手能调用该 API。
+      mcp-builder 应设计工具接口并实现 MCP 服务器。
+
+    must:
+      - "明确需要暴露的能力和工具"
+      - "设计 MCP 工具接口（输入/输出 schema）"
+      - "实现可运行的 MCP 服务器"
+
+    must_not:
+      - "在未明确需求时编造工具定义"
+      - "忽略 MCP 协议规范"

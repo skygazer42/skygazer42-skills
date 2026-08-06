@@ -1,0 +1,47 @@
+schema_version: 1
+
+id: writing.humanizer
+name: Humanizer — Remove AI Writing Patterns
+version: 0.1.0
+status: beta
+
+description: >
+  识别并消除 AI 生成文本的痕迹，让文字更自然、更像人写的。
+  基于 Wikipedia "Signs of AI writing" 指南，检测并修复膨胀比喻、
+  促销语言、破折号滥用、三连结构、AI 高频词汇、被动语态等模式。
+
+category: writing
+entrypoint: SKILL.md
+tags:
+  - writing
+  - ai-detection
+  - de-ai
+  - editing
+  - style
+  - proofreading
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

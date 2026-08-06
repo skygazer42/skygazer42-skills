@@ -1,33 +1,33 @@
 ---
 name: backend-review
-description: Review backend changes for correctness, authorization, security, data integrity, concurrency, reliability, compatibility, observability, and test coverage. Use when a user asks for an API, service, database, migration, job, or backend pull-request review without asking for implementation.
+description: 审查后端变更的正确性、授权、安全、数据完整性、并发、可靠性、兼容性、可观测性和测试覆盖。当用户要求审查 API、服务、数据库、迁移、任务或后端 PR 而不要求实现时使用。
 ---
 
-# Backend Review
+# 后端审查
 
-## Workflow
+## 工作流
 
-1. Read the change description, diff, affected entrypoints, callers, contracts, models, migrations, configuration, and tests.
-2. Trace changed request and data paths through validation, authorization, business logic, persistence, external calls, and response handling.
-3. Check success and failure behavior, including partial failure, rollback, duplicate delivery, retries, timeouts, cancellation, and concurrent execution where applicable.
-4. Check trust boundaries, injection risks, access control, secret handling, sensitive logging, and information disclosure.
-5. Check schema compatibility, constraints, transactions, migration safety, resource cleanup, observability, and operational impact.
-6. Confirm tests cover the highest-risk behavior and fail for the regression they claim to prevent.
-7. Report evidence-backed findings in severity order with file and line references, impact, affected path, and a minimal remediation.
+1. 阅读变更描述、diff、受影响的入口点、调用方、契约、模型、迁移、配置和测试。
+2. 追踪变更后的请求和数据路径：验证 → 授权 → 业务逻辑 → 持久化 → 外部调用 → 响应处理。
+3. 检查成功和失败行为，包括部分失败、回滚、重复投递、重试、超时、取消和并发执行。
+4. 检查信任边界、注入风险、访问控制、密钥处理、敏感日志记录和信息泄露。
+5. 检查 schema 兼容性、约束、事务、迁移安全性、资源清理、可观测性和运维影响。
+6. 确认测试覆盖了最高风险的行为，且确实会因声称要防止的回归而失败。
+7. 按严重度输出有证据支持的发现，含文件和行号引用、影响、受影响路径和最小修复建议。
 
-## Output contract
+## 输出契约
 
-- Separate blocking and non-blocking findings.
-- Do not bury correctness or security defects under general summaries.
-- If no defect is found, state that and list remaining unverified integration or deployment risks.
+- 区分阻塞性和非阻塞性发现。
+- 不把正确性或安全缺陷埋在通用摘要之下。
+- 如未发现缺陷，明确声明并列出剩余未验证的集成或部署风险。
 
-## Guardrails
+## 约束
 
-- Do not edit files unless the user separately asks for fixes.
-- Do not call formatting, naming, or architecture preference a correctness defect without concrete impact.
-- Do not infer database or runtime behavior when the implementation, migration, or configuration can be read.
-- Do not expose secrets found during review; identify their location safely.
+- 除非用户单独要求修复，否则不编辑文件。
+- 不把格式、命名或架构偏好当作正确性缺陷。
+- 不推断数据库或运行时行为，当实现、迁移或配置可读取时以实际为准。
+- 审查中发现的密钥不得暴露；安全地标识其位置。
 
-## Failure handling
+## 失败处理
 
-If required code, schema, deployment constraints, or test output is missing, list the missing evidence and limit conclusions to the paths that can be verified.
+如果所需代码、schema、部署约束或测试输出缺失，列出缺失的证据，并将结论限制在可验证的路径内。

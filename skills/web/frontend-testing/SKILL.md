@@ -1,32 +1,32 @@
 ---
 name: frontend-testing
-description: Verify frontend behavior with the repository's existing test tools and, when available, a real browser. Use when a user asks to test a UI flow, reproduce a frontend bug, add focused frontend coverage, inspect console or network failures, or verify responsive and keyboard behavior.
+description: 使用仓库已有的测试工具和真实浏览器（可用时）验证前端行为。当用户要求测试 UI 流程、复现前端 bug、添加前端测试覆盖、检查控制台或网络故障，或验证响应式和键盘行为时使用。
 ---
 
-# Frontend Testing
+# 前端测试
 
-## Workflow
+## 工作流
 
-1. Identify the acceptance criteria, supported browsers and viewports, start command, test command, and relevant existing tests.
-2. Prefer the repository's installed test runner and browser tooling. Start the real application when the behavior depends on integration.
-3. Exercise the primary path plus the smallest meaningful set of loading, error, empty, validation, repeat-action, and navigation paths.
-4. Check keyboard operation, focus movement, accessible names, visible feedback, responsive breakpoints, console errors, and failed requests as applicable.
-5. When asked to add coverage, write the smallest behavior-focused test that fails for the regression and passes for the intended behavior.
-6. Record the environment, commands, viewport, observed result, and evidence. Re-run the focused check after any authorized fix.
+1. 确定验收标准、支持的浏览器和视口、启动命令、测试命令和相关的已有测试。
+2. 优先使用仓库已安装的测试运行器和浏览器工具。当行为依赖集成时启动真实应用。
+3. 执行主路径加上最小但有意义的加载、错误、空态、验证、重复操作和导航路径。
+4. 检查键盘操作、焦点移动、无障碍名称、可见反馈、响应式断点、控制台错误和失败请求。
+5. 当要求添加测试覆盖时，编写最小的行为聚焦测试：回归时失败，正确行为时通过。
+6. 记录环境、命令、视口、观察结果和证据。在授权修复后重新运行聚焦检查。
 
-## Output contract
+## 输出契约
 
-- Separate passed, failed, blocked, and not-run checks.
-- Include concise reproduction steps for every failure.
-- Name any test files created or changed and the exact commands run.
+- 区分通过、失败、阻塞和未运行的检查。
+- 每个失败包含简洁的复现步骤。
+- 指出创建或变更的测试文件及运行的具体命令。
 
-## Guardrails
+## 约束
 
-- Do not substitute source inspection for browser verification when the claim is visual or interactive.
-- Do not use arbitrary timeouts when a deterministic condition is available.
-- Do not rewrite the production feature merely to make a brittle test pass.
-- Do not perform destructive actions against shared or production environments.
+- 当声称的是视觉或交互行为时，不拿源码检查替代浏览器验证。
+- 当确定性条件可用时，不使用任意超时。
+- 不为了让脆弱的测试通过而重写生产功能。
+- 不对共享或生产环境执行破坏性操作。
 
-## Failure handling
+## 失败处理
 
-If the app cannot start or required credentials, services, or fixtures are unavailable, preserve the failure output and report the smallest missing prerequisite. Continue with non-blocked static or unit checks without overstating coverage.
+如果应用无法启动或所需凭据、服务、fixtures 不可用，保留失败输出，报告最小的缺失前提条件。继续执行未被阻塞的静态或单元检查，不过度夸大覆盖范围。

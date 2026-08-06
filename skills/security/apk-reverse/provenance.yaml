@@ -19,3 +19,4 @@ local_modifications:
   - "删除对未纳入模块的引用（ida-reverse/radare2/kali）"
   - "补全仓库契约文件（manifest.yaml/README.md/provenance.yaml/tests/cases.yaml）"
   - "保留 references（4 个）和 scripts（7 个，标注平台限制）"
+  - "移除 scripts 对未纳入的 kali/bootstrap-reverse 脚本的悬空引用（decode/frida-run/rebuild-sign-install 的 .sh 与 .ps1），改为缺工具时提示手动安装；README 增补『部署与依赖』说明"

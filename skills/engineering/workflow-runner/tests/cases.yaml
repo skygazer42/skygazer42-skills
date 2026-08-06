@@ -1,0 +1,16 @@
+schema_version: 1
+
+cases:
+  - id: typical-run-workflow
+    description: >
+      用户提供 .yaml 工作流文件，要求多角色协作完成。
+      workflow-runner 应解析 YAML 并执行各步骤。
+
+    must:
+      - "解析 YAML 工作流定义"
+      - "按流程分配角色"
+      - "使用当前 LLM 会话执行各步骤"
+
+    must_not:
+      - "在无工作流文件时编造流程"
+      - "需要外部 API key"

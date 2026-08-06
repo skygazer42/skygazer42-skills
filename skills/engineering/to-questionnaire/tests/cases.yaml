@@ -1,0 +1,17 @@
+schema_version: 1
+
+cases:
+  - id: typical-to-questionnaire
+    description: >
+      用户需要从技术负责人那里获取架构决策信息，但无法当面沟通。
+      to-questionnaire 应生成结构化问卷。
+
+    must:
+      - "确定接收者身份和背景"
+      - "明确需要对方回答的具体决策点"
+      - "按重要性排序撰写问卷"
+      - "保存为 to-questionnaire-<slug>.md"
+
+    must_not:
+      - "为 Agent 自己能回答的问题生成问卷"
+      - "在信息不足时编造接收者背景"

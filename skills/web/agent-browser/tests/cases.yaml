@@ -1,0 +1,27 @@
+schema_version: 1
+
+cases:
+  - id: typical-navigate-screenshot
+    description: >
+      用户要求"打开 example.com 并截图"。
+      agent-browser 应使用 CLI 导航到页面并截图。
+
+    must:
+      - "确保 agent-browser CLI 已安装"
+      - "加载核心技能内容（agent-browser skills get core）"
+      - "执行浏览器操作"
+
+    must_not:
+      - "在未安装 CLI 时假装执行"
+      - "使用其他浏览器工具替代 agent-browser"
+
+  - id: boundary-no-cli
+    description: >
+      用户要求使用 agent-browser 但 CLI 未安装。
+      Skill 应提示安装步骤。
+
+    must:
+      - "提示安装命令：npm i -g agent-browser && agent-browser install"
+
+    must_not:
+      - "假装执行浏览器操作"

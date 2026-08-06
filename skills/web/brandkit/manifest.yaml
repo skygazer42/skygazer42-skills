@@ -1,0 +1,47 @@
+schema_version: 1
+
+id: web.brandkit
+name: Brand Kit
+version: 0.1.0
+status: beta
+
+description: >
+  品牌套件生成。创建高端品牌指南板、Logo 系统、身份识别视觉方案。
+  覆盖极简、电影感、深色科技、奢侈、文化、安全、开发者工具等品牌体系。
+
+category: web
+entrypoint: SKILL.md
+tags:
+  - web
+  - brand
+  - design
+  - logo
+  - identity
+  - visual-system
+  - brand-guidelines
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

@@ -67,20 +67,12 @@ function Get-ToolPath {
         }
     }
 
-    # Attempt auto-bootstrap for frida tools
-    $bootstrapScript = Join-Path $PSScriptRoot '..\..\scripts\bootstrap-reverse.ps1'
-    if (($Name -in @('frida', 'frida-ps', 'frida-ls-devices')) -and (Test-Path -LiteralPath $bootstrapScript)) {
-        Write-Host "INFO: $Name not found, attempting auto-bootstrap (pip install frida-tools)..." -ForegroundColor Yellow
-        & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $bootstrapScript -Capability @('frida') -SkipRefresh
-        $cmd = Get-Command $Name -ErrorAction SilentlyContinue
-        if ($cmd) {
-            Write-Host "INFO: $Name bootstrapped successfully." -ForegroundColor Green
-            return $cmd.Source
-        }
-        foreach ($candidate in Get-PythonScriptCandidates -ExecutableName ($Name + '.exe')) {
-            if (Test-Path -LiteralPath $candidate) {
-                return $candidate
-            }
+    # frida tools not present — no auto-installer shipped in this repo.
+    # Resolve Python-script candidates once more for a clear error, else guide manual install.
+    Write-Host "INFO: $Name not found. Please install frida-tools manually: pip install frida-tools" -ForegroundColor Yellow
+    foreach ($candidate in Get-PythonScriptCandidates -ExecutableName ($Name + '.exe')) {
+        if (Test-Path -LiteralPath $candidate) {
+            return $candidate
         }
     }
 

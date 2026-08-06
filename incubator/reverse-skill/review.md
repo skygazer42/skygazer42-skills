@@ -44,12 +44,16 @@
 
 1. **断链**：`apk-reverse/scripts/*.sh` 引用 `../../../kali/scripts/bootstrap-reverse.sh`（未纳入）；
    `reverse-engineering/languages-compiled.md` 引用 `../dotnet-reverse/`（未纳入）。需中立化或补对应依赖说明。
+   → **已处理**：apk-reverse 的 `.sh`/`.ps1` 已移除对未纳入的 kali/bootstrap 脚本的悬空引用，改为缺工具时提示手动安装
+   （详见 `skills/security/apk-reverse/provenance.yaml`）；`languages-compiled.md` 的 `dotnet-reverse` 引用已在晋级时删除。
 2. **契约补全**：按 `templates/skill/` 为每个模块补 `manifest.yaml`、中文 `README.md`、`provenance.yaml`、`tests/cases.yaml`。
-3. **权限申明**：按第 9 节逐模块书写最坏路径权限，不全部置 true。
+   → 已完成：6 个安全模块均已补齐 5 件套。
+3. **权限申明**：按第 9 节逐模块书写最坏路径权限，不全部置 true。 → 已完成。
 4. **命名/分类**：映射到本仓库分类（建议 `security.*` 或 `reverse-engineering.*`），ID=分类=物理目录名对齐。
-5. **脚本平台**：`*.ps1` 为 Windows 优先，需在 README 标注或提供降级说明。
+   → 已落地为 `security.*`，ID=分类=物理目录名一致。
+5. **脚本平台**：`*.ps1` 为 Windows 优先，需在 README 标注或提供降级说明。 → 已在 README『部署与依赖』标注。
 
 ## 处理结果
 
-当前状态：**孵化候选**。已固化 source.yaml + candidate。晋级 `skills/` 需仓库所有者确认后逐模块规范化。
-本候选未进入 `registry.yaml`（孵化区不参与索引）。
+当前状态：**已晋级**。6 个核心模块已规范化到 `skills/security/`（api-security/apk-reverse/code-audit/malware-analysis/mobile-reverse/reverse-engineering），
+并进入 `registry.yaml`（ID 前缀 `security`）。孵化区候选与 `source.yaml` 保留作来源记录。

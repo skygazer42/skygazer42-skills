@@ -1,0 +1,17 @@
+schema_version: 1
+
+cases:
+  - id: typical-teach
+    description: >
+      用户要求"教我 Rust 的 borrow checker"。
+      teach 应建立教学工作区并开始逐步教学。
+
+    must:
+      - "建立 MISSION.md 记录学习动机"
+      - "寻找高质量参考资料"
+      - "创建结构化课程（lessons/）"
+      - "记录学习心得（learning-records/）"
+
+    must_not:
+      - "只依赖 parametric knowledge 不找外部资源"
+      - "跳过 MISSION 直接开始教学"

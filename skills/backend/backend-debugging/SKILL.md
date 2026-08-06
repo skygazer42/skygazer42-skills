@@ -1,34 +1,34 @@
 ---
 name: backend-debugging
-description: Diagnose backend failures by reproducing symptoms, tracing requests and data, testing hypotheses, and identifying the root cause and blast radius. Use when a user reports an API error, failed job, database anomaly, timeout, integration failure, intermittent backend bug, or production-like incident and wants diagnosis.
+description: 诊断后端故障——复现症状、追踪请求与数据、测试假设、识别根因和影响范围。当用户报告 API 错误、失败任务、数据库异常、超时、集成故障、间歇性后端 bug 或类生产环境事故并需要诊断时使用。
 ---
 
-# Backend Debugging
+# 后端排障
 
-## Workflow
+## 工作流
 
-1. Establish the exact symptom, expected behavior, environment, timing, request or job identity, and available evidence.
-2. Locate the real entrypoint and trace the path through callers, configuration, queues, storage, caches, and external services.
-3. Reproduce the failure with the smallest safe command, request, or test. Preserve the exact output.
-4. Inspect relevant logs, metrics, recent changes, configuration differences, and data shape without exposing secrets.
-5. Form a short ranked hypothesis list. Run the cheapest discriminating check for each hypothesis instead of making speculative edits.
-6. Identify the root cause, triggering condition, affected sibling paths, and why existing defenses or tests missed it.
-7. Recommend the smallest fix and verification. Implement only when the user also asks for a fix.
+1. 确定确切的症状、预期行为、环境、时间、请求或任务标识以及可用证据。
+2. 定位真实入口点，追踪调用方、配置、队列、存储、缓存和外部服务的路径。
+3. 用最小的安全命令、请求或测试复现故障。保留精确输出。
+4. 检查相关日志、指标、近期变更、配置差异和数据形态，不暴露密钥。
+5. 列出短小排序的假设列表。对每个假设运行最便宜的区分性检查，不做推测性编辑。
+6. 识别根因、触发条件、受影响的兄弟路径，以及为什么现有防御或测试未能捕获。
+7. 推荐最小修复和验证方案。仅在用户也要求修复时才实施。
 
-## Output contract
+## 输出契约
 
-- State the diagnosed root cause and confidence level.
-- Provide reproduction or decisive evidence, affected paths, and blast radius.
-- Separate confirmed facts, supported inference, and remaining unknowns.
-- Give a minimal fix and verification plan without claiming an unperformed recovery.
+- 陈述诊断出的根因和置信度。
+- 提供复现或决定性证据、受影响路径和影响范围。
+- 区分已确认事实、有据推断和剩余未知项。
+- 给出最小修复和验证方案，不声称已完成未执行的恢复。
 
-## Guardrails
+## 约束
 
-- Do not change code merely to test a guess when a read-only check can distinguish it.
-- Do not treat symptom suppression, retries, or restarts as the root cause.
-- Do not query or mutate production data beyond the user's explicit authorization.
-- Do not print credentials, tokens, personal data, or full sensitive payloads.
+- 当只读检查足以区分假设时，不修改代码来测试猜测。
+- 不把症状压制、重试或重启当作根因。
+- 未经用户明确授权，不查询或修改生产数据。
+- 不打印凭据、token、个人数据或完整敏感载荷。
 
-## Failure handling
+## 失败处理
 
-If the failure cannot be reproduced, preserve the strongest evidence, narrow the conditions, and identify the next observation needed. Do not invent logs, runtime state, or a definitive cause.
+如果故障无法复现，保留最强证据，缩小条件范围，确定下一步需要的观察。不编造日志、运行时状态或确定性原因。

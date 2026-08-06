@@ -1,0 +1,17 @@
+schema_version: 1
+
+cases:
+  - id: typical-create-design-tokens
+    description: >
+      用户需要为新项目建立设计 token 体系。
+      design-system 应定义三层 token 并输出 CSS 变量。
+
+    must:
+      - "定义 primitive token（颜色/间距/字号/圆角）"
+      - "定义 semantic token（主题/用途映射）"
+      - "定义 component token（组件级变量）"
+      - "输出 CSS 变量或平台特定 token 文件"
+
+    must_not:
+      - "跳过 semantic 层直接定义 component token"
+      - "输出与品牌不匹配的 token 值"

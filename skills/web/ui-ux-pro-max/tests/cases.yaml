@@ -1,0 +1,17 @@
+schema_version: 1
+
+cases:
+  - id: typical-query-design-intelligence
+    description: >
+      用户需要为"SaaS 产品 landing page"查询设计建议。
+      ui-ux-pro-max 应返回匹配的风格、配色、字体配对和反模式警告。
+
+    must:
+      - "根据产品类型查询推理规则"
+      - "匹配 UI 风格、配色方案、字体配对"
+      - "输出推荐设计系统"
+      - "包含反模式警告"
+
+    must_not:
+      - "为不匹配的产品类型推荐设计参数"
+      - "忽略 UX 准则"

@@ -1,0 +1,49 @@
+schema_version: 1
+
+id: web.agent-browser
+name: Agent Browser
+version: 0.1.0
+status: beta
+
+description: >
+  浏览器自动化 CLI（Rust 原生）。用于 AI Agent 与网站交互——
+  导航、填表、点击、截图、数据提取、Web 应用测试。
+  需安装 agent-browser CLI（npm i -g agent-browser）。
+
+category: web
+entrypoint: SKILL.md
+tags:
+  - web
+  - browser
+  - automation
+  - testing
+  - screenshot
+  - scraping
+  - cdp
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - agent-browser
+  environment_variables: []
+
+permissions:
+  network: true
+  read_files: true
+  write_files: false
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

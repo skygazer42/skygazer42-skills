@@ -66,36 +66,19 @@ if (-not (Test-Path -LiteralPath $ApkPath)) {
 
 $jadxSpec = $null
 $apktoolSpec = $null
-$bootstrapScript = Join-Path $PSScriptRoot '..\..\scripts\bootstrap-reverse.ps1'
 
 if (-not $SkipJadx) {
     $jadxSpec = Resolve-ReverseToolSpec -Name 'jadx'
     if (-not $jadxSpec.Available) {
-        Write-Host 'INFO: jadx not found, attempting auto-bootstrap...' -ForegroundColor Yellow
-        & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $bootstrapScript -Capability @('jadx') -SkipRefresh
-        if ($LASTEXITCODE -ne 0) {
-            throw 'Bootstrap failed for jadx. Please install manually: https://github.com/skylot/jadx'
-        }
-        $jadxSpec = Resolve-ReverseToolSpec -Name 'jadx'
-        if (-not $jadxSpec.Available) {
-            throw 'jadx still not available after bootstrap. Check installation at %USERPROFILE%\Tools\jadx\'
-        }
-        Write-Host 'INFO: jadx bootstrapped successfully.' -ForegroundColor Green
+        Write-Host 'INFO: jadx not found. Please install manually: https://github.com/skylot/jadx' -ForegroundColor Yellow
+        throw 'jadx is required to decompile. Please install manually: https://github.com/skylot/jadx'
     }
 }
 if (-not $SkipApktool) {
     $apktoolSpec = Resolve-ReverseToolSpec -Name 'apktool'
     if (-not $apktoolSpec.Available) {
-        Write-Host 'INFO: apktool not found, attempting auto-bootstrap...' -ForegroundColor Yellow
-        & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $bootstrapScript -Capability @('apktool') -SkipRefresh
-        if ($LASTEXITCODE -ne 0) {
-            throw 'Bootstrap failed for apktool. Please install manually: https://apktool.org/'
-        }
-        $apktoolSpec = Resolve-ReverseToolSpec -Name 'apktool'
-        if (-not $apktoolSpec.Available) {
-            throw 'apktool still not available after bootstrap. Check installation at %USERPROFILE%\Tools\apktool\'
-        }
-        Write-Host 'INFO: apktool bootstrapped successfully.' -ForegroundColor Green
+        Write-Host 'INFO: apktool not found. Please install manually: https://apktool.org/' -ForegroundColor Yellow
+        throw 'apktool is required to decompile. Please install manually: https://apktool.org/'
     }
 }
 

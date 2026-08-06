@@ -1,0 +1,46 @@
+schema_version: 1
+
+id: engineering.wizard
+name: Wizard
+version: 0.1.0
+status: beta
+
+description: >
+  生成交互式 bash 向导，引导人类逐步完成手动操作流程。
+  适用于配置基础设施、设置凭据/CI secrets、操作第三方控制台等场景。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - wizard
+  - bash
+  - setup
+  - automation
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - bash
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

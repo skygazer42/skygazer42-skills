@@ -9,7 +9,6 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-KALI_BOOTSTRAP="$(cd "$SCRIPT_DIR/../../../kali/scripts" 2>/dev/null && pwd)/bootstrap-reverse.sh"
 
 # ─── 参数解析 ──────────────────────────────────────────────────────────────────────
 
@@ -49,10 +48,7 @@ ensure_tool() {
     if command -v "$name" &>/dev/null; then
         return 0
     fi
-    echo "INFO: $name 未找到，尝试自动安装..."
-    if [[ -x "$KALI_BOOTSTRAP" ]]; then
-        bash "$KALI_BOOTSTRAP" "$name" --skip-refresh 2>/dev/null || true
-    fi
+    echo "INFO: $name 未找到，请手动安装（本仓库未随附自动安装脚本，见 README 部署说明）"
     if ! command -v "$name" &>/dev/null; then
         echo "ERR: $name 安装失败，请手动安装"
         return 1

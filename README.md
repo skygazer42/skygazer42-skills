@@ -79,6 +79,11 @@ gemini extensions uninstall skygazer42-skills
 | `web.frontend-review` | 审查前端正确性、无障碍、性能和安全（只读） | [→](skills/web/frontend-review/README.md) |
 | `web.frontend-testing` | 用浏览器验证 UI 流程或补充回归测试 | [→](skills/web/frontend-testing/README.md) |
 | `web.web-clone` | 1:1 复刻现有网站——镜像、逆向、溯源、验证 | [→](skills/web/web-clone/README.md) |
+| `web.image-to-code` | 图片/截图→前端代码，先设计图再深度分析后忠实还原 | [→](skills/web/image-to-code/README.md) |
+| `web.brandkit` | 品牌套件生成——Logo/色彩/字体/应用示例品牌指南板 | [→](skills/web/brandkit/README.md) |
+| `web.agent-browser` | 浏览器自动化 CLI（Rust 原生）——导航/填表/点击/截图/数据提取 | [→](skills/web/agent-browser/README.md) |
+| `web.ui-ux-pro-max` | UI/UX 设计智能参考库——84 风格/192 配色/74 字体配对/161 推理规则 | [→](skills/web/ui-ux-pro-max/README.md) |
+| `web.design-system` | 设计系统构建——三层 token 架构/CSS 变量/组件规格/品牌合规 | [→](skills/web/design-system/README.md) |
 
 #### backend（已上线）
 
@@ -104,6 +109,12 @@ gemini extensions uninstall skygazer42-skills
 | `engineering.finishing-a-development-branch` | 实现完成 → 验证测试 → 合并/PR/保持 + 更新规格 | [→](skills/engineering/finishing-a-development-branch/README.md) |
 | `engineering.using-git-worktrees` | 为功能工作创建隔离工作区 | [→](skills/engineering/using-git-worktrees/README.md) |
 | `engineering.skill-authoring` | 创建/重构/评估 skill 的 skill（本仓创作规范） | [→](skills/engineering/skill-authoring/README.md) |
+| `engineering.handoff` | 将当前对话压缩为交接文档，供另一 Agent 继续工作 | [→](skills/engineering/handoff/README.md) |
+| `engineering.teach` | 在结构化教学工作区中逐步教授新技能或概念 | [→](skills/engineering/teach/README.md) |
+| `engineering.wizard` | 生成交互式 bash 向导，引导人类完成手动操作流程 | [→](skills/engineering/wizard/README.md) |
+| `engineering.to-questionnaire` | 将无法自行回答的决策转化为结构化问卷，供他人异步填写 | [→](skills/engineering/to-questionnaire/README.md) |
+| `engineering.mcp-builder` | MCP 服务器构建方法论——系统化构建生产级 MCP 工具 | [→](skills/engineering/mcp-builder/README.md) |
+| `engineering.workflow-runner` | 在 Claude Code / Codex / Cursor 中直接运行 YAML 工作流 | [→](skills/engineering/workflow-runner/README.md) |
 
 #### open-source（已上线）
 
@@ -145,10 +156,16 @@ gemini extensions uninstall skygazer42-skills
 | Skill | 一句话 | 详情 |
 | --- | --- | --- |
 | `writing.authentic-writing` | 去 AI 味写作——作者档案 + 多轮审稿 + 规则迭代 | [→](skills/writing/authentic-writing/README.md) |
+| `writing.humanizer` | 识别并消除 AI 生成文本痕迹——基于 Wikipedia "Signs of AI writing" 指南 | [→](skills/writing/humanizer/README.md) |
+| `writing.chinese-documentation` | 中文文档排版规范——中英文空格、全半角标点、术语保留 | [→](skills/writing/chinese-documentation/README.md) |
 
-### 视觉创作（规划中）
+### 视觉创作
 
-image / video / presentation 等。
+#### presentation（已上线）— 演示文稿生成
+
+| Skill | 一句话 | 详情 |
+| --- | --- | --- |
+| `presentation.open-kimi-ppt` | 基于 PPTD 格式创建/编辑/复刻/导出演示文稿，默认产出 PPTD 项目 + .pptx 文件 | [→](skills/presentation/open-kimi-ppt/README.md) |
 
 ### 办公生产力（规划中）
 
@@ -161,6 +178,8 @@ spreadsheet 等。
 | `web.frontend-implementation` | 否 | 是 | 是 | 是 |
 | `web.frontend-review` | 否 | 是 | 否 | 是 |
 | `web.frontend-testing` | 是 | 是 | 是 | 是 |
+| `web.image-to-code` | 否 | 是 | 是 | 否 |
+| `web.brandkit` | 否 | 是 | 否 | 否 |
 | `backend.backend-implementation` | 否 | 是 | 是 | 是 |
 | `backend.backend-review` | 否 | 是 | 否 | 是 |
 | `backend.backend-debugging` | 否 | 是 | 否 | 是 |
@@ -173,20 +192,29 @@ spreadsheet 等。
 | `security.api-security` | 是 | 是 | 否 | 是 |
 | `security.code-audit` | 否 | 是 | 否 | 是 |
 | `research.last30days` | 是 | 是 | 否 | 是 |
+| `writing.authentic-writing` | 否 | 是 | 是 | 否 |
+| `writing.humanizer` | 否 | 是 | 是 | 否 |
+| `presentation.open-kimi-ppt` | 是 | 是 | 是 | 是 |
 
 ## 仓库结构
 
 ```text
 skills/
 ├── web/
+│   ├── frontend-design/
+│   ├── interface-design/
+│   ├── enterprise-design/
 │   ├── frontend-implementation/
 │   ├── frontend-review/
-│   └── frontend-testing/
+│   ├── frontend-testing/
+│   ├── web-clone/
+│   ├── image-to-code/
+│   └── brandkit/
 ├── backend/
 │   ├── backend-implementation/
 │   ├── backend-review/
 │   └── backend-debugging/
-├── engineering/           (13 个工程流程 Skill)
+├── engineering/           (18 个工程流程 Skill)
 ├── open-source/
 │   └── beautify-github-readme/
 ├── security/
@@ -196,8 +224,10 @@ skills/
 │   ├── malware-analysis/
 │   ├── api-security/
 │   └── code-audit/
-└── research/
-    └── last30days/
+├── research/
+│   └── last30days/
+└── presentation/
+    └── open-kimi-ppt/
 ```
 
 ## 贡献与维护

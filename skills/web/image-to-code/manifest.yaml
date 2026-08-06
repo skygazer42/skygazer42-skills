@@ -1,0 +1,48 @@
+schema_version: 1
+
+id: web.image-to-code
+name: Image to Code
+version: 0.1.0
+status: beta
+
+description: >
+  图片/截图转前端代码。先让 AI 生成设计参考图，深度分析图像，
+  再忠实还原为前端实现。适用于 hero、landing page、营销站、
+  品牌页、作品集等视觉优先的网页任务。
+
+category: web
+entrypoint: SKILL.md
+tags:
+  - web
+  - frontend
+  - image-to-code
+  - design
+  - visual
+  - implementation
+  - screenshot
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

@@ -65,6 +65,9 @@ description: 为营销/创意类网页做独特、有意图的视觉设计——
 
 - **动效工艺**（Emil Kowalski 哲学）：动画决策框架、缓动、频率纪律见 `references/motion-craft.md`；手势驱动 UI（sheet/drawer/swipe）见 `references/apple-fluid-interfaces.md`；动效术语见 `references/animation-vocabulary.md`；审查动效见 `references/motion-review.md`。
 - **中文排版**（W3C clreq + Ant + Apple HIG）：中文字体加载纪律、系统字体栈，凡界面含中文优先适用，见 `references/chinese-typography.md`。
+- **反 AI-Slop 设计**（taste-skill 方法论）：消除 AI 模板味——brief 推断、设计朗读、字体配对纪律、排版去套路、颜色避免 AI 默认色，见 `references/anti-slop-taste.md`。
+- **设计风格变体**：野兽派风格见 `references/brutalist-style.md`；极简风格见 `references/minimalist-style.md`；柔和风格见 `references/soft-style.md`。
+- **改版与截图**：改版方法论见 `references/redesign-methodology.md`；截图拼接工作流见 `references/stitch-screenshots.md`。
 
 ## 克制与自我批评
 

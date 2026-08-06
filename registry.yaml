@@ -91,6 +91,30 @@ skills:
   - planning
   - critique
   - decision-making
+- id: engineering.handoff
+  name: Agent Handoff
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/handoff
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - handoff
+  - collaboration
+  - agent
+  - context
+- id: engineering.mcp-builder
+  name: MCP Server Builder
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/mcp-builder
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - mcp
+  - tools
+  - integration
+  - server
 - id: engineering.subagent-driven-development
   name: Subagent-Driven Development
   version: 0.2.0
@@ -113,6 +137,18 @@ skills:
   - debugging
   - root-cause-analysis
   - methodology
+- id: engineering.teach
+  name: Teach
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/teach
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - teaching
+  - learning
+  - education
+  - workspace
 - id: engineering.test-driven-development
   name: Test-Driven Development
   version: 0.1.0
@@ -124,6 +160,18 @@ skills:
   - tdd
   - testing
   - quality
+- id: engineering.to-questionnaire
+  name: To Questionnaire
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/to-questionnaire
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - questionnaire
+  - decision
+  - collaboration
+  - async
 - id: engineering.using-git-worktrees
   name: Using Git Worktrees
   version: 0.1.0
@@ -146,6 +194,30 @@ skills:
   - verification
   - quality
   - discipline
+- id: engineering.wizard
+  name: Wizard
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/wizard
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - wizard
+  - bash
+  - setup
+  - automation
+- id: engineering.workflow-runner
+  name: Workflow Runner
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/workflow-runner
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - workflow
+  - orchestration
+  - yaml
+  - multi-agent
 - id: engineering.writing-plans
   name: Writing Plans
   version: 0.1.0
@@ -192,6 +264,21 @@ skills:
   - readme
   - profile
   - beautify
+- id: presentation.open-kimi-ppt
+  name: Open Kimi PPT
+  version: 0.1.0
+  status: beta
+  path: skills/presentation/open-kimi-ppt
+  entrypoint: SKILL.md
+  tags:
+  - presentation
+  - ppt
+  - pptx
+  - pptd
+  - slides
+  - export
+  - infographic
+  - poster
 - id: research.last30days
   name: Last 30 Days Research
   version: 0.1.0
@@ -298,6 +385,48 @@ skills:
   - angr
   - gdb
   - radare2
+- id: web.agent-browser
+  name: Agent Browser
+  version: 0.1.0
+  status: beta
+  path: skills/web/agent-browser
+  entrypoint: SKILL.md
+  tags:
+  - web
+  - browser
+  - automation
+  - testing
+  - screenshot
+  - scraping
+  - cdp
+- id: web.brandkit
+  name: Brand Kit
+  version: 0.1.0
+  status: beta
+  path: skills/web/brandkit
+  entrypoint: SKILL.md
+  tags:
+  - web
+  - brand
+  - design
+  - logo
+  - identity
+  - visual-system
+  - brand-guidelines
+- id: web.design-system
+  name: Design System
+  version: 0.1.0
+  status: beta
+  path: skills/web/design-system
+  entrypoint: SKILL.md
+  tags:
+  - web
+  - design-system
+  - tokens
+  - components
+  - css
+  - branding
+  - slides
 - id: web.enterprise-design
   name: Enterprise Design
   version: 0.1.0
@@ -355,6 +484,20 @@ skills:
   - testing
   - browser
   - accessibility
+- id: web.image-to-code
+  name: Image to Code
+  version: 0.1.0
+  status: beta
+  path: skills/web/image-to-code
+  entrypoint: SKILL.md
+  tags:
+  - web
+  - frontend
+  - image-to-code
+  - design
+  - visual
+  - implementation
+  - screenshot
 - id: web.interface-design
   name: Interface Design
   version: 0.1.0
@@ -367,6 +510,23 @@ skills:
   - dashboard
   - saas
   - ui
+- id: web.ui-ux-pro-max
+  name: UI/UX Pro Max
+  version: 0.1.0
+  status: beta
+  path: skills/web/ui-ux-pro-max
+  entrypoint: SKILL.md
+  tags:
+  - web
+  - design
+  - ui
+  - ux
+  - color
+  - typography
+  - animation
+  - accessibility
+  - charts
+  - design-system
 - id: web.web-clone
   name: Web Clone
   version: 0.1.0
@@ -391,6 +551,31 @@ skills:
   - de-ai
   - personal-voice
   - editing
+- id: writing.chinese-documentation
+  name: Chinese Documentation Standards
+  version: 0.1.0
+  status: beta
+  path: skills/writing/chinese-documentation
+  entrypoint: SKILL.md
+  tags:
+  - writing
+  - chinese
+  - documentation
+  - typography
+  - formatting
+- id: writing.humanizer
+  name: Humanizer — Remove AI Writing Patterns
+  version: 0.1.0
+  status: beta
+  path: skills/writing/humanizer
+  entrypoint: SKILL.md
+  tags:
+  - writing
+  - ai-detection
+  - de-ai
+  - editing
+  - style
+  - proofreading
 packs:
 - id: pack.backend
   name: Backend Essentials

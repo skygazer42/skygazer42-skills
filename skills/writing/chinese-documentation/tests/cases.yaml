@@ -1,0 +1,17 @@
+schema_version: 1
+
+cases:
+  - id: typical-format-chinese-doc
+    description: >
+      用户提供中英文混排的文档，要求按中文排版规范格式化。
+      chinese-documentation 应检查中英文空格、全半角标点、术语保留。
+
+    must:
+      - "检查中英文空格"
+      - "检查全半角标点"
+      - "检查术语保留"
+      - "输出格式化后的文档"
+
+    must_not:
+      - "修改代码块内容"
+      - "在非显式要求时自动触发"

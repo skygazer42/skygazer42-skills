@@ -1,33 +1,33 @@
 ---
 name: backend-implementation
-description: Implement or modify production backend APIs, services, jobs, data access, schemas, and integrations. Use when a user asks to add server behavior, change an endpoint, persist data, introduce a migration, connect an external service, or write backend tests.
+description: 实现或修改生产后端 API、服务、任务、数据访问、schema 和集成。当用户要求添加服务端行为、修改端点、持久化数据、引入迁移、接入外部服务或编写后端测试时使用。
 ---
 
-# Backend Implementation
+# 后端实现
 
-## Workflow
+## 工作流
 
-1. Read the request, acceptance criteria, entrypoint, callers, contracts, models, migrations, configuration, and existing tests.
-2. Trace the request and data path end to end. Reuse existing service boundaries, helpers, error types, and installed dependencies.
-3. Define trust boundaries before editing: validate untrusted input, enforce authentication and authorization, and avoid exposing secrets or internal errors.
-4. Implement the smallest coherent change. Preserve compatibility unless a breaking change is explicitly accepted.
-5. Protect data with appropriate constraints, transactions, idempotency, concurrency handling, timeouts, and bounded retries where the real path requires them.
-6. Add or update the smallest tests that cover success, important failure paths, and the regression risk.
-7. Run focused tests and relevant type, lint, migration, and integration checks. Report files changed, behavior, checks, and remaining deployment concerns.
+1. 阅读请求、验收标准、入口点、调用方、契约、模型、迁移、配置和已有测试。
+2. 端到端追踪请求和数据路径。复用现有服务边界、辅助函数、错误类型和已安装依赖。
+3. 编辑前先定义信任边界：验证不可信输入、执行认证和授权、避免暴露密钥或内部错误。
+4. 实现最小且一致的变化。保持兼容性，除非明确接受了破坏性变更。
+5. 用适当的约束、事务、幂等性、并发处理、超时和有界重试来保护数据。
+6. 添加或更新覆盖成功路径、重要失败路径和回归风险的最小测试。
+7. 运行聚焦的测试和相关的类型、lint、迁移、集成检查。报告文件变更、行为、检查结果和剩余的部署关注点。
 
-## Output contract
+## 输出契约
 
-- Deliver repository changes that follow the existing architecture.
-- State contract, schema, configuration, or migration changes explicitly.
-- Separate locally verified behavior from deployment-dependent behavior.
+- 交付遵循现有架构的仓库变更。
+- 明确声明契约、schema、配置或迁移变更。
+- 区分本地已验证的行为和依赖部署环境的行为。
 
-## Guardrails
+## 约束
 
-- Do not add a dependency or abstraction when existing code or the standard library suffices.
-- Do not weaken validation, authorization, data constraints, or error handling to shorten the change.
-- Do not embed credentials, log sensitive values, or silently swallow failures.
-- Do not run destructive migrations or production writes without explicit authorization and a recovery plan.
+- 当现有代码或标准库已足够时，不添加新依赖或抽象。
+- 不削弱验证、授权、数据约束或错误处理以缩短变更。
+- 不嵌入凭据、不记录敏感值、不静默吞掉失败。
+- 未经明确授权和恢复计划，不执行破坏性迁移或生产写入。
 
-## Failure handling
+## 失败处理
 
-If an external service, database, credential, or deployment environment is unavailable, keep the implementation scoped to verified contracts, preserve the failing evidence, and state the exact integration check that remains.
+如果外部服务、数据库、凭据或部署环境不可用，将实现范围限定在已验证的契约内，保留故障证据，并说明剩余的具体集成检查项。

@@ -1,0 +1,27 @@
+schema_version: 1
+
+cases:
+  - id: typical-brand-kit-generation
+    description: >
+      用户提供品牌名和行业，要求生成品牌视觉体系。
+      brandkit 应生成含 Logo/色彩/字体/应用示例的品牌指南板。
+
+    must:
+      - "理解品牌核心隐喻"
+      - "确定视觉语言（配色/排版/质感）"
+      - "生成品牌指南板（含 Logo + 色彩 + 字体 + 应用示例）"
+
+    must_not:
+      - "生成泛化的'通用品牌'"
+      - "在信息不足时编造品牌属性"
+
+  - id: boundary-ambiguous-brief
+    description: >
+      用户要求设计品牌但未提供行业和风格信息。
+      brandkit 应先问清关键信息。
+
+    must:
+      - "先问清品牌名称、行业、风格偏好"
+
+    must_not:
+      - "在信息不足时生成泛化品牌板"

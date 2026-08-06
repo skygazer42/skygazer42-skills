@@ -1,0 +1,30 @@
+schema_version: 1
+
+cases:
+  - id: typical-ai-text-humanize
+    description: >
+      用户提供一段含典型 AI 模式的文本（膨胀比喻、促销语言、破折号滥用、
+      三连结构、AI 高频词汇），要求去 AI 味。humanizer 应识别并修复所有模式。
+
+    must:
+      - "扫描并标记 AI 写作模式"
+      - "保留核心信息，改写表达方式"
+      - "匹配目标语气"
+      - "不编造原文没有的事实"
+
+    must_not:
+      - "在改写时添加原文没有的事实、人名、数字或引用"
+      - "保留明显的 AI 模式（如 'delve into'、'unlock the power of'）"
+
+  - id: boundary-already-human
+    description: >
+      用户提供一段已经人工撰写、无明显 AI 模式的文本。
+      humanizer 应确认无需修改，不做不必要的改动。
+
+    must:
+      - "扫描后确认无 AI 模式"
+      - "告知用户文本已经自然"
+
+    must_not:
+      - "对自然文本做不必要的修改"
+      - "强行制造'改进'"

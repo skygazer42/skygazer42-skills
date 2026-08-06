@@ -1,33 +1,33 @@
 ---
 name: frontend-implementation
-description: Implement or modify production frontend pages, components, forms, styling, state, and client-side data flows. Use when a user asks to build a UI feature, change interactive behavior, connect an interface to existing APIs, or make a frontend responsive and accessible.
+description: 实现或修改生产前端页面、组件、表单、样式、状态和客户端数据流。当用户要求构建 UI 功能、改变交互行为、将界面接入已有 API，或使前端响应式且无障碍时使用。
 ---
 
-# Frontend Implementation
+# 前端实现
 
-## Workflow
+## 工作流
 
-1. Read the request, acceptance criteria, relevant routes, components, styles, tests, and project commands.
-2. Trace the real user interaction and data flow before editing. Reuse existing components, tokens, utilities, and installed dependencies.
-3. Implement the smallest coherent change. Cover applicable loading, empty, error, success, disabled, and validation states.
-4. Preserve semantic HTML, keyboard access, visible focus, labels, useful errors, and responsive behavior.
-5. Keep state local unless it is genuinely shared. Avoid unnecessary effects, duplicated derived state, and new dependencies.
-6. Run the narrowest relevant type, lint, unit, build, and browser checks available in the repository.
-7. Report the behavior delivered, files changed, checks run, and anything not verified.
+1. 阅读请求、验收标准、相关路由、组件、样式、测试和项目命令。
+2. 编辑前先追踪真实的用户交互和数据流。复用现有组件、设计 token、工具函数和已安装依赖。
+3. 实现最小且一致的变化。覆盖加载、空态、错误、成功、禁用和验证状态。
+4. 保持语义化 HTML、键盘可访问、可见焦点、标签、有用的错误提示和响应式行为。
+5. 状态保持局部，除非确实需要共享。避免不必要的副作用、重复的派生状态和新依赖。
+6. 运行仓库中可用的最窄范围类型、lint、单元、构建和浏览器检查。
+7. 报告交付的行为、变更的文件、运行的检查和未验证的内容。
 
-## Output contract
+## 输出契约
 
-- Deliver working repository changes, not a detached code sample, when a workspace is available.
-- State which acceptance criteria are satisfied.
-- Distinguish automated checks from browser or visual verification.
+- 工作时交付仓库变更，而非独立代码片段。
+- 声明哪些验收标准已满足。
+- 区分自动化检查和浏览器或视觉验证。
 
-## Guardrails
+## 约束
 
-- Follow the repository's framework and design system; do not replace them for preference.
-- Do not add a dependency when the platform, standard library, CSS, or an installed package already covers the need.
-- Do not overwrite unrelated user changes or introduce production mock data.
-- Do not claim responsive, accessible, or visual correctness without checking it.
+- 遵循仓库的框架和设计系统；不为偏好替换它们。
+- 当平台、标准库、CSS 或已安装包已覆盖时，不添加新依赖。
+- 不覆盖无关的用户修改，不引入生产 mock 数据。
+- 未经检查不声称响应式、无障碍或视觉正确性。
 
-## Failure handling
+## 失败处理
 
-If required behavior cannot be determined from the request or repository, implement only the unambiguous portion and state the exact missing decision. If checks cannot run, give the command attempted and the blocking evidence.
+如果无法从请求或仓库确定所需行为，仅实现无歧义的部分并说明确切的缺失决策。如果检查无法运行，给出尝试的命令和阻塞证据。

@@ -1,0 +1,51 @@
+schema_version: 1
+
+id: presentation.open-kimi-ppt
+name: Open Kimi PPT
+version: 0.1.0
+status: beta
+
+description: >
+  演示文稿创建与导出。基于 Moonshot AI 的 PPTD 格式（YAML 中间 DSL），
+  生成可编辑的 PPTD 项目目录 + 本地 .pptx 文件（含嵌入字体和 fade 转场）。
+  支持新建、编辑、复刻、读取 PPT。
+
+category: presentation
+entrypoint: SKILL.md
+tags:
+  - presentation
+  - ppt
+  - pptx
+  - pptd
+  - slides
+  - export
+  - infographic
+  - poster
+
+contents:
+  examples:
+  references: references
+  scripts: scripts
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - python3
+    - node
+  environment_variables: []
+
+permissions:
+  network: true
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

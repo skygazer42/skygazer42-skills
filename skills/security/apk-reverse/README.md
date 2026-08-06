@@ -47,6 +47,17 @@
 - **执行命令**：是（jadx/apktool/frida/adb）
 - **网络**：否
 
+## 部署与依赖
+
+`scripts/` 内工具缺失时会给出手动安装提示，**本 Skill 不随附自动安装/引导脚本**
+（上游 `bootstrap-reverse.sh` / `bootstrap-reverse.ps1` 及其依赖的 `kali/` 环境未纳入本仓库）。
+
+前置工具需自行准备：
+
+- **Linux**：`jadx`（反编译）、`apktool`（解包/重打包）、`zipalign` + `apksigner`
+  （`sudo apt install android-sdk-build-tools` 或 `sdkmanager "build-tools;35.0.0"`）、`adb`、frida-tools（`pip install frida-tools`）。
+- **Windows**：对应工具放在 `%USERPROFILE%\Tools\` 或加入 PATH（`jadx`、`apktool`、frida-tools）。
+
 ## 与相邻 Skill 的区别
 
 | Skill | 区别 |

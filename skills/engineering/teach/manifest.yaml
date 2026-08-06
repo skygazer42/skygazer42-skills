@@ -1,0 +1,45 @@
+schema_version: 1
+
+id: engineering.teach
+name: Teach
+version: 0.1.0
+status: beta
+
+description: >
+  教学技能。在结构化教学工作区中逐步教授新技能或概念，
+  包含 MISSION.md、学习记录、参考资料、课程和资产。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - teaching
+  - learning
+  - education
+  - workspace
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

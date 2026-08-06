@@ -1,33 +1,33 @@
 ---
 name: frontend-review
-description: Review frontend changes for behavioral correctness, regressions, accessibility, responsive layout, performance, security, and test coverage. Use when a user asks for a frontend code review, UI pull-request review, regression analysis, or prioritized findings without requesting implementation.
+description: 审查前端变更的行为正确性、回归、无障碍、响应式布局、性能、安全和测试覆盖。当用户要求前端代码审查、UI PR 审查、回归分析或有优先级的发现而不要求实现时使用。
 ---
 
-# Frontend Review
+# 前端审查
 
-## Workflow
+## 工作流
 
-1. Read the change description, diff, affected components, routes, data clients, styles, and tests.
-2. Trace each changed interaction from user input through state and network behavior to rendered output.
-3. Check correctness across loading, empty, error, success, validation, cancellation, and repeated-interaction paths where applicable.
-4. Check semantic structure, keyboard access, focus behavior, labels, announcements, contrast assumptions, and responsive layout.
-5. Check avoidable rendering work, oversized client bundles, unsafe HTML, exposed secrets, and trust-boundary mistakes.
-6. Confirm tests cover the risky behavior rather than only snapshots or implementation details.
-7. Report only evidence-backed findings, ordered by severity, with file and line references and a concrete fix.
+1. 阅读变更描述、diff、受影响的组件、路由、数据客户端、样式和测试。
+2. 追踪每个变更的交互：从用户输入 → 状态 → 网络行为 → 渲染输出。
+3. 检查加载、空态、错误、成功、验证、取消和重复交互路径下的正确性。
+4. 检查语义结构、键盘访问、焦点行为、标签、无障碍声明、对比度假设和响应式布局。
+5. 检查可避免的渲染开销、过大的客户端包、不安全的 HTML、暴露的密钥和信任边界错误。
+6. 确认测试覆盖了高风险行为，而非仅快照或实现细节。
+7. 仅报告有证据支持的发现，按严重度排序，含文件和行号引用及具体修复建议。
 
-## Output contract
+## 输出契约
 
-- Lead with blocking findings, then non-blocking findings.
-- For every finding include impact, evidence, affected path, and a minimal remediation.
-- If no issue is found, state that explicitly and list residual unverified risks.
+- 阻塞性发现在前，非阻塞性在后。
+- 每个发现包含影响、证据、受影响路径和最小修复方案。
+- 如未发现缺陷，明确声明，并列出剩余未验证的风险。
 
-## Guardrails
+## 约束
 
-- Do not edit files unless the user separately asks for fixes.
-- Do not report taste, formatting, or framework preference as a defect.
-- Do not infer runtime behavior from filenames or a diff alone when the implementation is available.
-- Do not claim browser behavior was verified unless it was exercised.
+- 除非用户单独要求修复，否则不编辑文件。
+- 不把审美、格式化或框架偏好当作缺陷。
+- 当实现可读取时，不凭文件名或 diff 推断运行时行为。
+- 未实际验证不声称浏览器行为。
 
-## Failure handling
+## 失败处理
 
-If the diff, affected implementation, or acceptance criteria are missing, identify the missing evidence and limit the review to what can actually be established.
+如果 diff、受影响实现或验收标准缺失，列出缺失的证据，将审查限定在可实际确定的内容内。

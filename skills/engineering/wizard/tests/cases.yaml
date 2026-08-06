@@ -1,0 +1,16 @@
+schema_version: 1
+
+cases:
+  - id: typical-wizard
+    description: >
+      用户要求"帮我生成一个设置 GitHub secrets 的向导"。
+      wizard 应基于 template.sh 生成交互式 bash 向导。
+
+    must:
+      - "阅读项目上下文（.env、workflows、README 等）"
+      - "确定每一步手动操作和需要捕获的值"
+      - "基于 template.sh 生成 bash 向导"
+
+    must_not:
+      - "为 Agent 自己能完成的操作生成向导"
+      - "手写 template.sh 库部分（应保持一致性）"

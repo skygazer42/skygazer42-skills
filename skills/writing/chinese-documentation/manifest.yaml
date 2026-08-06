@@ -1,0 +1,45 @@
+schema_version: 1
+
+id: writing.chinese-documentation
+name: Chinese Documentation Standards
+version: 0.1.0
+status: beta
+
+description: >
+  中文文档排版规范——中英文空格、全半角标点、术语保留、链接格式、
+  中文文案排版指北约定。仅在用户显式要求时调用。
+
+category: writing
+entrypoint: SKILL.md
+tags:
+  - writing
+  - chinese
+  - documentation
+  - typography
+  - formatting
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

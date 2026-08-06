@@ -72,27 +72,7 @@ function Get-ToolPath {
         }
     }
 
-    # Attempt auto-bootstrap for supported tools
-    $bootstrapScript = Join-Path $PSScriptRoot '..\..\scripts\bootstrap-reverse.ps1'
-    $bootstrapSupported = @('adb', 'apktool')
-    if ($Name -in $bootstrapSupported -and (Test-Path -LiteralPath $bootstrapScript)) {
-        Write-Host "INFO: $Name not found, attempting auto-bootstrap..." -ForegroundColor Yellow
-        & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $bootstrapScript -Capability @($Name) -SkipRefresh
-        $cmd = Get-Command $Name -ErrorAction SilentlyContinue
-        if ($cmd) {
-            Write-Host "INFO: $Name bootstrapped successfully." -ForegroundColor Green
-            return $cmd.Source
-        }
-        # Re-check fallbacks after bootstrap
-        if ($fallbacks.Contains($Name)) {
-            foreach ($candidate in $fallbacks[$Name]) {
-                if (-not [string]::IsNullOrWhiteSpace($candidate) -and (Test-Path -LiteralPath $candidate)) {
-                    Write-Host "INFO: $Name found at fallback path after bootstrap." -ForegroundColor Green
-                    return $candidate
-                }
-            }
-        }
-    }
+    # No auto-installer is shipped with this repo. Fall through to manual-install guidance.
 
     # Clear error message for tools that cannot be auto-bootstrapped
     $manualHint = switch ($Name) {

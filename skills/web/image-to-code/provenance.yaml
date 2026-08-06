@@ -1,0 +1,20 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/Leonxlnx/taste-skill
+  revision: e988add20dab0fa97d7a76781c48961c8184288e
+  path: skills/image-to-code-skill/
+  author: Leonxlnx
+
+license:
+  identifier: MIT
+  file: LICENSE
+
+imported_at: "2026-08-06"
+imported_by: skygazer42
+
+local_modifications:
+  - "首次内化：从 taste-skill 集合中提取 image-to-code-skill，SKILL.md 原文完整保留"
+  - "补全仓库契约文件（manifest.yaml/README.md/provenance.yaml/tests/cases.yaml）"
+  - "归入 web 分类，与 web.frontend-design（定方向）和 web.frontend-implementation（实现组件）互补"

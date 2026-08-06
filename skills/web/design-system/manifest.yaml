@@ -1,0 +1,48 @@
+schema_version: 1
+
+id: web.design-system
+name: Design System
+version: 0.1.0
+status: beta
+
+description: >
+  设计系统构建方法论。三层 token 架构（primitive→semantic→component）、
+  CSS 变量、间距/排版尺度、组件规格、策略性幻灯片生成。
+  用于设计 token、系统性设计和品牌合规展示。
+
+category: web
+entrypoint: SKILL.md
+tags:
+  - web
+  - design-system
+  - tokens
+  - components
+  - css
+  - branding
+  - slides
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

@@ -1,0 +1,29 @@
+schema_version: 1
+
+cases:
+  - id: typical-landing-page-from-image
+    description: >
+      用户提供设计参考图，要求还原为前端代码。
+      image-to-code 应遵循"图片生成→深度分析→忠实实现"链路。
+
+    must:
+      - "先深度分析设计图（排版/配色/间距/层级）"
+      - "逐区域还原为前端代码"
+      - "保持视觉高度一致"
+      - "产出可运行的前端代码"
+
+    must_not:
+      - "跳过图片生成步骤直接写代码（视觉任务）"
+      - "生成与设计图视觉不一致的代码"
+
+  - id: boundary-no-reference-image
+    description: >
+      用户要求做 landing page 但没有提供参考图。
+      image-to-code 应先让 AI 生成设计图再实现。
+
+    must:
+      - "先让 AI 生成设计参考图"
+      - "分析图片后再实现"
+
+    must_not:
+      - "跳过图片生成直接写代码"

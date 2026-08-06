@@ -1,0 +1,52 @@
+schema_version: 1
+
+id: web.ui-ux-pro-max
+name: UI/UX Pro Max
+version: 0.1.0
+status: beta
+
+description: >
+  UI/UX 设计智能参考库。可搜索的本地数据库，含 84 种风格、
+  192 种配色方案、74 种字体配对、192 个产品类型推理规则、
+  98 条 UX 准则、104 个图标条目、16 种 GSAP 动效预设和 25 种图表类型，
+  覆盖 22 个技术栈。在设计、构建或审查 UI 时使用。
+
+category: web
+entrypoint: SKILL.md
+tags:
+  - web
+  - design
+  - ui
+  - ux
+  - color
+  - typography
+  - animation
+  - accessibility
+  - charts
+  - design-system
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

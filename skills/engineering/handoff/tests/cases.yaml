@@ -1,0 +1,17 @@
+schema_version: 1
+
+cases:
+  - id: typical-handoff
+    description: >
+      用户要求"把当前进度交接给下一个 Agent 继续做"。
+      handoff 应生成包含工作摘要、建议 Skill 和关键上下文的交接文档。
+
+    must:
+      - "总结当前对话的关键决策和状态"
+      - "列出建议的 Skill 清单"
+      - "引用已有制品（specs/plans/ADRs/issues）"
+      - "脱敏（移除 API 密钥、密码等）"
+
+    must_not:
+      - "重复已有制品中已有的内容"
+      - "保留敏感信息（API 密钥、密码、PII）"

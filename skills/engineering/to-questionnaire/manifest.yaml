@@ -1,0 +1,45 @@
+schema_version: 1
+
+id: engineering.to-questionnaire
+name: To Questionnaire
+version: 0.1.0
+status: beta
+
+description: >
+  将无法自行回答的决策转化为问卷，供他人异步填写。
+  面向接收者撰写，按重要性排序问题，覆盖用户需要的全部决策点。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - questionnaire
+  - decision
+  - collaboration
+  - async
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

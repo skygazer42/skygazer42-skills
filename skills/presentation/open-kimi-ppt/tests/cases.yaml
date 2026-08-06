@@ -1,0 +1,32 @@
+schema_version: 1
+
+cases:
+  - id: typical-ppt-creation
+    description: >
+      用户提供产品发布新闻稿，要求做成 10 页发布 PPT。
+      open-kimi-ppt 应读取内容、确定设计方向、生成 PPTD + PPTX。
+
+    must:
+      - "读取完整输入内容"
+      - "读取 PPTD 格式规范 references/pptd.md"
+      - "确定设计方向（新建/编辑/复刻）"
+      - "产出 PPTD 项目目录 + .pptx 文件"
+      - "验证 PPTX 导出完整性"
+
+    must_not:
+      - "跳过 PPTD 格式规范直接生成"
+      - "只产出 PPTD 不导出 PPTX（除非用户明确要求）"
+      - "编造用户未提供的内容作为事实"
+
+  - id: boundary-vague-request
+    description: >
+      用户只说"帮我做个 PPT"但未提供内容和风格。
+      open-kimi-ppt 应先问清主题、风格、页数等关键信息。
+
+    must:
+      - "在信息不足时先提问（主题/风格/页数）"
+      - "展示风格选择图"
+
+    must_not:
+      - "在信息不足时自行编造完整 PPT"
+      - "代选风格和内容（除非用户委托）"

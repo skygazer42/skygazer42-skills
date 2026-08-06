@@ -1,0 +1,20 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/blader/humanizer
+  revision: 523374dee72d67c7b2b5f858ea0094ffda49c3ac
+  path: "."
+  author: Siqi Chen
+
+license:
+  identifier: MIT
+  file: LICENSE
+
+imported_at: "2026-08-06"
+imported_by: skygazer42
+
+local_modifications:
+  - "首次内化：从 blader/humanizer 完整复制 SKILL.md（412 行），未做内容修改"
+  - "补全仓库契约文件（manifest.yaml/README.md/provenance.yaml/tests/cases.yaml）"
+  - "归入 writing 分类，与 writing.authentic-writing 互补"

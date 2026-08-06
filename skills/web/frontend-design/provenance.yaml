@@ -21,7 +21,7 @@ local_modifications:
   - "保留 Apache 2.0 LICENSE.txt 随 Skill 一起"
   - "第二轮：新增「顶级设计标准」节（Awwwards 对标、Lucide 图标、禁 emoji、先锋视觉、物理动效、沉浸式）"
   - "来源说明节已写入 SKILL.md 末尾"
-  - "第二轮：吸收 joeseesun/qiaomu-design（MIT）的动效工艺 + 中文排版为 references/（motion-craft/animation-vocabulary/apple-fluid-interfaces/motion-review/chinese-typography）"
+  - "第三轮：吸收 Leonxlnx/taste-skill（MIT）的反 AI-slop 设计 + 风格变体 + 改版/截图方法为 references/（anti-slop-taste/brutalist-style/minimalist-style/soft-style/redesign-methodology/stitch-screenshots）"
 
 additional_sources:
   - repository: https://github.com/joeseesun/qiaomu-design
@@ -30,3 +30,8 @@ additional_sources:
     author: joeseesun
     imported: "references/motion-craft.md 等 5 个动效/中文排版文件"
     note: "motion-* 蒸馏自 Emil Kowalski；chinese-typography 源自 W3C clreq/Ant/Apple HIG"
+  - repository: https://github.com/Leonxlnx/taste-skill
+    revision: e988add20dab0fa97d7a76781c48961c8184288e
+    license: MIT
+    author: Leonxlnx
+    imported: "references/anti-slop-taste.md 等 6 个设计风格/方法文件"

@@ -1,0 +1,21 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/mattpocock/skills
+  revision: 8b36d4fb2635b3c21998dcd8144439c9e5ba7302
+  path: skills/productivity/teach/
+  author: Matt Pocock
+
+license:
+  identifier: MIT
+  file: LICENSE
+
+imported_at: "2026-08-06"
+imported_by: skygazer42
+
+local_modifications:
+  - "首次内化：从 mattpocock/skills 提取，SKILL.md 原文完整保留"
+  - "保留 MISSION-FORMAT.md / RESOURCES-FORMAT.md / LEARNING-RECORD-FORMAT.md / GLOSSARY-FORMAT.md"
+  - "补全仓库契约文件（manifest.yaml/README.md/provenance.yaml/tests/cases.yaml）"
+  - "归入 engineering 分类，作为教学引导工具"
