@@ -1,0 +1,46 @@
+schema_version: 1
+
+id: art.photo-abstract-editorial
+name: Photo Abstract Editorial（照片抽象编辑）
+version: 0.1.0
+status: beta
+
+description: >
+  将一张上传照片转化为「原始摄影区域 + 照片派生抽象记忆面板 + 诗意英文标题」
+  的竖向编辑作品。忠实保留照片内容，不是滤镜、重画或风格迁移；抽象面板的每个
+  元素都必须能追溯到照片中真实存在的空间、构图或色彩事实。
+
+category: art
+entrypoint: SKILL.md
+tags:
+  - art
+  - photo
+  - abstraction
+  - editorial
+  - image-generation
+  - prompt-engineering
+
+contents:
+  references: references
+  agents: agents
+  assets: assets
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

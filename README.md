@@ -178,6 +178,12 @@ gemini extensions uninstall skygazer42-skills
 
 ### 视觉创作
 
+#### art（已上线）
+
+| Skill | 一句话 | 详情 |
+| --- | --- | --- |
+| `art.photo-abstract-editorial` | 把照片做成「摄影 + 抽象记忆面板 + 诗意标题」的竖向编辑作品（非滤镜/重画） | [→](skills/art/photo-abstract-editorial/README.md) |
+
 #### presentation（已上线）— 演示文稿生成
 
 | Skill | 一句话 | 详情 |
@@ -208,6 +214,7 @@ spreadsheet 等。
 | `security.malware-analysis` | 否 | 是 | 否 | 是 |
 | `security.api-security` | 是 | 是 | 否 | 是 |
 | `security.code-audit` | 否 | 是 | 否 | 是 |
+| `art.photo-abstract-editorial` | 否 | 是 | 否 | 否 |
 | `research.last30days` | 是 | 是 | 否 | 是 |
 | `writing.authentic-writing` | 否 | 是 | 是 | 否 |
 | `writing.humanizer` | 否 | 是 | 是 | 否 |
@@ -243,6 +250,8 @@ skills/
 │   └── code-audit/
 ├── research/
 │   └── last30days/
+├── art/
+│   └── photo-abstract-editorial/
 └── presentation/
     └── open-kimi-ppt/
 ```

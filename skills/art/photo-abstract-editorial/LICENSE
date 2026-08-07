@@ -1,0 +1,14 @@
+# 许可证说明（License Notice）
+
+本项目派生自上游仓库 [ZzzLc0405/photo-abstract-editorial](https://github.com/ZzzLc0405/photo-abstract-editorial)（@ZzzLc0405，2026-08-07 抓取，revision `8263660`）。
+
+截至导入日，上游仓库**未声明任何开源许可证**（无 LICENSE / COPYING 文件，GitHub 许可证字段为空），因此本 Skill 的许可证标识记为 `NOASSERTION`。
+
+含义与边界：
+
+- 上游内容（SKILL.md 及中/英提示词）的版权归原作者所有。
+- 本仓库仅作**个人工作流内化使用**，不将其作为可再分发的开源组件。
+- 若你计划对外部分发或二次发布本 Skill，请先联系上游作者确认授权，或移除派生内容。
+- 仓库自身上游未选择开源许可证（见根 `README.md`「当前已知限制」）。
+
+请在使用前自行评估法律风险。

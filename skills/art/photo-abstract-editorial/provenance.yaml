@@ -1,0 +1,24 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/ZzzLc0405/photo-abstract-editorial
+  revision: 82636602dcd386b38a3377df5a05a30702ad7e05
+  path: "."
+  author: "@ZzzLc0405"
+
+license:
+  identifier: NOASSERTION
+  file: LICENSE
+
+imported_at: "2026-08-07"
+imported_by: skygazer42
+
+local_modifications:
+  - "首次内化：复制上游 SKILL.md（未改动提示词/工作流内容），归入 art 分类"
+  - "同时导入 2 个参考提示词（zh-CN / en）与 5 张示例图（assets/examples）、适配器元数据（agents/openai.yaml）"
+  - "重命名参考文件为通用名（references/prompt.en.md / references/prompt.zh-CN.md），并同步 SKILL.md 中的链接"
+  - "精简 agents/openai.yaml，仅保留 interface 元数据，删除 Codex 平台专属字段（本项目适配器不声明该平台）"
+  - "在 SKILL.md 的示例图说明中补充：示例图版权归原摄影/作者所有，不得作为新作品的素材复用"
+  - "补全仓库契约文件（manifest.yaml / README.md / provenance.yaml / tests/cases.yaml）"
+  - "上游仓库（ZzzLc0405/photo-abstract-editorial）未声明开源许可证；imported_at 当日经 GitHub 与仓库源码核查，无 LICENSE/COPYING 文件，故 license.identifier 记为 NOASSERTION，license.file 留空"
