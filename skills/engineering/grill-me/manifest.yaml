@@ -1,0 +1,52 @@
+schema_version: 1
+
+id: engineering.grill-me
+name: Grill Me — 审问我（无状态用户入口）
+version: 0.1.0
+status: beta
+
+description: >
+  在干净对话中对任何想法启动一场无情的审问式访谈。不写文件、不依赖仓库、
+  不留工作区——审问结束后只在用户脑子里留下更清晰的方案。
+  路由到 engineering.grilling 执行实际审问协议。
+  与 grilling 的区别：grill-me 是用户入口（stateless / any subject），
+  grilling 是执行引擎。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - grilling
+  - interview
+  - decision-making
+  - planning
+  - critique
+  - design-review
+  - productivity
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+  agents: agents
+
+dependencies:
+  skills:
+    - engineering.grilling
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: false
+  write_files: false
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

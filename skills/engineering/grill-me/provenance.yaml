@@ -1,0 +1,23 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/mattpocock/skills
+  revision: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+  path: skills/productivity/grill-me
+  author: Matt Pocock
+
+license:
+  file: LICENSE
+  identifier: MIT
+
+imported_at: "2026-08-07"
+imported_by: skygazer42
+
+local_modifications:
+  - "从极薄触发器（8 行）扩展为独立 SKILL.md，注入本仓上下文"
+  - "从上游 docs/productivity/grill-me.md 提取关键概念：stateless / any subject / fresh conversation / grillable vs ungrillable / 成功标志"
+  - "路由目标从上游 /grilling 改为本仓 engineering.grilling"
+  - "补全仓库契约文件（manifest.yaml / README.md / provenance.yaml / tests/cases.yaml）"
+  - "与 engineering.grilling 形成「入口 ← 引擎」互补关系"
+  - "上游 grill-me 本身是无内容触发器，实际价值在概念定位和配套文档"

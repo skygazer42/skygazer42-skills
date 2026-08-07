@@ -48,6 +48,7 @@
 
 | Skill | 区别 |
 | --- | --- |
+| `engineering.grill-me` | grill-me 是**用户入口**（stateless / any subject / 不需要仓库）；grilling 是**执行引擎**（可在仓库上下文中查证据）。用户 `/grill-me` 启动的是 grill-me，它路由到 grilling 执行协议 |
 | `engineering.brainstorming` | brainstorming **建设性**探索（帮方案结晶）；grilling **批判性**攻击（逼出漏洞） |
 | `engineering.writing-plans` | grilling 拷问方案；writing-plans 拆解经受住拷问的方案 |
 | `engineering.architecture-review` | architecture-review 用 grilling 来审问选定的架构改进候选 |

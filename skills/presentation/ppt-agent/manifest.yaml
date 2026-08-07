@@ -1,0 +1,51 @@
+schema_version: 1
+
+id: presentation.ppt-agent
+name: PPT Agent — 端到端 PPT 生成流水线
+version: 0.1.0
+status: beta
+
+description: >
+  端到端 PPT 生成助手。七阶段流水线固化"人类顶级 PPT 团队"的工作流：
+  需求调研→大纲→资料检索→策划稿→整页 SVG 设计→预览出片→视觉 QA。
+  两道人审关口（需求、大纲），产出 1280×720 整页 SVG + 原生可编辑 .pptx + 网页预览。
+  每个色块/文字/线条都是原生 PowerPoint 形状，打开即可改字改色。
+
+category: presentation
+entrypoint: SKILL.md
+tags:
+  - presentation
+  - ppt
+  - pptx
+  - slides
+  - svg
+  - deck
+  - powerpoint
+  - bento-grid
+
+contents:
+  examples:
+  references: references
+  scripts: scripts
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - python3
+  environment_variables: []
+
+permissions:
+  network: true
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

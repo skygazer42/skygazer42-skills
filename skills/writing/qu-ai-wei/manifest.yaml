@@ -1,0 +1,48 @@
+schema_version: 1
+
+id: writing.qu-ai-wei
+name: 去 AI 味 — 简体中文 AI 文本自然化
+version: 0.1.0
+status: beta
+
+description: >
+  清理简体中文的 AI 写作痕迹，保留事实、原意、语体和原文声口。
+  提供 51 类 AI 模式诊断、9 档语体激活矩阵、双输出模式（普通/内嵌）和多重安全门检。
+  用于「去 AI 味」「改得说人话」「太生硬了」等请求，包括更大工作流中的去机器感步骤。
+
+category: writing
+entrypoint: SKILL.md
+tags:
+  - writing
+  - chinese
+  - de-ai
+  - humanize
+  - editing
+  - style
+  - ai-detection
+
+contents:
+  examples:
+  references: references
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

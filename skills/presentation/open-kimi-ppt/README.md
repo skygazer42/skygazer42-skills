@@ -55,8 +55,7 @@
 | `web.brandkit` | 品牌视觉板生成，本 Skill 是完整多页 PPT 生成 |
 | `web.frontend-design` | 网页设计，本 Skill 是幻灯片设计 |
 | `writing.authentic-writing` | 文本写作，本 Skill 是演示文稿 |
-
-本 Skill 是本仓库唯一的 PPT/演示文稿生成能力。
+| `presentation.ppt-agent` | 内容驱动七阶段流水线（调研→大纲→检索→策划→设计→出片→QA）；open-kimi-ppt 是格式驱动的 PPTD DSL 方案，两者互补 |
 
 ## 行为案例
 

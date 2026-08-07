@@ -1,0 +1,56 @@
+schema_version: 1
+
+cases:
+  - id: typical-grill-session
+    description: >
+      用户输入 /grill-me 和一个模糊的技术方案想法。grill-me 应路由到
+      engineering.grilling 的审问协议，按决策树进行，全程不写文件不读仓库。
+
+    must:
+      - "按决策树方式组织审问——前端问题每轮全量"
+      - "每个问题给出推荐答案"
+      - "全程不写文件、不读仓库（除非用户要求）"
+      - "只在用户确认达成共识后才结束审问"
+      - "前端清空后自然结束，不自动路由到实现"
+
+    must_not:
+      - "在用户表达想被 grill 之前主动启动审问（disable-model-invocation）"
+      - "审问过程中写文件或创建工作区"
+      - "一次甩出 20 个问题——按轮次来，每轮只问前端问题"
+
+  - id: ungrillable-question
+    description: >
+      用户提了一个需要看到实物才能回答的问题（如视觉/交互感受）。
+      grill-me 应识别为 ungrillable，建议先做原型。
+
+    must:
+      - "识别 ungrillable 问题——需要原型/实物才能判断"
+      - "建议用户用 engineering.prototype 先做快速原型"
+      - "不在 ungrillable 问题上反复换问法消耗回合"
+
+    must_not:
+      - "在 ungrillable 问题上编造答案或用模板化回复拖延"
+
+  - id: non-code-subject
+    description: >
+      用户 /grill-me 发起一个非代码主题的审问（如业务决策、写作方向）。
+      grill-me 照常运行，不去读仓库。
+
+    must:
+      - "对非代码主题正常执行审问协议"
+      - "不去读取仓库（主题与代码无关时）"
+
+    must_not:
+      - "以'这不是代码问题'为由拒绝审问"
+      - "自动假设主题需要仓库上下文"
+
+  - id: route-to-grilling-when-code-context-needed
+    description: >
+      用户在审问中要求查看代码。此时应切换到有仓库上下文的模式。
+
+    must:
+      - "当用户要求读代码时，读取相关文件作为审问证据"
+      - "在代码证据基础上继续审问"
+
+    must_not:
+      - "因为 grill-me 默认不读文件，就拒绝用户'帮我看看代码'的请求"

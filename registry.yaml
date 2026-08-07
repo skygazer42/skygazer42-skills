@@ -80,6 +80,20 @@ skills:
   - git
   - integration
   - delivery
+- id: engineering.grill-me
+  name: Grill Me — 审问我（无状态用户入口）
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/grill-me
+  entrypoint: SKILL.md
+  tags:
+  - grilling
+  - interview
+  - decision-making
+  - planning
+  - critique
+  - design-review
+  - productivity
 - id: engineering.grilling
   name: Grilling
   version: 0.1.0
@@ -279,6 +293,21 @@ skills:
   - export
   - infographic
   - poster
+- id: presentation.ppt-agent
+  name: PPT Agent — 端到端 PPT 生成流水线
+  version: 0.1.0
+  status: beta
+  path: skills/presentation/ppt-agent
+  entrypoint: SKILL.md
+  tags:
+  - presentation
+  - ppt
+  - pptx
+  - slides
+  - svg
+  - deck
+  - powerpoint
+  - bento-grid
 - id: research.last30days
   name: Last 30 Days Research
   version: 0.1.0
@@ -576,6 +605,20 @@ skills:
   - editing
   - style
   - proofreading
+- id: writing.qu-ai-wei
+  name: 去 AI 味 — 简体中文 AI 文本自然化
+  version: 0.1.0
+  status: beta
+  path: skills/writing/qu-ai-wei
+  entrypoint: SKILL.md
+  tags:
+  - writing
+  - chinese
+  - de-ai
+  - humanize
+  - editing
+  - style
+  - ai-detection
 packs:
 - id: pack.backend
   name: Backend Essentials

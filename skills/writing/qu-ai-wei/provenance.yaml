@@ -1,0 +1,22 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/LifelongLazyLearner/qu-ai-wei
+  revision: c173ea9a4307cc34ccbc7545cedaa5d464cadedb
+  path: "."
+  author: "@LifelongLazyLearner"
+
+license:
+  identifier: MIT
+  file: LICENSE
+
+imported_at: "2026-08-07"
+imported_by: skygazer42
+
+local_modifications:
+  - "首次内化：从 LifelongLazyLearner/qu-ai-wei 完整复制 SKILL.md（186 行），未做内容修改"
+  - "同时导入 5 个参考文件（editing-boundaries / platform-patterns / brand-voice / whitelists / examples）"
+  - "补全仓库契约文件（manifest.yaml / README.md / provenance.yaml / tests/cases.yaml）"
+  - "归入 writing 分类，与 writing.humanizer、writing.authentic-writing 互补"
+  - "方法受 humanizer 启发，中文翻译腔规则参考 yage.ai"

@@ -10,7 +10,7 @@
 
 | 借鉴对象 | 核心理念 | 内化为 |
 | --- | --- | --- |
-| `grill-me` + `grilling` | 无情审问一个计划/设计/决策，一次一个问题走决策树，压力测试思路 | `engineering.grilling` |
+| `grill-me` + `grilling` | 无情审问一个计划/设计/决策，一次一个问题走决策树，压力测试思路 | `engineering.grilling`（引擎）+ `engineering.grill-me`（入口） |
 | `improve-codebase-architecture` + `codebase-design` | 找「深化机会」（浅模块→深模块），deletion test，架构可测性 | `engineering.architecture-review` |
 
 ## 二、关键问题：依赖链（AGENTS.md §8.2）

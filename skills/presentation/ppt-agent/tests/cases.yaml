@@ -1,0 +1,74 @@
+schema_version: 1
+
+cases:
+  - id: typical-ppt-creation
+    description: >
+      用户要求从零创建一个主题 PPT。ppt-agent 应按七阶段流水线执行：
+      需求调研→等确认→大纲→等确认→自动完成检索/策划/设计/出片/QA。
+
+    must:
+      - "先联网调研主题"
+      - "在需求阶段提出 3-5 个关键问题并停下等确认"
+      - "在大纲阶段以便利贴形式展示每页，停下等确认"
+      - "产出 slides/ 目录下 1280×720 的 SVG"
+      - "运行 build_preview.py 生成 preview.html"
+      - "运行 build_pptx.py 生成 .pptx"
+      - "阶段 7 视觉 QA 通过后才交付"
+
+    must_not:
+      - "跳过需求或大纲的人审关口直接进入后续阶段"
+      - "在需求/大纲未确认时自动跑完所有阶段"
+      - "SVG 画布尺寸偏离 1280×720"
+
+  - id: fast-track-existing-materials
+    description: >
+      用户已提供确认过的大纲和逐页内容。ppt-agent 应走快速通道，
+      将已有材料整理为过程稿格式，从阶段 4 开始跑。
+
+    must:
+      - "将已有材料整理为 00-research.md + 01-outline.json + 02-content.md"
+      - "从阶段 4（策划稿）开始执行"
+      - "不重复提问或重新生成大纲"
+
+    must_not:
+      - "因为快速通道而跳过阶段 7 视觉 QA"
+
+  - id: svg-requirements
+    description: >
+      验证生成的 SVG 满足所有硬性约束。
+
+    must:
+      - "viewBox 为 0 0 1280 720"
+      - "文字用 <text> 元素承载，不转曲"
+      - "不引用任何外部资源（图片/字体/CSS URL）"
+      - "字体使用通用中文字体栈"
+
+    must_not:
+      - "文字内容用 <path> 替代 <text>"
+      - "SVG 中包含外部 URL 引用"
+
+  - id: pptx-native-shapes
+    description: >
+      验证 build_pptx.py 产出的 .pptx 文件是原生可编辑的形状。
+
+    must:
+      - "矩形/圆角矩形翻译为原生 PowerPoint 形状"
+      - "文字翻译为可编辑文本框"
+      - "渐变填充逐元素还原"
+      - "复杂图标/装饰路径合成透明 PNG 叠层"
+
+    must_not:
+      - "整页作为一张图片导入（除非用户明确要求）"
+
+  - id: visual-qa-gate
+    description: >
+      阶段 7 视觉 QA 应检查关键质量问题。
+
+    must:
+      - "检查文字是否溢出卡片/画布边界"
+      - "检查元素重叠"
+      - "检查页间配色/字号一致性"
+      - "发现问题时修复对应 SVG 并重出片"
+
+    must_not:
+      - "QA 未通过就向用户交付"

@@ -6,7 +6,24 @@
 
 ## 安装
 
-### npx skills（推荐）
+### 一键配置（推荐）
+
+```bash
+git clone https://github.com/skygazer42/skygazer42-skills.git
+cd skygazer42-skills
+./scripts/setup.sh
+```
+
+这个脚本会自动安装 [FastCtx](https://github.com/yc-duan/fastctx)（高性能 MCP 文件/搜索工具运行时）和本仓库的 Skill。
+
+FastCtx 用结构化的 `read`/`grep`/`glob`/`replace`/`run` 工具替代 shell 拼接，避免编码乱码、输出截断和转义错误，让 Agent 把更多上下文留给代码理解而不是跟工具较劲。单独安装：
+
+```bash
+npm install --global fastctx
+fastctx   # 进入控制终端，Apply 后重启 AI 会话
+```
+
+### npx skills
 
 ```bash
 # 查看仓库里有哪些 Skill

@@ -1,0 +1,24 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/joker-sxj/ppt-agent
+  revision: 36f28b400bbee3eb5c66b30ae11211050d8cb7ed
+  path: skills/ppt-agent
+  author: joker-sxj
+
+license:
+  identifier: MIT
+  file: LICENSE
+
+imported_at: "2026-08-07"
+imported_by: skygazer42
+
+local_modifications:
+  - "首次内化：从 joker-sxj/ppt-agent 完整复制 SKILL.md（74 行），未做内容修改"
+  - "同时导入 4 个提示词文件（prompts/）"
+  - "同时导入 2 个参考文件（references/bento-grid.md + svg-to-powerpoint.md）"
+  - "同时导入 2 个 Python 脚本（scripts/build_preview.py + build_pptx.py）"
+  - "补全仓库契约文件（manifest.yaml / README.md / provenance.yaml / tests/cases.yaml）"
+  - "归入 presentation 分类，与 presentation.open-kimi-ppt 互补"
+  - "大纲架构师 / Bento Grid 版面 / SVG 生成三段提示词改编自 linux.do 社区文章思路"
