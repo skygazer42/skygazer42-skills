@@ -331,6 +331,21 @@ skills:
   - postmortem
   - on-call
   - blameless
+- id: presentation.html-ppt
+  name: HTML PPT Generator — 交互式 HTML 演示文稿
+  version: 0.1.0
+  status: beta
+  path: skills/presentation/html-ppt
+  entrypoint: SKILL.md
+  tags:
+  - presentation
+  - ppt
+  - html
+  - slides
+  - deck
+  - interactive
+  - zero-dependency
+  - presentation-deck
 - id: presentation.open-kimi-ppt
   name: Open Kimi PPT
   version: 0.1.0
@@ -361,6 +376,20 @@ skills:
   - deck
   - powerpoint
   - bento-grid
+- id: research.daily-ai-news
+  name: Daily AI News — 每日 AI 简报
+  version: 0.1.0
+  status: beta
+  path: skills/research/daily-ai-news
+  entrypoint: SKILL.md
+  tags:
+  - research
+  - news
+  - ai
+  - briefing
+  - aggregation
+  - daily
+  - summarization
 - id: research.last30days
   name: Last 30 Days Research
   version: 0.1.0

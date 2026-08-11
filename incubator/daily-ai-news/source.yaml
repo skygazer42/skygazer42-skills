@@ -1,0 +1,12 @@
+schema_version: 1
+
+repository: "https://github.com/NanjingHJLP/hjlp-skills"
+revision: "390ec9d"
+path: "skills/Daily-AI-News"
+license: "MIT"
+captured_at: "2026-08-11"
+
+notes:
+  - "ModelScope @NanjingHJLP/Daily-AI-News 的 git 镜像即为 NanjingHJLP/hjlp-skills 仓库，Daily-AI-News 位于 skills/Daily-AI-News"
+  - "revision 390ec9d（commit 'upload skills'）为 2026-08-11 抓取时刻上游最后一次改动该目录的提交"
+  - "上游仓库无 LICENSE 文件（git 历史从未添加）；license 字段依上游声明以 MIT 记录"

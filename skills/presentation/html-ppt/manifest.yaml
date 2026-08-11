@@ -1,0 +1,49 @@
+schema_version: 1
+
+id: presentation.html-ppt
+name: HTML PPT Generator — 交互式 HTML 演示文稿
+version: 0.1.0
+status: beta
+
+description: >
+  根据用户提供的配色方案、主题和逐页内容，生成单个自包含的交互式 HTML
+  演示文稿（.html）。8 套预设配色 + 自定义配色，粒子/毛玻璃/键盘/触摸/滚轮
+  导航/缩略图/全屏/首次指引等交互，零外部依赖，浏览器即开即播。
+
+category: presentation
+entrypoint: SKILL.md
+tags:
+  - presentation
+  - ppt
+  - html
+  - slides
+  - deck
+  - interactive
+  - zero-dependency
+  - presentation-deck
+
+contents:
+  examples:
+  references: references
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: false
+  write_files: true
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

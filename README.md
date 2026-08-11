@@ -83,7 +83,7 @@ gemini extensions uninstall skygazer42-skills
 
 ## 能力目录
 
-共 **53** 个正式 Skill（`registry.yaml` 为唯一清单），分布在 15 个分类。详细行为以各 Skill 的 `SKILL.md`、中文 `README.md` 和 `tests/cases.yaml` 为准。
+共 **55** 个正式 Skill（`registry.yaml` 为唯一清单），分布在 15 个分类。详细行为以各 Skill 的 `SKILL.md`、中文 `README.md` 和 `tests/cases.yaml` 为准。
 
 ### 开发
 
@@ -177,6 +177,7 @@ gemini extensions uninstall skygazer42-skills
 | Skill | 一句话 | 详情 |
 | --- | --- | --- |
 | `research.last30days` | 多源调研引擎：并行搜索 Reddit/X/YouTube/TikTok/HN/Polymarket/GitHub/Web，按用户互动排序，AI 融合成摘要 | [→](skills/research/last30days/README.md) |
+| `research.daily-ai-news` | 从多个来源聚合并总结最新 AI 新闻，去重分类后输出带原文链接的每日简报 | [→](skills/research/daily-ai-news/README.md) |
 
 ### 写作
 
@@ -203,6 +204,7 @@ gemini extensions uninstall skygazer42-skills
 | --- | --- | --- |
 | `presentation.open-kimi-ppt` | 基于 PPTD 格式创建/编辑/复刻/导出演示文稿，默认产出 PPTD 项目 + .pptx 文件 | [→](skills/presentation/open-kimi-ppt/README.md) |
 | `presentation.ppt-agent` | 端到端 PPT 生成流水线——需求调研→大纲→资料检索→策划→SVG 设计→出片→视觉 QA | [→](skills/presentation/ppt-agent/README.md) |
+| `presentation.html-ppt` | 直给式交互 HTML PPT——配色/主题/内容三要素即出单文件 .html，零依赖、浏览器即开即播（输出不可 .pptx 编辑） | [→](skills/presentation/html-ppt/README.md) |
 
 ### 数据分析
 
@@ -262,6 +264,7 @@ gemini extensions uninstall skygazer42-skills
 | `art.photo-abstract-editorial` | 否 | 是 | 否 | 否 |
 | `presentation.open-kimi-ppt` | 是 | 是 | 是 | 是 |
 | `presentation.ppt-agent` | 是 | 是 | 是 | 是 |
+| `presentation.html-ppt` | 否 | 否 | 是 | 否 |
 | `data.exploratory-analysis` | 否 | 是 | 是 | 是 |
 | `operations.incident-response` | 否 | 是 | 否 | 是 |
 
@@ -282,7 +285,7 @@ skills/
 ├── research/             (1 个：last30days 多源调研)
 ├── writing/              (4 个：去 AI 味/排版规范)
 ├── art/                  (1 个：照片抽象编辑)
-└── presentation/         (2 个：PPT 生成)
+└── presentation/         (3 个：PPT/HTML PPT 生成)
 ```
 
 ## 贡献与维护

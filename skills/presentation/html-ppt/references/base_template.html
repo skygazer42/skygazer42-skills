@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <style>
+        :root {
+            --bg-deep: {{BG_DEEP}};
+            --bg-card: {{BG_CARD}};
+            --primary: {{PRIMARY}};
+            --secondary: {{SECONDARY}};
+            --accent: {{ACCENT}};
+            --text-primary: {{TEXT_PRIMARY}};
+            --text-secondary: {{TEXT_SECONDARY}};
+            --border-glow: {{BORDER_GLOW}};
+            --font-display: 'PingFang SC', 'Microsoft YaHei', 'Heiti SC', sans-serif;
+            --font-body: 'PingFang SC', 'Microsoft YaHei', 'Heiti SC', sans-serif;
+            --font-mono: 'Consolas', 'Monaco', 'Source Code Pro', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(ellipse at 20% 20%, {{BG_GRADIENT_1}} 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, {{BG_GRADIENT_2}} 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, {{BG_GRADIENT_3}} 0%, transparent 40%);
+            animation: bgFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes bgFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, 2%) rotate(1deg); }
+            66% { transform: translate(-1%, 1%) rotate(-1deg); }
+        }
+
+        /* Particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: particleFloat 15s infinite;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+        }
+
+        /* Main Container */
+        .presentation {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+        }
+
+        /* Slides */
+        .slides-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(50px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            z-index: 10;
+        }
+
+        .slide.prev {
+            transform: translateX(-50px);
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            width: 90%;
+            padding: 40px;
+        }
+
+        /* Typography */
+        .title-main {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .title-section {
+            font-family: var(--font-display);
+            font-size: clamp(24px, 4vw, 40px);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-shadow: 0 0 30px {{PRIMARY_SHADOW}};
+        }
+
+        .subtitle {
+            font-size: clamp(16px, 2vw, 22px);
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .text-body {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .text-small {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 40px {{HOVER_SHADOW}};
+            transform: translateY(-2px);
+        }
+
+        /* Grid Layouts */
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+        @media (max-width: 900px) {
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+        }
+
+        /* Feature Items */
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 20px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--primary);
+            margin: 20px 0;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        /* Quote/Example Box */
+        .example-box {
+            background: linear-gradient(135deg, {{EXAMPLE_BG_1}}, {{EXAMPLE_BG_2}});
+            border-left: 4px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+            padding: 20px 25px;
+            margin: 20px 0;
+        }
+
+        .example-box p {
+            font-style: italic;
+            color: var(--text-primary);
+            font-size: 16px;
+        }
+
+        /* Tool Badge */
+        .tool-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 50px;
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 56px;
+            height: 56px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-arrow:hover {
+            background: {{NAV_HOVER}};
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 0 30px {{NAV_SHADOW}};
+        }
+
+        .nav-arrow svg { width: 24px; height: 24px; fill: var(--primary); }
+        .nav-prev { left: 30px; }
+        .nav-next { right: 30px; }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 100;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            transition: width 0.4s ease;
+        }
+
+        /* Progress Dots */
+        .progress-dots {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 100;
+        }
+
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .progress-dot:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(1.3);
+        }
+
+        .progress-dot.active {
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+            transform: scale(1.3);
+        }
+
+        /* Help Button */
+        .help-btn {
+            position: fixed;
+            top: 20px;
+            right: 156px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-secondary);
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .help-btn:hover {
+            background: var(--primary);
+            color: var(--bg-deep);
+        }
+
+        /* Action Buttons */
+        .action-btns {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        .action-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-secondary);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .action-btn:hover { background: var(--primary); color: var(--bg-deep); }
+
+        /* Help Overlay */
+        .help-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .help-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .help-content {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border-glow);
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .help-content h2 {
+            font-family: var(--font-display);
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            text-align: left;
+        }
+
+        .help-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .help-item kbd {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--accent);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .help-item span {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Slide Counter */
+        .slide-counter {
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--text-secondary);
+            z-index: 100;
+        }
+
+        .slide-counter .current { color: var(--primary); font-weight: 600; }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide.active .animate-item {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .slide.active .animate-item:nth-child(1) { animation-delay: 0.1s; }
+        .slide.active .animate-item:nth-child(2) { animation-delay: 0.2s; }
+        .slide.active .animate-item:nth-child(3) { animation-delay: 0.3s; }
+        .slide.active .animate-item:nth-child(4) { animation-delay: 0.4s; }
+        .slide.active .animate-item:nth-child(5) { animation-delay: 0.5s; }
+        .slide.active .animate-item:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Center title slide specific */
+        .title-slide { text-align: center; }
+        .title-slide .title-main { font-size: clamp(40px, 6vw, 72px); }
+        .title-slide .subtitle { font-size: clamp(18px, 2.5vw, 26px); }
+
+        /* Image slide */
+        .image-container { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-glow); }
+        .image-container img { width: 100%; height: auto; display: block; }
+
+        /* List slide */
+        .list-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .list-item:last-child { border-bottom: none; }
+
+        .list-number {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        /* Stats */
+        .stat-card { text-align: center; padding: 30px; }
+        .stat-number { font-family: var(--font-display); font-size: 48px; font-weight: 900; color: var(--primary); margin-bottom: 10px; }
+        .stat-label { color: var(--text-secondary); font-size: 16px; }
+
+        /* Closing slide */
+        .closing-slide { text-align: center; }
+        .contact-info { margin-top: 40px; display: flex; justify-content: center; gap: 30px; }
+        .contact-item { display: flex; align-items: center; gap: 10px; color: var(--text-secondary); }
+
+        /* Two column layout */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+        /* ===== 增强功能样式 ===== */
+
+        /* 跳转模态框 */
+        .goto-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .goto-modal.active { display: flex; }
+        .goto-modal-content {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-glow);
+            text-align: center;
+        }
+        .goto-modal-content h3 { color: var(--primary); margin-bottom: 20px; }
+        .goto-modal-content input {
+            width: 80px;
+            padding: 10px;
+            font-size: 18px;
+            text-align: center;
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+        }
+        .goto-modal-content .goto-total { color: var(--text-secondary); font-family: var(--font-mono); }
+        .goto-modal-content button {
+            margin-left: 15px;
+            padding: 10px 20px;
+            background: var(--primary);
+            border: none;
+            border-radius: 8px;
+            color: var(--bg-deep);
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* 缩略图预览 */
+        .thumbnail-view {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 900;
+            display: none;
+            overflow-y: auto;
+            padding: 40px;
+        }
+        .thumbnail-view.active { display: block; }
+        .thumbnails-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .thumbnail {
+            background: var(--bg-card);
+            border: 2px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .thumbnail:hover { border-color: var(--primary); }
+        .thumbnail.active { border-color: var(--primary); box-shadow: 0 0 20px var(--primary-shadow); }
+        .thumbnail h4 { color: var(--text-primary); font-size: 14px; margin-bottom: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .thumbnail p { color: var(--text-secondary); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+        /* 首次引导 */
+        .tour-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .tour-overlay.active { display: flex; }
+        .tour-tooltip {
+            position: fixed;
+            display: none;
+            width: 280px;
+            background: linear-gradient(135deg, var(--bg-card), rgba(30, 30, 50, 0.98));
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px var(--primary-shadow);
+            z-index: 1101;
+            animation: tourPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes tourPop {
+            0% { opacity: 0; transform: scale(0.8) translateY(10px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .tour-tooltip.active { display: block; }
+
+        /* 步骤1: 底部进度条 */
+        #tourStep1 { bottom: 100px; left: 50%; transform: translateX(-50%); }
+        #tourStep1 .tour-arrow {
+            position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+            width: 0; height: 0;
+            border-left: 10px solid transparent; border-right: 10px solid transparent;
+            border-top: 10px solid var(--bg-card);
+        }
+
+        /* 步骤2: 缩略图 */
+        #tourStep2 { top: 60px; right: 30px; }
+        #tourStep2 .tour-arrow {
+            position: absolute; top: -10px; right: 100px;
+            width: 0; height: 0;
+            border-left: 10px solid transparent; border-right: 10px solid transparent;
+            border-bottom: 10px solid var(--bg-card);
+        }
+
+        /* 步骤3: 全屏 */
+        #tourStep3 { top: 60px; right: 90px; }
+        #tourStep3 .tour-arrow {
+            position: absolute; top: -10px; right: 20px;
+            width: 0; height: 0;
+            border-left: 10px solid transparent; border-right: 10px solid transparent;
+            border-bottom: 10px solid var(--bg-card);
+        }
+
+        /* 步骤4: 帮助 */
+        #tourStep4 { top: 60px; right: 156px; }
+        #tourStep4 .tour-arrow {
+            position: absolute; top: -10px; right: 20px;
+            width: 0; height: 0;
+            border-left: 10px solid transparent; border-right: 10px solid transparent;
+            border-bottom: 10px solid var(--bg-card);
+        }
+
+        .tour-step-num { font-family: var(--font-display); font-size: 11px; color: var(--accent); display: block; margin-bottom: 8px; }
+        .tour-tooltip h3 { font-family: var(--font-display); color: var(--primary); font-size: 16px; margin: 0 0 8px 0; }
+        .tour-tooltip p { color: var(--text-secondary); font-size: 13px; margin: 0 0 15px 0; }
+        .tour-keys { display: flex; justify-content: center; gap: 8px; }
+        .tour-keys kbd {
+            background: rgba(var(--primary), 0.15);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+        }
+        .tour-footer { display: flex; justify-content: space-between; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .tour-btn { padding: 8px 20px; border-radius: 20px; font-size: 13px; cursor: pointer; transition: all 0.2s ease; border: none; }
+        .tour-skip { background: transparent; color: var(--text-secondary); }
+        .tour-skip:hover { color: var(--text-primary); }
+        .tour-next { background: linear-gradient(135deg, var(--primary), var(--accent)); color: var(--bg-deep); font-weight: 600; }
+        .tour-next:hover { transform: scale(1.05); box-shadow: 0 3px 15px var(--primary-shadow); }
+
+        /* 图片灯箱 */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        /* 可点击图片 */
+        .clickable-img { cursor: zoom-in; }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- Presentation Container -->
+    <div class="presentation">
+        <div class="slides-container" id="slidesContainer">
+            {{SLIDES_CONTENT}}
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-arrow nav-prev" onclick="prevSlide()">
+            <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </div>
+        <div class="nav-arrow nav-next" onclick="nextSlide()">
+            <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <!-- Progress Dots -->
+        <div class="progress-dots" id="progressDots"></div>
+
+        <!-- Slide Counter -->
+        <div class="slide-counter">
+            <span class="current" id="currentSlide">1</span> / <span id="totalSlides">1</span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-btns">
+            <button class="action-btn" onclick="toggleFullscreen()" title="全屏 (F)">⛶</button>
+            <button class="action-btn" onclick="toggleThumbnailView()" title="缩略图 (T)">▦</button>
+            <button class="action-btn" onclick="goToSlideModal()" title="跳转 (G)">→</button>
+        </div>
+
+        <!-- Help Button -->
+        <button class="help-btn" onclick="toggleHelp()" title="帮助 (?)">?</button>
+
+        <!-- Help Overlay -->
+        <div class="help-overlay" id="helpOverlay" onclick="toggleHelp()">
+            <div class="help-content" onclick="event.stopPropagation()">
+                <h2>快捷键说明</h2>
+                <div class="help-grid">
+                    <div class="help-item"><kbd>←</kbd><span>上一页</span></div>
+                    <div class="help-item"><kbd>→</kbd><span>下一页</span></div>
+                    <div class="help-item"><kbd>Space</kbd><span>下一页</span></div>
+                    <div class="help-item"><kbd>Home</kbd><span>首页</span></div>
+                    <div class="help-item"><kbd>End</kbd><span>末页</span></div>
+                    <div class="help-item"><kbd>F</kbd><span>全屏模式</span></div>
+                    <div class="help-item"><kbd>T</kbd><span>缩略图预览</span></div>
+                    <div class="help-item"><kbd>G</kbd><span>跳转指定页</span></div>
+                    <div class="help-item"><kbd>?</kbd><span>显示帮助</span></div>
+                    <div class="help-item"><kbd>Esc</kbd><span>关闭预览</span></div>
+                </div>
+                <p class="help-tip" style="margin-top: 20px; color: var(--text-secondary);">鼠标滚轮可切换幻灯片，移动端支持左右滑动</p>
+            </div>
+        </div>
+
+        <!-- Goto Modal -->
+        <div class="goto-modal" id="gotoModal">
+            <div class="goto-modal-content">
+                <h3>跳转到指定页面</h3>
+                <input type="number" id="gotoInput" min="1">
+                <span class="goto-total">/ 10</span>
+                <button onclick="confirmGoto()">跳转</button>
+            </div>
+        </div>
+
+        <!-- Thumbnail View -->
+        <div class="thumbnail-view" id="thumbnailView">
+            <div class="thumbnails-grid" id="thumbnailsGrid"></div>
+        </div>
+
+        <!-- Tour Overlay -->
+        <div class="tour-overlay" id="tourOverlay">
+            <!-- 步骤1: 底部进度条 -->
+            <div class="tour-tooltip" id="tourStep1">
+                <div class="tour-arrow"></div>
+                <div class="tour-content">
+                    <span class="tour-step-num">1 / 4</span>
+                    <h3>切换幻灯片</h3>
+                    <p>底部进度点可点击跳转，或用键盘 ← → 切换</p>
+                    <div class="tour-keys"><kbd>←</kbd><kbd>→</kbd></div>
+                </div>
+                <div class="tour-footer">
+                    <button class="tour-btn tour-skip" onclick="skipTour()">跳过</button>
+                    <button class="tour-btn tour-next" onclick="nextTourStep()">下一步</button>
+                </div>
+            </div>
+
+            <!-- 步骤2: 缩略图预览 -->
+            <div class="tour-tooltip" id="tourStep2">
+                <div class="tour-arrow"></div>
+                <div class="tour-content">
+                    <span class="tour-step-num">2 / 4</span>
+                    <h3>缩略图预览</h3>
+                    <p>点击右上角 T 键查看所有幻灯片缩略图</p>
+                    <div class="tour-keys"><kbd>T</kbd></div>
+                </div>
+                <div class="tour-footer">
+                    <button class="tour-btn tour-skip" onclick="skipTour()">跳过</button>
+                    <button class="tour-btn tour-next" onclick="nextTourStep()">下一步</button>
+                </div>
+            </div>
+
+            <!-- 步骤3: 全屏 -->
+            <div class="tour-tooltip" id="tourStep3">
+                <div class="tour-arrow"></div>
+                <div class="tour-content">
+                    <span class="tour-step-num">3 / 4</span>
+                    <h3>全屏演示</h3>
+                    <p>点击右上角 F 键进入全屏模式</p>
+                    <div class="tour-keys"><kbd>F</kbd></div>
+                </div>
+                <div class="tour-footer">
+                    <button class="tour-btn tour-skip" onclick="skipTour()">跳过</button>
+                    <button class="tour-btn tour-next" onclick="nextTourStep()">下一步</button>
+                </div>
+            </div>
+
+            <!-- 步骤4: 帮助 -->
+            <div class="tour-tooltip" id="tourStep4">
+                <div class="tour-arrow"></div>
+                <div class="tour-content">
+                    <span class="tour-step-num">4 / 4</span>
+                    <h3>快捷键帮助</h3>
+                    <p>点击右上角 ? 键查看所有快捷键</p>
+                    <div class="tour-keys"><kbd>?</kbd></div>
+                </div>
+                <div class="tour-footer">
+                    <button class="tour-btn tour-skip" onclick="skipTour()">跳过</button>
+                    <button class="tour-btn tour-next" onclick="finishTour()">开始演示</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightboxImg" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Slide Management
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progressBar = document.getElementById('progressBar');
+        const progressDots = document.getElementById('progressDots');
+        const currentSlideEl = document.getElementById('currentSlide');
+        const totalSlidesEl = document.getElementById('totalSlides');
+
+        // 增强功能状态
+        let thumbnailVisible = false;
+        let currentTourStep = 0;
+        let wheelTimeout = null;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const minSwipeDistance = 50;
+
+        // Initialize
+        function init() {
+            totalSlidesEl.textContent = totalSlides;
+            createProgressDots();
+            createParticles();
+            createThumbnails();
+            goToSlide(0);
+            checkFirstVisit();
+        }
+
+        // Create Progress Dots
+        function createProgressDots() {
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'progress-dot';
+                dot.onclick = () => goToSlide(i);
+                progressDots.appendChild(dot);
+            }
+        }
+
+        // Create Particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Create Thumbnails
+        function createThumbnails() {
+            const grid = document.getElementById('thumbnailsGrid');
+            slides.forEach((slide, index) => {
+                const thumb = document.createElement('div');
+                thumb.className = 'thumbnail';
+                const titleEl = slide.querySelector('h1, h2, h3');
+                const subtitleEl = slide.querySelector('.subtitle');
+                let titleText = titleEl ? titleEl.textContent : 'Slide ' + (index + 1);
+                let subtitleText = subtitleEl ? subtitleEl.textContent : '';
+                thumb.innerHTML = `<h4>${titleText}</h4><p>${subtitleText}</p>`;
+                thumb.onclick = () => {
+                    currentSlideIndex = index;
+                    goToSlide(index);
+                    toggleThumbnailView();
+                };
+                if (index === 0) thumb.classList.add('active');
+                grid.appendChild(thumb);
+            });
+            document.querySelector('.goto-total').textContent = '/ ' + totalSlides;
+        }
+
+        // Navigate to Slide
+        function goToSlide(index) {
+            if (index < 0 || index >= totalSlides) return;
+            slides[currentSlideIndex].classList.remove('active');
+            slides[currentSlideIndex].classList.add('prev');
+            currentSlideIndex = index;
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active', 'prev');
+                if (i < currentSlideIndex) {
+                    slide.classList.add('prev');
+                }
+            });
+            slides[currentSlideIndex].classList.add('active');
+            updateProgress();
+            animateSlideElements();
+        }
+
+        // Update Progress
+        function updateProgress() {
+            const progress = ((currentSlideIndex + 1) / totalSlides) * 100;
+            progressBar.style.width = progress + '%';
+            const dots = progressDots.querySelectorAll('.progress-dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlideIndex);
+            });
+            currentSlideEl.textContent = currentSlideIndex + 1;
+            // 更新缩略图激活状态
+            document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === currentSlideIndex);
+            });
+        }
+
+        // Next Slide
+        function nextSlide() {
+            if (currentSlideIndex < totalSlides - 1) {
+                goToSlide(currentSlideIndex + 1);
+            }
+        }
+
+        // Previous Slide
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                goToSlide(currentSlideIndex - 1);
+            }
+        }
+
+        // Toggle Help
+        function toggleHelp() {
+            document.getElementById('helpOverlay').classList.toggle('active');
+        }
+
+        // Toggle Thumbnail View
+        function toggleThumbnailView() {
+            thumbnailVisible = !thumbnailVisible;
+            document.getElementById('thumbnailView').classList.toggle('active', thumbnailVisible);
+        }
+
+        // Goto Modal
+        function goToSlideModal() {
+            const input = document.getElementById('gotoInput');
+            input.value = currentSlideIndex + 1;
+            input.max = totalSlides;
+            input.focus();
+            input.select();
+            document.getElementById('gotoModal').classList.add('active');
+        }
+
+        function closeGotoModal() {
+            document.getElementById('gotoModal').classList.remove('active');
+        }
+
+        function confirmGoto() {
+            const input = document.getElementById('gotoInput');
+            const num = parseInt(input.value);
+            if (!isNaN(num) && num >= 1 && num <= totalSlides) {
+                goToSlide(num - 1);
+                closeGotoModal();
+            } else {
+                input.style.borderColor = 'var(--accent)';
+                setTimeout(() => input.style.borderColor = 'var(--border-glow)', 500);
+            }
+        }
+
+        // Fullscreen
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => console.log('全屏失败:', err));
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Tour Functions
+        function checkFirstVisit() {
+            const dontShow = localStorage.getItem('ppt_tour_dont_show');
+            if (!dontShow) {
+                setTimeout(() => {
+                    document.getElementById('tourOverlay').classList.add('active');
+                    showTourStep(1);
+                }, 800);
+            }
+        }
+
+        function showTourStep(step) {
+            document.querySelectorAll('.tour-tooltip').forEach(el => el.classList.remove('active'));
+            const currentEl = document.getElementById('tourStep' + step);
+            if (currentEl) currentEl.classList.add('active');
+        }
+
+        function nextTourStep() {
+            if (currentTourStep < 4) {
+                currentTourStep++;
+                showTourStep(currentTourStep);
+            }
+        }
+
+        function skipTour() {
+            document.getElementById('tourOverlay').classList.remove('active');
+            localStorage.setItem('ppt_tour_dont_show', 'true');
+        }
+
+        function finishTour() {
+            skipTour();
+        }
+
+        // Lightbox
+        function openLightbox(src, alt) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightboxImg').alt = alt;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Element Animation
+        function animateSlideElements() {
+            const currentSlideEl = slides[currentSlideIndex];
+            if (!currentSlideEl) return;
+            const items = currentSlideEl.querySelectorAll('li, .card, .feature-item');
+            items.forEach((item, index) => {
+                item.classList.remove('animate-item');
+                void item.offsetWidth;
+                item.classList.add('animate-item');
+                item.style.animationDelay = (index * 0.1) + 's';
+            });
+        }
+
+        // ===== 事件监听 =====
+
+        // 键盘导航
+        document.addEventListener('keydown', (e) => {
+            // 输入框中不触发快捷键
+            if (e.target.tagName === 'INPUT') return;
+
+            switch(e.key) {
+                case 'ArrowRight':
+                case ' ':
+                    e.preventDefault();
+                    nextSlide();
+                    break;
+                case 'ArrowLeft':
+                    prevSlide();
+                    break;
+                case 'Home':
+                    goToSlide(0);
+                    break;
+                case 'End':
+                    goToSlide(totalSlides - 1);
+                    break;
+                case 'f':
+                case 'F':
+                    toggleFullscreen();
+                    break;
+                case 't':
+                case 'T':
+                    toggleThumbnailView();
+                    break;
+                case 'g':
+                case 'G':
+                    goToSlideModal();
+                    break;
+                case '?':
+                    toggleHelp();
+                    break;
+                case 'Escape':
+                    document.getElementById('helpOverlay').classList.remove('active');
+                    document.getElementById('gotoModal').classList.remove('active');
+                    if (thumbnailVisible) toggleThumbnailView();
+                    closeLightbox();
+                    break;
+            }
+        });
+
+        // Goto Modal 键盘事件
+        document.getElementById('gotoModal').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') confirmGoto();
+            else if (e.key === 'Escape') closeGotoModal();
+        });
+        document.getElementById('gotoModal').addEventListener('click', (e) => {
+            if (e.target.id === 'gotoModal') closeGotoModal();
+        });
+
+        // 鼠标滚轮切换
+        document.addEventListener('wheel', (e) => {
+            if (wheelTimeout) return;
+            wheelTimeout = setTimeout(() => { wheelTimeout = null; }, 800);
+            if (e.deltaY > 0 || e.deltaX > 0) nextSlide();
+            else if (e.deltaY < 0 || e.deltaX < 0) prevSlide();
+        }, { passive: true });
+
+        // 触摸滑动支持
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const distance = touchEndX - touchStartX;
+            if (Math.abs(distance) > minSwipeDistance) {
+                if (distance > 0) prevSlide();
+                else nextSlide();
+            }
+        }, { passive: true });
+
+        // 图片点击灯箱
+        document.querySelectorAll('.slide img').forEach(img => {
+            img.classList.add('clickable-img');
+            img.addEventListener('click', function() {
+                openLightbox(this.src, this.alt);
+            });
+        });
+
+        // Initialize on Load
+        window.onload = init;
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+schema_version: 1
+
+cases:
+  - id: typical-html-ppt-creation
+    description: >
+      用户说要做一个"产品发布会"PPT，选择商务蓝配色，并给出了每页的标题和内容。
+      html-ppt 应生成单个自包含的 .html 演示文稿。
+
+    must:
+      - "按用户选择的配色方案替换颜色占位符（{{PRIMARY}} 等），使用 references/color_schemes.json 中的对应值"
+      - "为每一页渲染对应幻灯片，包含用户提供的标题与内容"
+      - "产出单个 {主题名称}.html 文件，写入用户指定目录或当前工作目录"
+      - "包含粒子浮动、毛玻璃、缩略图、全屏、帮助、首次气泡指引等交互功能"
+      - "HTML 内不出现任何外部 CDN/字体/JS/CSS 引用"
+
+    must_not:
+      - "在用户未明确提供配色/主题/内容前自行编造并直接生成"
+      - "修改或删除用户的其他文件"
+      - "生成多文件依赖（依赖外部 JS/CSS/图片）或网络请求"
+
+  - id: missing-required-information
+    description: >
+      用户只说"帮我做个 PPT"，没有提供配色方案、主题或逐页内容。
+
+    must:
+      - "先向用户询问配色方案、主题、每页内容等关键信息"
+      - "信息不全时停下等待补充，不产出残缺 PPT"
+
+    must_not:
+      - "凭猜测生成完整 PPT"
+      - "默认选择配色/主题/内容（除非用户明确委托）"
+
+  - id: zero-external-dependency
+    description: >
+      验证生成的 HTML 零外部依赖、全屏 100vw×100vh 且无滚动条。
+
+    must:
+      - "所有 CSS/JS 内联在单个 .html 中"
+      - "幻灯片容器为 width:100vw; height:100vh; overflow:hidden"
+      - "进度条使用 width（横向）而非 height"
+
+    must_not:
+      - "包含 <link href=...> 或 <script src=...> 外部引用"
+      - "出现 CDN 域名、Google Fonts 或其他外链"

@@ -1,0 +1,50 @@
+schema_version: 1
+
+id: research.daily-ai-news
+name: Daily AI News — 每日 AI 简报
+version: 0.1.0
+status: beta
+
+description: >
+  聚合多来源 AI 新闻 → 筛选去重 → 分类呈现，输出带原文链接的每日简报。
+  覆盖重大公告、研究论文、行业融资、工具发布、政策伦理五类，支持简要/标准/深度
+  三种模板与按时间/公司/重要性重组。核心流程为提示词编排，可选运行辅助脚本生成
+  带真实日期的搜索查询。
+
+category: research
+entrypoint: SKILL.md
+tags:
+  - research
+  - news
+  - ai
+  - briefing
+  - aggregation
+  - daily
+  - summarization
+
+contents:
+  examples:
+  references: references
+  scripts: scripts
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - python3
+  environment_variables: []
+
+permissions:
+  network: true
+  read_files: true
+  write_files: true
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

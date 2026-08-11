@@ -1,0 +1,23 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/Xusq513/skills-html-ppt
+  revision: dcd4e1462b9e8e5db350a20d44b14b7338d61ba1
+  path: .
+  author: Xusq513 (xushaoqiang)
+
+license:
+  identifier: MIT
+  file: LICENSE
+
+imported_at: "2026-08-11"
+imported_by: skygazer42
+
+local_modifications:
+  - "首次内化：上游 SKILL.md 按本仓目录契约重写，保留核心规范（配色/布局/清单/输出约束），补充明确写入边界与失败处理"
+  - "未带入上游安装/宣传页 README.md 与 README_EN.md"
+  - "模板与配色配置按 references/ 挂入（base_template.html + color_schemes.json），内容与上游 dcd4e146 版本一致"
+  - "补全仓库契约文件（manifest.yaml / README.md / provenance.yaml / tests/cases.yaml / LICENSE）"
+  - "⚠️ 上游仓库未提供 LICENSE 文件（git 历史从未添加）；MIT 依据上游 README 声明记录，本目录 LICENSE 为依该声明复制的 MIT 许可证文本"
+  - "归入 presentation 分类，与 presentation.open-kimi-ppt、presentation.ppt-agent 互补"
