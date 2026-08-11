@@ -1,0 +1,17 @@
+schema_version: 1
+
+repository: https://github.com/anthropics/knowledge-work-plugins
+revision: 2cf42948f0b79c5492bb38981752b815fc6788ec
+path: data/skills/explore-data/ + data/skills/validate-data/
+license: Apache-2.0
+
+captured_at: "2026-08-11"
+captured_by: skygazer42
+
+notes: >
+  Anthropic 官方 Data Analyst 插件的两个核心 Skill：explore-data（数据画像/
+  质量评估/模式发现）与 validate-data（分享前的方法论、准确性、偏差审查）。
+  源仓库整体 Apache-2.0（根 LICENSE），需随副本保留 LICENSE.txt。
+  两文件均为纯提示词，无脚本、无网络依赖。源内容含数据仓库/SQL 连接器引用
+  （~~data warehouse、PostgreSQL schema 查询），v0.1 内化时需移除
+  （本仓不支持数据库连接器，不假装具备）。

@@ -1,0 +1,48 @@
+schema_version: 1
+
+id: engineering.property-based-testing
+name: Property-Based Testing
+version: 0.1.0
+status: beta
+
+description: >
+  属性化测试（PBT）指导——多语言与智能合约。在写测试、审查含序列化/校验/解析
+  模式的代码或设计新功能时，判定哪些属性值得用生成式数据验证（roundtrip/幂等/
+  不变量/交换律/结合律/参考实现对照/状态机），并产出、审查、解读属性化测试。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - testing
+  - property-based-testing
+  - hypothesis
+  - fast-check
+  - proptest
+  - smart-contracts
+
+contents:
+  examples:
+  references: references
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

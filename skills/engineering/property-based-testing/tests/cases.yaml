@@ -1,0 +1,51 @@
+schema_version: 1
+
+cases:
+  - id: serialization-roundtrip
+    description: >
+      检测到 encode/decode 序列化对，代码库已用 Hypothesis。
+      property-based-testing 应识别高价值模式并按库惯例生成 roundtrip 属性测试。
+
+    must:
+      - "识别 encode/decode 序列化对并给 HIGH 优先级"
+      - "把约束建进策略（st.builds / min_value / max_size），而非 assume() 过滤"
+      - "生成至少一个强属性（roundtrip：decode(encode(x)) == x）"
+      - "用 @example 显式覆盖边界（空/单元素/重复/0/负值等）"
+      - "给出与场景匹配的 @settings（开发/CI/发布）"
+      - "测试非同义反复（断言不复现被测函数逻辑）"
+
+    must_not:
+      - "只写「不抛异常」这种最弱属性"
+      - "用 assume() 过度过滤生成输入"
+      - "复现被测函数逻辑（同义反复断言）"
+
+  - id: review-existing-tests
+    description: >
+      用户要求审查已有属性化测试的质量。
+      应识别同义反复/空洞/弱断言/复现函数/过度过滤/缺边界等质量问题并给出改进。
+
+    must:
+      - "识别同义反复（CRITICAL）与空洞测试（assume 自相矛盾）"
+      - "识别只测「不崩」或只测类型的弱属性"
+      - "识别断言复现被测函数逻辑的问题"
+      - "按强度/覆盖/断言/设置四维给出测试健康评分"
+      - "对照属性目录建议更强可用属性"
+
+    must_not:
+      - "把 assert x == x 之类同义反复标记为合格"
+      - "接受「不崩即正确」作为充分保证"
+
+  - id: failure-interpretation
+    description: >
+      属性化测试失败，用户问是真 bug 还是测试问题。
+      应按最小化样例复现、对照文档/类型核实、分类处置。
+
+    must:
+      - "用最小化（shrunk）样例复现并确认稳定"
+      - "对照类型注解/文档字符串/函数名/错误处理核实属性是否成立"
+      - "检查策略是否生成函数不应处理的输入（前置条件违例）"
+      - "分类为真 bug / 测试 bug / 规格模糊，并给出对应处置"
+
+    must_not:
+      - "不验证就直接断言测试失败=bug"
+      - "对前置条件违例（文档限定正数却传 -1）上报为 bug"

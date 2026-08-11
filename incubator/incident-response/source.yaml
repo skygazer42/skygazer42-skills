@@ -1,0 +1,18 @@
+schema_version: 1
+
+repository: https://github.com/anthropics/knowledge-work-plugins
+revision: 2cf42948f0b79c5492bb38981752b815fc6788ec
+path: engineering/skills/incident-response/
+license: Apache-2.0
+captured_at: "2026-08-11"
+captured_by: skygazer42
+
+notes: >-
+  anthropics/knowledge-work-plugins（Apache-2.0）engineering 插件的 incident-response skill。
+  仓库顶层 LICENSE 为 Apache-2.0 全文（212 行，其中 203-212 行含非标准附加文本，已按
+  202 行标准文本裁剪后随副本保留）。
+  原始 SKILL.md 含 PagerDuty/Opsgenie/监控/聊天等连接器自动写入分支（~~monitoring、
+  ~~incident management、~~chat），规范化时全部移除：不自动写 PagerDuty/聊天/状态页，
+  所有外部通知只生成草稿。重启、回滚、部署、paging、消息等操作需分别获得独立授权。
+  新建立 operations 分类（生产事件响应生命周期管理），与 backend.backend-debugging
+  （定位代码根因）职责分离。

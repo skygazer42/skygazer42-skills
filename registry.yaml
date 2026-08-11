@@ -49,6 +49,19 @@ skills:
   - code-review
   - security
   - reliability
+- id: data.exploratory-analysis
+  name: Exploratory Data Analysis
+  version: 0.1.0
+  status: beta
+  path: skills/data/exploratory-analysis
+  entrypoint: SKILL.md
+  tags:
+  - data
+  - analysis
+  - exploratory
+  - profiling
+  - data-quality
+  - validation
 - id: engineering.architecture-review
   name: Architecture Review
   version: 0.1.0
@@ -142,6 +155,20 @@ skills:
   - tools
   - integration
   - server
+- id: engineering.property-based-testing
+  name: Property-Based Testing
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/property-based-testing
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - testing
+  - property-based-testing
+  - hypothesis
+  - fast-check
+  - proptest
+  - smart-contracts
 - id: engineering.subagent-driven-development
   name: Subagent-Driven Development
   version: 0.2.0
@@ -291,6 +318,19 @@ skills:
   - readme
   - profile
   - beautify
+- id: operations.incident-response
+  name: Incident Response
+  version: 0.1.0
+  status: beta
+  path: skills/operations/incident-response
+  entrypoint: SKILL.md
+  tags:
+  - operations
+  - incident-response
+  - sev
+  - postmortem
+  - on-call
+  - blameless
 - id: presentation.open-kimi-ppt
   name: Open Kimi PPT
   version: 0.1.0

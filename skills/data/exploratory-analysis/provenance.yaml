@@ -1,0 +1,25 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/anthropics/knowledge-work-plugins
+  revision: 2cf42948f0b79c5492bb38981752b815fc6788ec
+  path: data/skills/explore-data/ + data/skills/validate-data/
+  author: anthropics
+
+license:
+  identifier: Apache-2.0
+  file: LICENSE.txt
+
+import:
+  imported_at: "2026-08-11"
+  imported_by: skygazer42
+
+modifications:
+  - "合并 data/skills/explore-data 与 data/skills/validate-data 为一个 Skill：explore-data 为主流程，validate-data 作为分享前审查第二流程并入"
+  - "删除数据仓库/连接器依赖：~~data warehouse、~~notebook 占位符、PostgreSQL schema 查询（information_schema/pg_size_pretty/pg_catalog）、CONNECTORS.md 引用、'if connected to warehouse' 分支"
+  - "明确只读源数据边界：不自动清洗/填补/删除异常值/覆盖源文件，报告另写 Markdown/JSON"
+  - "按本仓库目录契约补全 manifest.yaml / 中文 README.md / provenance.yaml / tests/cases.yaml"
+  - "保留 Apache-2.0 LICENSE.txt 随副本"
+notes:
+  - "v0.1 仅支持用户提供的本地文件与对话内表格；数据库/数据仓库查询为未来能力，不假装具备"

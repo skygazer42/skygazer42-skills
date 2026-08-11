@@ -1,0 +1,22 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/trailofbits/skills
+  revision: e6066e7db1fd57cb35f9a534781ceec595327feb
+  path: plugins/property-based-testing/skills/property-based-testing/
+  author: Trail of Bits
+
+license:
+  identifier: CC-BY-SA-4.0
+  file: LICENSE.txt
+
+imported_at: "2026-08-11"
+imported_by: skygazer42
+
+local_modifications:
+  - "SKILL.md 主体翻译为中文并精简；{baseDir} 相对引用改写为本仓 references/ 布局"
+  - "移除平台专属文件：agents/openai.yaml（图标/品牌色配置）、assets/trail-of-bits-mark.svg（品牌资产）"
+  - "references 7 个文件原样保留并挂载到 references/：design/generating/interpreting-failures/libraries/refactoring/reviewing/strategies"
+  - "按本仓库目录契约补全 manifest.yaml / 中文 README.md / provenance.yaml / tests/cases.yaml"
+  - "CC-BY-SA-4.0 许可证全文随副本保留为 LICENSE.txt"

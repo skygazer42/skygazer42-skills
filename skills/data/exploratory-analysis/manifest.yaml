@@ -1,0 +1,47 @@
+schema_version: 1
+
+id: data.exploratory-analysis
+name: Exploratory Data Analysis
+version: 0.1.0
+status: beta
+
+description: >
+  对用户提供的本地数据文件（CSV/TSV/JSON/Parquet/XLSX）或对话内表格做探索性分析：
+  数据画像、质量问题识别、关系与模式发现、维度度量建议、后续分析推荐，
+  以及分享前的方法论/准确性/偏差审查。默认只读源数据。
+
+category: data
+entrypoint: SKILL.md
+tags:
+  - data
+  - analysis
+  - exploratory
+  - profiling
+  - data-quality
+  - validation
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

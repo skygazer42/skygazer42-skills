@@ -1,0 +1,47 @@
+schema_version: 1
+
+id: operations.incident-response
+name: Incident Response
+version: 0.1.0
+status: beta
+
+description: >
+  管理生产事故从检测到复盘的全生命周期——triage 严重级别、识别影响、沟通与状态更新草稿、
+  缓解与恢复验证、无责备复盘。外部通知只生成草稿，重启/回滚/部署/paging/发消息等操作
+  需分别获得明确授权；证据不足时标注「未知」，不编造影响/根因/恢复时间/责任人。
+
+category: operations
+entrypoint: SKILL.md
+tags:
+  - operations
+  - incident-response
+  - sev
+  - postmortem
+  - on-call
+  - blameless
+
+contents:
+  examples:
+  references:
+  scripts:
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: false
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

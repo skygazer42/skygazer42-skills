@@ -1,0 +1,17 @@
+schema_version: 1
+
+repository: https://github.com/trailofbits/skills
+revision: e6066e7db1fd57cb35f9a534781ceec595327feb
+path: plugins/property-based-testing/skills/property-based-testing/
+license: CC-BY-SA-4.0
+captured_at: "2026-08-11"
+captured_by: skygazer42
+
+notes: >-
+  Trail of Bits 官方 Claude Code skill 仓库（trailofbits/skills）的 property-based-testing skill。
+  仓库顶层 LICENSE 为 CC-BY-SA-4.0（Attribution-ShareAlike 4.0 International），
+  全仓 skill 共用该许可证，必须保留署名与相同方式共享义务。
+  本仓随正式 Skill 保存一份该许可证全文（LICENSE.txt）。
+  原始 skill 含 SKILL.md、README.md、references/{design,generating,interpreting-failures,libraries,refactoring,reviewing,strategies}.md、
+  agents/openai.yaml 与 assets/trail-of-bits-mark.svg。
+  平台专属内容（agents/openai.yaml 图标配置、assets/ 品牌 SVG、README 中 Claude Code 激活描述）将规范化移除或改写。
