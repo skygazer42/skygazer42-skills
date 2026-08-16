@@ -1,0 +1,26 @@
+schema_version: 1
+
+repository: https://github.com/wuyoscar/GPT-Image2-Skill
+revision: 068dd9e24aadc8731e46f38548ca4dcd94515d35
+path: skills/gpt-image
+license: MIT
+license_file: LICENSE
+
+captured_at: "2026-08-16"
+captured_by: skygazer42
+
+upstream_notes: >
+  wuyoscar 的 GPT Image 2 生成/编辑 Skill：包含 162 个提示词的 Reference Gallery
+  （按 33 个分类拆分的 gallery-*.md + 路由索引 gallery.md）、19 节提示词工艺清单
+  craft.md、OpenAI 官方提示词指南存档 openai-cookbook.md，以及一个启动器
+  scripts/generate.py（解析顺序：repo 本地 src → 已安装 gpt_image_cli → PATH gpt-image
+  → uvx 临时安装 GitHub CLI）。上游仓库另有 docs/（约 420MB 生成示例图）与
+  src/gpt_image_cli/cli.py（CLI 实现），两者不在 skill 文件夹内。
+
+license_text: >
+  MIT License, Copyright (c) 2026 Wuyoscar. 允许复制与修改，需随副本保留版权声明
+  （已在 candidate/LICENSE 保留）。
+
+reviewed_at: "2026-08-16"
+reviewed_by: skygazer42
+status: published

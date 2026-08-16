@@ -1,0 +1,30 @@
+schema_version: 1
+
+repository: https://github.com/openclaw/openclaw
+revision: 0dd8d3eafd2d869baaa1adb311c02884124a4b0a
+path: .agents/skills/autoreview
+license: MIT
+license_file: LICENSE
+
+captured_at: "2026-08-16"
+captured_by: skygazer42
+
+upstream_notes: >
+  openclaw/openclaw 中的 autoreview skill——「提交/发布前代码审查门禁」。核心是
+  scripts/autoreview（约 1.2 万行 Python 3 辅助脚本）：把待审变更打包（本地脏改动 /
+  branch / commit / PR），先跑 TruffleHog 对精确新增/修改/删除内容做密钥扫描，再调用
+  外部审查引擎（Codex 默认，Claude / Pi 可选）在严格隔离环境（空工作区 / safe-mode /
+  --no-tools）中做结构化审查，输出按严重度分级的发现。配套 smoke harness
+  （test-review-harness* 三平台封装 + autoreview_test.py）与 tests/fixtures。
+  另注意：skill 目录内 AGENTS.md 声明其 canonical source 是 openclaw/agent-skills（路径
+  skills/autoreview），openclaw/openclaw 是下游同步副本；本次固定的是 openclaw/openclaw
+  的 revision。
+
+license_text: >
+  MIT License, Copyright (c) 2026 OpenClaw Foundation. 允许复制与修改，需随副本保留版权
+  声明（candidate/LICENSE 已保留）。上游 LICENSE 提及的 THIRD_PARTY_NOTICES.md 只涉及
+  OpenClaw 项目整体对 Pi / pi-mono 的依赖，与 autoreview skill 本身无关，内化时不需随附。
+
+reviewed_at: "2026-08-16"
+reviewed_by: skygazer42
+status: published

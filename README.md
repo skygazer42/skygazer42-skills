@@ -83,7 +83,7 @@ gemini extensions uninstall skygazer42-skills
 
 ## 能力目录
 
-共 **55** 个正式 Skill（`registry.yaml` 为唯一清单），分布在 15 个分类。详细行为以各 Skill 的 `SKILL.md`、中文 `README.md` 和 `tests/cases.yaml` 为准。
+共 **57** 个正式 Skill（`registry.yaml` 为唯一清单），分布在 15 个分类。详细行为以各 Skill 的 `SKILL.md`、中文 `README.md` 和 `tests/cases.yaml` 为准。
 
 ### 开发
 
@@ -112,7 +112,7 @@ gemini extensions uninstall skygazer42-skills
 | `backend.backend-review` | 审查正确性、安全、并发和可靠性（只读） | [→](skills/backend/backend-review/README.md) |
 | `backend.backend-debugging` | 定位根因、影响范围和修复建议（不改代码） | [→](skills/backend/backend-debugging/README.md) |
 
-#### engineering（已上线）— 工程流程与编排（20 个）
+#### engineering（已上线）— 工程流程与编排（21 个）
 
 | Skill | 一句话 | 详情 |
 | --- | --- | --- |
@@ -126,6 +126,7 @@ gemini extensions uninstall skygazer42-skills
 | `engineering.verification-before-completion` | 声称完成前先跑验证拿证据 | [→](skills/engineering/verification-before-completion/README.md) |
 | `engineering.subagent-driven-development` | 执行计划——子代理驱动（带审查）或内联执行 | [→](skills/engineering/subagent-driven-development/README.md) |
 | `engineering.code-review` | 请求代码审查 + 接收反馈后先验证再实现 | [→](skills/engineering/code-review/README.md) |
+| `engineering.autoreview` | 提交/发布前自动外审门禁：TruffleHog 密钥扫描 + Codex/Claude/Pi 隔离引擎审查（内化自 openclaw） | [→](skills/engineering/autoreview/README.md) |
 | `engineering.finishing-a-development-branch` | 实现完成 → 验证测试 → 合并/PR/保持 + 更新规格 | [→](skills/engineering/finishing-a-development-branch/README.md) |
 | `engineering.using-git-worktrees` | 为功能工作创建隔离工作区 | [→](skills/engineering/using-git-worktrees/README.md) |
 | `engineering.writing-skills` | 用 TDD 创建/重构/评估 skill 的 skill（本仓创作规范） | [→](skills/engineering/writing-skills/README.md) |
@@ -197,6 +198,7 @@ gemini extensions uninstall skygazer42-skills
 | Skill | 一句话 | 详情 |
 | --- | --- | --- |
 | `art.photo-abstract-editorial` | 把照片做成「摄影 + 抽象记忆面板 + 诗意标题」的竖向编辑作品（非滤镜/重画） | [→](skills/art/photo-abstract-editorial/README.md) |
+| `art.gpt-image` | GPT Image 2 通用生成/编辑/修复——162 条提示词 Gallery + 工艺清单 + gpt-image CLI | [→](skills/art/gpt-image/README.md) |
 
 #### presentation（已上线）— 演示文稿生成
 
@@ -248,6 +250,7 @@ gemini extensions uninstall skygazer42-skills
 | `backend.backend-debugging` | 否 | 是 | 否 | 是 |
 | `engineering.*`（19 个，见上表） | 否 | 是 | 是/否 | 是/否 |
 | `engineering.grill-me` | 否 | 否 | 否 | 否 |
+| `engineering.autoreview` | 是 | 是 | 是 | 是 |
 | `open-source.beautify-github-readme` | 否 | 是 | 是 | 否 |
 | `security.reverse-engineering` | 否 | 是 | 否 | 是 |
 | `security.apk-reverse` | 否 | 是 | 否 | 是 |
@@ -262,13 +265,14 @@ gemini extensions uninstall skygazer42-skills
 | `writing.chinese-documentation` | 否 | 是 | 是 | 否 |
 | `writing.qu-ai-wei` | 否 | 是 | 否 | 否 |
 | `art.photo-abstract-editorial` | 否 | 是 | 否 | 否 |
+| `art.gpt-image` | 是 | 是 | 是 | 是 |
 | `presentation.open-kimi-ppt` | 是 | 是 | 是 | 是 |
 | `presentation.ppt-agent` | 是 | 是 | 是 | 是 |
 | `presentation.html-ppt` | 否 | 否 | 是 | 否 |
 | `data.exploratory-analysis` | 否 | 是 | 是 | 是 |
 | `operations.incident-response` | 否 | 是 | 否 | 是 |
 
-> 注：`engineering.*`（19 个）统一网络关闭、可读文件；写文件与执行命令因 Skill 职责而异。`engineering.grill-me` 是纯对话入口，四项全部为否。
+> 注：`engineering.*`（19 个）统一网络关闭、可读文件；写文件与执行命令因 Skill 职责而异。`engineering.grill-me` 是纯对话入口，四项全部为否。`engineering.autoreview` 例外——需调用外部模型引擎（Codex/Claude/Pi），网络、读、写、执行四项全开。
 
 ## 仓库结构
 
@@ -276,7 +280,7 @@ gemini extensions uninstall skygazer42-skills
 skills/
 ├── web/                  (12 个：设计/实现/审查/测试/复刻/浏览器自动化/设计系统)
 ├── backend/              (3 个：实现/审查/排障)
-├── engineering/          (20 个：工程流程与编排)
+├── engineering/          (21 个：工程流程与编排)
 ├── data/                 (1 个：探索性数据分析)
 ├── operations/           (1 个：事故响应)
 ├── open-source/          (1 个：GitHub README 美化)
@@ -284,7 +288,7 @@ skills/
 ├── marketing/            (1 个：SEO)
 ├── research/             (1 个：last30days 多源调研)
 ├── writing/              (4 个：去 AI 味/排版规范)
-├── art/                  (1 个：照片抽象编辑)
+├── art/                  (2 个：照片抽象编辑/GPT Image 生成)
 └── presentation/         (3 个：PPT/HTML PPT 生成)
 ```
 

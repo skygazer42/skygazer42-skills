@@ -1,0 +1,23 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/wuyoscar/GPT-Image2-Skill
+  revision: 068dd9e24aadc8731e46f38548ca4dcd94515d35
+  path: skills/gpt-image
+  author: "@wuyoscar"
+
+license:
+  identifier: MIT
+  file: LICENSE
+
+imported_at: "2026-08-16"
+imported_by: skygazer42
+
+local_modifications:
+  - "首次内化：复制上游 skills/gpt-image 全部内容，归入 art 分类（skills/art/gpt-image）"
+  - "剥离 gallery-*.md 中的示例图引用：删除全部 <img> 标签与 '- Image:' / '- Images:' / '- Input image:' 行；不引入上游 docs/（约 420MB 生成示例图），162 条提示词文本原样保留，gallery.md 路由索引与 craft.md 未改动"
+  - "SKILL.md 前端移除 metadata.openclaw（特定运行平台元数据），保留 name / description / compatibility；平台适配信息保留在 agents/openai.yaml（与 art.photo-abstract-editorial 的做法一致）"
+  - "补全仓库契约文件（manifest.yaml / README.md / provenance.yaml / tests/cases.yaml）"
+  - "上游 MIT License（Copyright (c) 2026 Wuyoscar）随 skill 保留为 LICENSE，以履行许可要求"
+  - "scripts/generate.py 保留上游 uvx 远程回退：当本地无 gpt-image / gpt_image_cli 时，会临时通过 uvx 从作者 GitHub 仓库安装并运行 CLI 包——已在 README 风险提示与 manifest 权限（network / execute_commands 为 true）中如实声明"

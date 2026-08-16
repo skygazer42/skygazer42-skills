@@ -1,0 +1,59 @@
+schema_version: 1
+
+id: engineering.autoreview
+name: autoreview
+version: 0.1.0
+status: beta
+
+description: >
+  提交/发布前的自动化代码审查门禁（closeout gate）。把待审变更打包（本地脏改动 /
+  branch / commit / PR），先跑 TruffleHog 对精确新增/修改/删除内容做密钥扫描，再调用
+  外部模型引擎（Codex 默认，Claude / Pi 可选）在严格隔离环境做结构化审查，输出按严重度
+  分级的发现。内化自 openclaw/openclaw 的 autoreview skill，剥离了上游组织专属内容。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - code-review
+  - review
+  - pre-commit
+  - quality-gate
+  - security
+  - secret-scanning
+  - trufflehog
+  - external-engine
+
+contents:
+  scripts: scripts
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - "Python 3.11+"
+    - "git（必须）"
+    - "gh（可选，自动探测 PR base 时用）"
+    - "trufflehog（必须，密钥扫描；缺失时报错并给出官方安装链接，绝不自动安装）"
+    - "codex（默认审查引擎）"
+    - "claude（可选审查引擎，v2.1.169+）"
+    - "pi（可选审查引擎，v0.79.0+）"
+  environment_variables:
+    - "审查引擎的凭据（codex / claude / pi CLI 自带）"
+    - "AUTOREVIEW_MODEL / AUTOREVIEW_THINKING / AUTOREVIEW_FALLBACK_MODEL / AUTOREVIEW_<ENGINE>_MODEL / AUTOREVIEW_<ENGINE>_THINKING（可选覆盖）"
+    - "AUTOREVIEW_PROVIDER_ENV_ALLOW（可选，自定义凭据变量白名单）"
+
+permissions:
+  network: true
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

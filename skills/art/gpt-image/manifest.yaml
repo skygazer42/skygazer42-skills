@@ -1,0 +1,54 @@
+schema_version: 1
+
+id: art.gpt-image
+name: gpt-image
+version: 0.1.0
+status: beta
+
+description: >
+  基于 GPT Image 2 的通用图像生成 / 编辑 / 修复 Skill。内置 162 条提示词的
+  Reference Gallery（按 33 个分类路由）、19 节提示词工艺清单与 OpenAI 官方提示词指南。
+  先检索范例再起草提示词，最终通过 gpt-image CLI（scripts/generate.py 启动器）调用
+  OpenAI API 输出图像。适用文本生图、参考图编辑、inpainting、海报 / 版式 / UI 示意图 /
+  图表 / 中文排版等。
+
+category: art
+entrypoint: SKILL.md
+tags:
+  - art
+  - image-generation
+  - gpt-image
+  - text-to-image
+  - image-editing
+  - inpainting
+  - prompt-engineering
+  - gallery
+  - typography
+
+contents:
+  references: references
+  scripts: scripts
+  agents: agents
+
+dependencies:
+  skills: []
+  commands:
+    - "Python 3.11+"
+    - "gpt-image / uv / uvx（任一，作为 CLI 后端）"
+  environment_variables:
+    - OPENAI_API_KEY
+
+permissions:
+  network: true
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

@@ -1,0 +1,31 @@
+schema_version: 1
+
+repository: https://github.com/liuzhengdongfortest/pi-shadow-mind
+revision: ba75a67092024053f6529ef574d0cd81006ba6b1
+path: .
+license: MIT
+license_file: LICENSE
+
+captured_at: "2026-08-16"
+captured_by: skygazer42
+
+upstream_notes: >
+  pi-shadow-mind（v0.1.10）是 Pi 运行时的 npm 扩展包（pi-package，
+  pi.extensions → dist/index.js），不是 skill 目录。它实现「并行认知运行时」：
+  在 Pi 主 Agent 旁边以 heartbeat 概率（默认 1/3）随机唤醒多个 Shadow Mind——
+  每个 Shadow 是 ~/.pi/agent/shadow-minds/*.md 中用户可读可编辑的持久认知核心
+  （架构审阅 / 项目事实核验 / 文档维护 / 完成度审阅等），每次激活创建全新的临时
+  AgentSession，接收净化后的文本轨迹（移除 thinking 与完整工具结果，保留工具调用
+  参数与确定性结果概述），可只读观察或按 tools 白名单并行工作，通过内置
+  report_to_main 上报、调用后立即终止本轮。TypeScript 源码（src/ 15 个模块 + test/
+  12 个 vitest 文件 + DESIGN.md 行为契约 + BENCHMARK.md 的 Terminal-Bench 2.1 评测
+  方法）。硬依赖 @earendil-works/pi-* 全家桶（peer deps）与 Pi SDK，脱离 Pi 运行时
+  无法直接运行。内化时需由仓库所有者决定形态（完整源码 / 概念与认知核心定义 / 放弃）。
+
+license_text: >
+  MIT License, Copyright (c) 2026 liuzhengdongfortest. 允许复制与修改，需随副本保留
+  版权声明（candidate/LICENSE 已保留）。无第三方 notices 依赖。
+
+reviewed_at: null
+reviewed_by: null
+status: incubating

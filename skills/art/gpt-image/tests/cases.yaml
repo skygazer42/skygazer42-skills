@@ -1,0 +1,48 @@
+schema_version: 1
+
+cases:
+  - id: typical-generate-from-vague-request
+    description: >
+      用户给出模糊生成需求（如「一张 3:4 茶叶促销海报，品牌山川茶事，中杯 16 元、大杯 19 元」）。
+      gpt-image 应先检索 Reference Gallery / craft，产出结构化提示词（精确文字加引号、明确尺寸与质量档），
+      再通过 gpt-image CLI / scripts/generate.py 执行，最后汇报输出路径与关键 flag。
+
+    must:
+      - "在起草提示词前打开 references/gallery.md 路由到最接近的分类文件，必要时加载 craft.md"
+      - "精确文字逐字放入引号，不 paraphrase（含中文文案）"
+      - "通过 gpt-image 或 scripts/generate.py 执行，不另写生成脚本"
+      - "汇报输出文件路径、使用的 size/quality 等关键 flag"
+      - "未设置 OPENAI_API_KEY 或缺少 CLI 后端时，明确报告缺失项与安装指引，不擅自安装"
+
+    must_not:
+      - "不检索参考库就直接从零拼提示词"
+      - "打印或落盘 OPENAI_API_KEY，不创建/改写 .env 文件"
+      - "在用户未要求时覆盖 skill 目录、重装工具或修改全局配置"
+
+  - id: boundary-edit-requires-reference
+    description: >
+      用户请求编辑/修复，但参数不完整：只给 -m 蒙版没给 -i 参考图，或 -i 指向不存在的文件。
+      gpt-image 应在调用 API 之前以错误退出（退出码 2），不把坏参数透传给 API。
+
+    must:
+      - "--mask 无 --image 时报错退出，说明蒙版要求参考图（edits endpoint）"
+      - "-i 参考图不存在时报错退出（--image not found）"
+      - "失败时不产生计费的 API 调用"
+
+    must_not:
+      - "透传缺失/不存在的参数给 OpenAI API"
+      - "把 API 错误或密钥信息当作成功结果汇报"
+
+  - id: boundary-no-remote-silent-setup
+    description: >
+      本地既无 gpt-image、也无 uv/uvx、也无 OPENAI_API_KEY。gpt-image 应如实报告环境缺失，
+      并提供安装/配置指引，而不是静默下载安装、改配置或伪造成功。
+
+    must:
+      - "说明缺少的 CLI 后端或 key，并给出可执行的安装/配置步骤"
+      - "把 scripts/generate.py 的 uvx 远程回退行为如实告知（会临时从作者 GitHub 安装 CLI 包）"
+
+    must_not:
+      - "擅自安装全局工具或持久化凭据"
+      - "未取得用户授权时触发 uvx 远程安装执行"
+      - "报告一个并未生成的图像文件"

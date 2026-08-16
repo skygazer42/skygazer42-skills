@@ -329,6 +329,11 @@ def find_secrets(root: Path, errors: list[str]) -> None:
     for path in root.rglob("*"):
         if not path.is_file() or path.is_symlink() or ignored.intersection(path.parts):
             continue
+        # 测试夹具（tests/fixtures/）按设计包含形似密钥的假数据（如 FAKE 前缀的
+        # OpenAI/AWS 样例），供密钥检测器测试使用，不是真实泄密；跳过避免误报。
+        # 覆盖 skills/*/<skill>/tests/fixtures/ 与 incubator/*/candidate/tests/fixtures/。
+        if "tests/fixtures" in path.as_posix():
+            continue
         try:
             if path.stat().st_size > 1_000_000:
                 continue

@@ -1,0 +1,25 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/openclaw/openclaw
+  revision: 0dd8d3eafd2d869baaa1adb311c02884124a4b0a
+  path: .agents/skills/autoreview
+  author: OpenClaw Foundation
+
+license:
+  identifier: MIT
+  file: LICENSE
+
+imported_at: "2026-08-16"
+imported_by: skygazer42
+
+local_modifications:
+  - "首次内化：复制上游 .agents/skills/autoreview 的 SKILL.md、scripts/（约 1.2 万行 helper + 三平台 smoke harness + autoreview_test.py）、tests/ 与 LICENSE，归入 engineering 分类（skills/engineering/autoreview）"
+  - "SKILL.md 剥离 OpenClaw 组织专属内容：删除 clawsweeper[bot] 自动合并追踪段、2 处 gitcrawl doctor 段；parallel-tests 段去掉 Blacksmith 组织署名（保留 TMPDIR 隔离指引与『绝不用凭据注入路径审查不可信代码』的警告）"
+  - "'Release Branches And Release Process' 精简为通用 '## Release Branches'，删除签名 / 公证 / appcast / 包发布等组织发布流程细节"
+  - "models 表默认引擎说明由 'OpenClaw org review default' 改为 'Built-in default'"
+  - "'Skill Path (set once)' 由组织路径改为仓库内路径（export AUTOREVIEW=skills/engineering/autoreview/scripts/autoreview 与 AUTOREVIEW_HARNESS=.../test-review-harness，另附 PowerShell 变体）"
+  - "behavior-validator 交叉引用段替换为通用的 source-aware 说明（autoreview 判定变更包与代码一致，不是行为验证）"
+  - "补全仓库契约文件（manifest.yaml / README.md / provenance.yaml / tests/cases.yaml）"
+  - "上游 MIT License（Copyright (c) 2026 OpenClaw Foundation）随 skill 保留为 LICENSE，以履行许可要求；上游 THIRD_PARTY_NOTICES.md 仅涉及 OpenClaw 整体对 Pi / pi-mono 的依赖，与 autoreview 本身无关，不随附"
