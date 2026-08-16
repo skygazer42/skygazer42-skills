@@ -1,0 +1,15 @@
+schema_version: 1
+
+cases:
+  - id: breakdown-to-shots
+    description: >
+      用户要求把已接受剧本拆成分镜与冻结关键帧。
+
+    must:
+      - "产出原文落实表、有戏剧动机的镜头与连续性边界"
+      - "冻结关键帧提示词可追溯（绑定镜头/资产）"
+      - "关键场次可先做 Coverage Audition 比较"
+
+    must_not:
+      - "镜头没有戏剧动机或脱离原文"
+      - "连续性边界与资产/剧本冲突"

@@ -1,0 +1,15 @@
+schema_version: 1
+
+cases:
+  - id: write-video-prompts
+    description: >
+      用户要求为已接受镜头和关键帧编写视频提示词。
+
+    must:
+      - "以运动变化为核心组织动作/表演/运镜/声音/节奏"
+      - "提示词可复制、可追溯（绑定镜头边界与关键帧）"
+      - "遵守套件 trust_boundary：只产出提示词文本、不生成视频"
+
+    must_not:
+      - "调用视频生成 API 或媒体生成能力"
+      - "提示词与镜头边界/关键帧冲突"

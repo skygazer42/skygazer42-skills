@@ -1,0 +1,48 @@
+---
+schema_version: 1
+
+id: drama.short-drama
+name: 短剧创作路由
+version: 0.3.0
+status: stable
+
+description: >
+  基于文件系统初始化、继续、恢复和交付短剧/漫剧项目，提供面向创作者的本地 Dashboard，并组织项目级 Look Development 方向与授权生产观察校准；任务跨多个环节或意图不明时先判断当前状态再路由到对应子技能。
+
+category: drama
+entrypoint: SKILL.md
+tags:
+  - drama
+  - short-drama
+  - project-routing
+  - dashboard
+  - look-development
+
+contents:
+  references: references
+  scripts: scripts
+  assets: assets
+  agents: agents
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - python3
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml
+

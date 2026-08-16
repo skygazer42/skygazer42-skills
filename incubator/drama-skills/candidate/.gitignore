@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.ruff_cache/
+.DS_Store
+.omc/
+.omx/
+tests/local-terms.txt
+# Impeccable design tooling, reinstalled on demand with `npx impeccable install`.
+# It reviews the dashboard; it is not part of the published skill suite.
+.github/agents/
+.github/hooks/
+.github/skills/
+maintainers/evals/
+.coverage
+# Local showcase workspaces may be derived from private creator projects and
+# may contain generated media. Keep them available to the dashboard without
+# shipping source-specific text, identifiers, or binary assets.
+demo/workspace/

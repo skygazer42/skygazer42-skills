@@ -1,0 +1,48 @@
+---
+schema_version: 1
+
+id: drama.short-drama-write
+name: 短剧写作
+version: 0.3.0
+status: stable
+
+description: >
+  创作或修订中文短剧/漫剧的单集卡、因果节拍与可拍摄 Markdown 剧本；对既有剧本以保留原文、预览语义差异、创作者接受后发布的方式做规范化与修订。
+
+category: drama
+entrypoint: SKILL.md
+tags:
+  - drama
+  - writing
+  - screenplay
+  - beats
+  - dialogue
+
+contents:
+  references: references
+  scripts: scripts
+  assets: assets
+  agents: agents
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - python3
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml
+

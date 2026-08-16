@@ -1,0 +1,48 @@
+---
+schema_version: 1
+
+id: drama.short-drama-develop
+name: 短剧开发
+version: 0.3.0
+status: stable
+
+description: >
+  把原创想法、中文小说、梗概或改编材料发展为可追溯的改编方案、戏剧方向、故事引擎、系列弧线与分集地图，按题材与制作形式形成创作简报、导演阐述与逐集交接结构。
+
+category: drama
+entrypoint: SKILL.md
+tags:
+  - drama
+  - development
+  - story-engine
+  - series-arc
+  - episode-map
+
+contents:
+  references: references
+  scripts: scripts
+  assets: assets
+  agents: agents
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - python3
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml
+

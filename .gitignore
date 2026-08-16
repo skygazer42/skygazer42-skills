@@ -7,3 +7,4 @@ __pycache__/
 *.py[cod]
 config/local.yaml
 .idea/
+skills/drama/tests/local-terms.txt

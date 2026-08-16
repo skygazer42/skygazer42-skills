@@ -1,0 +1,49 @@
+schema_version: 1
+
+cases:
+  - id: typical-parallel-cores-during-implementation
+    description: >
+      主 Agent 正在实现一个多模块变更，用户要求「一边做一边有人盯着架构、事实和文档」。
+      shadow-mind 应部署架构审阅 / 项目事实核验 / 文档维护核心并行工作：每个核心独立
+      判断介入、用只读（或文档核心的写）工具做有界检查、报告一条可行动发现或不输出空报告，
+      且不接管主线任务。
+
+    must:
+      - "每个认知核心只认领一项持久职责，独立决定是否介入"
+      - "发现只引用轨迹或仓库中的具体证据，先核实再下结论"
+      - "报告为『一条差异 + 证据 + 最有效下一步』或固定 check: OK，不输出空报告"
+      - "文档维护核心只写它负责的文档（docs/README/架构说明），不碰代码与测试"
+      - "核心不接管主线任务，主 Agent 在采纳发现前先核验"
+
+    must_not:
+      - "让核心『顺手』修改主 Agent 的实现代码、测试或做无关重构"
+      - "把主 Agent 的思考过程或完整工具结果喂给核心"
+      - "核心报告无证据支撑的『我觉得』"
+
+  - id: boundary-completion-review-is-independent
+    description: >
+      用户在主 Agent 声称完成时启用完成度审阅。shadow-mind 的完成度审阅核心应作为独立
+      旁证检查『是否真完成』，而不是替代 verification-before-completion 或主 Agent 自己的验证。
+
+    must:
+      - "对照任务原始要求检查漏约束/错路径/未验证的完成断言"
+      - "证据不足时报告 completion check: not enough evidence yet，不泛泛调查"
+      - "是否声称完成由主 Agent 决定，但核心的 OK 是独立证据"
+
+    must_not:
+      - "把 completion check: OK 当作『测试通过』或『已验证』的证明"
+      - "核心替主 Agent 补实现或接管任务"
+
+  - id: boundary-late-result-dropped
+    description: >
+      某认知核心的报告在用户已开启新任务后才完成。shadow-mind 应作废该迟到结果，不投递，
+      且核心不跨会话残留。
+
+    must:
+      - "用户开启新任务后，迟到的旧核心结果作废"
+      - "核心实例用完即弃，不继承上一次激活的历史"
+      - "核心无关时不介入，保持沉默"
+
+    must_not:
+      - "把旧任务的核心结果投递到新任务"
+      - "核心建议的『更美』重构或可选工作混入主线"

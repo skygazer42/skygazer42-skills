@@ -78,6 +78,114 @@ skills:
   - profiling
   - data-quality
   - validation
+- id: drama.short-drama
+  name: 短剧创作路由
+  version: 0.3.0
+  status: stable
+  path: skills/drama/short-drama
+  entrypoint: SKILL.md
+  tags:
+  - drama
+  - short-drama
+  - project-routing
+  - dashboard
+  - look-development
+- id: drama.short-drama-assets
+  name: 短剧资产拆解
+  version: 0.3.0
+  status: stable
+  path: skills/drama/short-drama-assets
+  entrypoint: SKILL.md
+  tags:
+  - drama
+  - assets
+  - characters
+  - continuity
+  - props
+- id: drama.short-drama-develop
+  name: 短剧开发
+  version: 0.3.0
+  status: stable
+  path: skills/drama/short-drama-develop
+  entrypoint: SKILL.md
+  tags:
+  - drama
+  - development
+  - story-engine
+  - series-arc
+  - episode-map
+- id: drama.short-drama-image-prompts
+  name: 短剧资产图提示词
+  version: 0.3.0
+  status: stable
+  path: skills/drama/short-drama-image-prompts
+  entrypoint: SKILL.md
+  tags:
+  - drama
+  - image-prompts
+  - lookdev
+  - assets
+  - text-to-image
+- id: drama.short-drama-novel-analyze
+  name: 长篇原著分析
+  version: 0.3.0
+  status: stable
+  path: skills/drama/short-drama-novel-analyze
+  entrypoint: SKILL.md
+  tags:
+  - drama
+  - novel
+  - adaptation
+  - analysis
+  - chapters
+- id: drama.short-drama-review
+  name: 短剧独立审查
+  version: 0.3.0
+  status: stable
+  path: skills/drama/short-drama-review
+  entrypoint: SKILL.md
+  tags:
+  - drama
+  - review
+  - verification
+  - quality-gates
+  - audit
+- id: drama.short-drama-storyboard
+  name: 短剧分镜与冻结关键帧
+  version: 0.3.0
+  status: stable
+  path: skills/drama/short-drama-storyboard
+  entrypoint: SKILL.md
+  tags:
+  - drama
+  - storyboard
+  - shots
+  - keyframes
+  - coverage
+- id: drama.short-drama-video-prompts
+  name: 短剧视频提示词
+  version: 0.3.0
+  status: stable
+  path: skills/drama/short-drama-video-prompts
+  entrypoint: SKILL.md
+  tags:
+  - drama
+  - video-prompts
+  - motion
+  - text-to-video
+  - cinematography
+- id: drama.short-drama-write
+  name: 短剧写作
+  version: 0.3.0
+  status: stable
+  path: skills/drama/short-drama-write
+  entrypoint: SKILL.md
+  tags:
+  - drama
+  - writing
+  - screenplay
+  - beats
+  - dialogue
 - id: engineering.architecture-review
   name: Architecture Review
   version: 0.1.0
@@ -201,6 +309,22 @@ skills:
   - fast-check
   - proptest
   - smart-contracts
+- id: engineering.shadow-mind
+  name: shadow-mind
+  version: 0.1.0
+  status: beta
+  path: skills/engineering/shadow-mind
+  entrypoint: SKILL.md
+  tags:
+  - engineering
+  - review
+  - parallel
+  - cognitive-core
+  - shadow-mind
+  - architecture
+  - verification
+  - documentation
+  - multi-agent
 - id: engineering.subagent-driven-development
   name: Subagent-Driven Development
   version: 0.2.0

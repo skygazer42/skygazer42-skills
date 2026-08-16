@@ -1,0 +1,23 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/liuzhengdongfortest/pi-shadow-mind
+  revision: ba75a67092024053f6529ef574d0cd81006ba6b1
+  path: .
+  author: liuzhengdongfortest
+
+license:
+  identifier: MIT
+  file: LICENSE
+
+imported_at: "2026-08-16"
+imported_by: skygazer42
+
+local_modifications:
+  - "首次内化：以「做减法」形态把上游 pi-shadow-mind（Pi 运行时 npm 扩展）的 Shadow Mind 概念与 4 个认知核心定义沉淀为可移植行为 skill，归入 engineering 分类（skills/engineering/shadow-mind）"
+  - "不内化 TypeScript 运行时（src/ 15 模块、test/、DESIGN.md、BENCHMARK.md、benchmark/、package*.json、tsconfig），仅保留概念契约与认知核心定义；运行时获取方式记入 SKILL.md/README（pi install npm:pi-shadow-mind@0.1.10）"
+  - "4 个认知核心定义改写为平台无关的职责卡：去除 activation_probability / run_with_model / active_for_models / thinking_level / timeout_seconds / enabled / debug 等运行时字段，工具名适配本仓环境（read/grep/Glob/ls/write），保留职责、审查内容、报告契约与边界"
+  - "吸收上游 benchmark/shadow-minds/ 生产定义（evidence-before-done / task-contract / terminal-progress）的报告纪律：固定 check: OK 行、有界核验、单条最有效行动"
+  - "补全仓库契约文件（manifest.yaml / README.md / provenance.yaml / tests/cases.yaml）"
+  - "上游 MIT License（Copyright (c) 2026 liuzhengdongfortest）随 skill 保留为 LICENSE，以履行许可要求"

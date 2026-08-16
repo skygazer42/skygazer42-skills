@@ -1,0 +1,50 @@
+schema_version: 1
+
+id: engineering.shadow-mind
+name: shadow-mind
+version: 0.1.0
+status: beta
+
+description: >
+  并行认知核心（Shadow Mind）：在主 Agent 持续推进主线任务的同时，让多个持久、
+  独立的认知核心并行工作——架构审阅 / 项目事实核验 / 文档维护 / 完成度审阅——
+  各自认领一项稳定职责，独立决定何时检查、行动或汇报，并在错误变得昂贵之前介入。
+  内化自 liuzhengdongfortest/pi-shadow-mind（Pi 运行时扩展）的概念层，不携带 TS 运行时，
+  适配为本仓库 Agent 环境的可移植行为 skill（并行子代理 / 检查点两种部署方式）。
+
+category: engineering
+entrypoint: SKILL.md
+tags:
+  - engineering
+  - review
+  - parallel
+  - cognitive-core
+  - shadow-mind
+  - architecture
+  - verification
+  - documentation
+  - multi-agent
+
+contents:
+  references: references
+  tests: tests
+
+dependencies:
+  skills: []
+  commands: []
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: false
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml

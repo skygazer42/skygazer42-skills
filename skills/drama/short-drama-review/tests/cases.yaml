@@ -1,0 +1,15 @@
+schema_version: 1
+
+cases:
+  - id: independent-review
+    description: >
+      用户要求对短剧项目产物做独立审查。
+
+    must:
+      - "逐层校验（故事/剧本/资产/连续性/提示词/分镜/关键帧）并给出证据"
+      - "审查记录独立于创作环节、可追溯（绑定目标产物与证据）"
+      - "发现模板感/质量问题后给出修订路由"
+
+    must_not:
+      - "评价质量却拿不出证据"
+      - "把 provisional/unattested 当作已通过结论"

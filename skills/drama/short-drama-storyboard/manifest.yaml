@@ -1,0 +1,48 @@
+---
+schema_version: 1
+
+id: drama.short-drama-storyboard
+name: 短剧分镜与冻结关键帧
+version: 0.3.0
+status: stable
+
+description: >
+  把已接受的中文短剧剧本和资产转成原文落实表、有戏剧动机的镜头、连续性边界与冻结关键帧提示词；关键场次可先做场次视觉计划或 Coverage Audition 比较再定稿。
+
+category: drama
+entrypoint: SKILL.md
+tags:
+  - drama
+  - storyboard
+  - shots
+  - keyframes
+  - coverage
+
+contents:
+  references: references
+  scripts: scripts
+  assets: assets
+  agents: agents
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - python3
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml
+

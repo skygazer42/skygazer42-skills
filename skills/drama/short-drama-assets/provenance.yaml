@@ -1,0 +1,22 @@
+schema_version: 1
+
+origin:
+  type: external
+  repository: https://github.com/worldwonderer/drama-skills
+  revision: bc040191458da3d5b6eaa7068da67527ae3c912f
+  path: skills/short-drama-assets
+  author: worldwonderer
+
+license:
+  identifier: MIT
+  file: LICENSE
+
+imported_at: "2026-08-16"
+imported_by: skygazer42
+
+local_modifications:
+  - "首次内化：源即 worldwonderer/drama-skills 的 skills/short-drama-assets（revision bc040191 = tag v0.3.0，2026-08-16 抓取，字节级一致）"
+  - "SKILL.md、references/、scripts/、assets/、agents/ 内容与源逐字一致"
+  - "补全仓库契约文件（manifest.yaml / README.md / provenance.yaml / tests/cases.yaml / LICENSE）"
+  - "归入 drama 分类（drama.short-drama-assets），作为 drama 九技能套件一员与短剧产线配合（见 incubator/drama-skills/review.md）"
+  - "上游 maintainers/ 知识技能、README 宣传语与 docs/ 截图按决策剥离"

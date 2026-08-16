@@ -1,0 +1,47 @@
+---
+schema_version: 1
+
+id: drama.short-drama-review
+name: 短剧独立审查
+version: 0.3.0
+status: stable
+
+description: >
+  独立校验与审查文件系统短剧项目中的原著分析、故事、剧本、资产、连续性、资产图片提示词、分镜、关键帧与视频提示词，消费有界授权生产观察做当前项目校准，输出带证据的审查记录与修订路由。
+
+category: drama
+entrypoint: SKILL.md
+tags:
+  - drama
+  - review
+  - verification
+  - quality-gates
+  - audit
+
+contents:
+  references: references
+  assets: assets
+  agents: agents
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - python3
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml
+

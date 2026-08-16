@@ -1,0 +1,47 @@
+---
+schema_version: 1
+
+id: drama.short-drama-assets
+name: 短剧资产拆解
+version: 0.3.0
+status: stable
+
+description: >
+  从已接受剧本拆解并统筹角色/造型、场景/视图、道具/状态与可选的角色声音方向，维护跨场连续性与可追溯的资产表，供提示词、分镜与审查环节使用。
+
+category: drama
+entrypoint: SKILL.md
+tags:
+  - drama
+  - assets
+  - characters
+  - continuity
+  - props
+
+contents:
+  references: references
+  assets: assets
+  agents: agents
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - python3
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml
+

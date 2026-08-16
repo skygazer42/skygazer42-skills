@@ -1,0 +1,39 @@
+schema_version: 1
+
+repository: https://github.com/worldwonderer/drama-skills
+revision: bc040191458da3d5b6eaa7068da67527ae3c912f
+path: .
+license: MIT
+license_file: LICENSE
+
+captured_at: "2026-08-16"
+captured_by: skygazer42
+
+upstream_notes: >
+  drama-skills（v0.3.0，tag 与 main HEAD 同）是面向编剧、漫剧工作室与编导的 AI 短剧/漫剧
+  创作技能套件：九个 Agent Skill 把点子或长篇小说一路做成可拍分镜、资产设定、图片提示词、
+  视频提示词与独立审查记录。仓库结构 = skills/ 下 9 个公开 skill（入口路由 short-drama +
+  novel-analyze / develop / write / assets / image-prompts / storyboard / video-prompts /
+  review 八个环节）+ maintainers/skills/short-drama-knowhow（维护者知识，非公开）、docs/
+  （dashboard 截图）、demo/（《孤身入魔》样例摘录链）、tools/（套件清单维护与校验）、tests/
+  （18 个 unittest 文件）、DESIGN.md / CHANGELOG.md / README。
+
+  套件强耦合：short-drama 持有 suite-manifest.json（169 个文件的 SHA-256 + trust_boundary），
+  其余 8 个 skill 各带 suite-ref.json，经相对路径 ../short-drama/suite-manifest.json 定位核心
+  并核对 core_manifest_sha256；suite_verify.py 校验「无清单外文件 + 内容 hash 一致 + 信任边界
+  不变」。9 个 skill 必须保持同级目录才能通过自检。信任边界 = host_text_inference 仅文本推理、
+  不调媒体生成、不调 provider API、运行时不访问外部/私有来源、脚本无出站网络——与本仓
+  security 偏好一致。所有 Python 均为 3.10+ 标准库（project_tool.py 4965 行生命周期工具、
+  dashboard_server.py 1153 行回环-only Dashboard、novel_index/screenplay_index/storyboard_check/
+  motion_timing_check/container_check/voice_sheet_check 等），无第三方依赖，测试用 unittest。
+  刻意不含生图/生视频：提示词先落文件由创作者确认，再进生成环节。
+
+  内化时需由仓库所有者决定：a) 分类落位（新分类如 drama/ 放 9 个同级 skill vs 并入既有
+  writing 等）；b) 套件自检与仓库契约文件的调和——suite_verify 的「无清单外文件」检查会拒绝
+  每个 skill 目录内新增的 manifest.yaml/README.md/provenance.yaml/tests/cases.yaml/LICENSE，
+  需以受控本地改动（豁免清单中显式登记仓库契约元数据）或重建 suite-manifest 二选一；
+  c) 是否保留 Dashboard 与维护者知识（knowhow 定位为维护者而非创作者技能）。
+
+license_text: >
+  MIT License, Copyright (c) 2026 drama-skills contributors. 允许复制与修改，需随副本保留
+  版权声明（candidate/LICENSE 已保留）。无第三方 notices 依赖。完整文本见 candidate/LICENSE。

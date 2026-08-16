@@ -83,7 +83,7 @@ gemini extensions uninstall skygazer42-skills
 
 ## 能力目录
 
-共 **57** 个正式 Skill（`registry.yaml` 为唯一清单），分布在 15 个分类。详细行为以各 Skill 的 `SKILL.md`、中文 `README.md` 和 `tests/cases.yaml` 为准。
+共 **67** 个正式 Skill（`registry.yaml` 为唯一清单），分布在 13 个分类。详细行为以各 Skill 的 `SKILL.md`、中文 `README.md` 和 `tests/cases.yaml` 为准。
 
 ### 开发
 
@@ -112,7 +112,7 @@ gemini extensions uninstall skygazer42-skills
 | `backend.backend-review` | 审查正确性、安全、并发和可靠性（只读） | [→](skills/backend/backend-review/README.md) |
 | `backend.backend-debugging` | 定位根因、影响范围和修复建议（不改代码） | [→](skills/backend/backend-debugging/README.md) |
 
-#### engineering（已上线）— 工程流程与编排（21 个）
+#### engineering（已上线）— 工程流程与编排（22 个）
 
 | Skill | 一句话 | 详情 |
 | --- | --- | --- |
@@ -127,6 +127,7 @@ gemini extensions uninstall skygazer42-skills
 | `engineering.subagent-driven-development` | 执行计划——子代理驱动（带审查）或内联执行 | [→](skills/engineering/subagent-driven-development/README.md) |
 | `engineering.code-review` | 请求代码审查 + 接收反馈后先验证再实现 | [→](skills/engineering/code-review/README.md) |
 | `engineering.autoreview` | 提交/发布前自动外审门禁：TruffleHog 密钥扫描 + Codex/Claude/Pi 隔离引擎审查（内化自 openclaw） | [→](skills/engineering/autoreview/README.md) |
+| `engineering.shadow-mind` | 并行认知核心：架构审阅/事实核验/文档维护/完成度审阅随主线并行工作（内化自 pi-shadow-mind 概念层） | [→](skills/engineering/shadow-mind/README.md) |
 | `engineering.finishing-a-development-branch` | 实现完成 → 验证测试 → 合并/PR/保持 + 更新规格 | [→](skills/engineering/finishing-a-development-branch/README.md) |
 | `engineering.using-git-worktrees` | 为功能工作创建隔离工作区 | [→](skills/engineering/using-git-worktrees/README.md) |
 | `engineering.writing-skills` | 用 TDD 创建/重构/评估 skill 的 skill（本仓创作规范） | [→](skills/engineering/writing-skills/README.md) |
@@ -208,6 +209,22 @@ gemini extensions uninstall skygazer42-skills
 | `presentation.ppt-agent` | 端到端 PPT 生成流水线——需求调研→大纲→资料检索→策划→SVG 设计→出片→视觉 QA | [→](skills/presentation/ppt-agent/README.md) |
 | `presentation.html-ppt` | 直给式交互 HTML PPT——配色/主题/内容三要素即出单文件 .html，零依赖、浏览器即开即播（输出不可 .pptx 编辑） | [→](skills/presentation/html-ppt/README.md) |
 
+#### drama（已上线）— AI 短剧/漫剧创作九技能套件
+
+强耦合套件（内化自 [worldwonderer/drama-skills](https://github.com/worldwonderer/drama-skills)，MIT）：八个环节技能各带 `suite-ref.json`，经相对路径定位入口路由并核对 `core_manifest_sha256`，`scripts/suite_verify.py` 做字节级自检（无清单外文件 + 内容 hash 一致 + 信任边界不变），九技能须保持同级目录。信任边界：仅文本推理，**不生成图片/视频**；脚本为 Python 3.10+ 标准库，无网络、无第三方依赖。详见 [分类 README](skills/drama/README.md) 与 [内化 review](incubator/drama-skills/review.md)。
+
+| Skill | 一句话 | 详情 |
+| --- | --- | --- |
+| `drama.short-drama` | 入口路由：初始化/继续/恢复/交付项目、本地 Dashboard、项目级 Look Development | [→](skills/drama/short-drama/README.md) |
+| `drama.short-drama-novel-analyze` | 长篇原著分析：抽样快评 + 分集候选 | [→](skills/drama/short-drama-novel-analyze/README.md) |
+| `drama.short-drama-develop` | 短剧开发：改编契约/故事引擎/分集地图 | [→](skills/drama/short-drama-develop/README.md) |
+| `drama.short-drama-write` | 短剧写作：单集因果节拍 + 可拍剧本 | [→](skills/drama/short-drama-write/README.md) |
+| `drama.short-drama-assets` | 短剧资产拆解：人物/场景/道具身份与连续性 | [→](skills/drama/short-drama-assets/README.md) |
+| `drama.short-drama-image-prompts` | 短剧资产图提示词：Lookdev 风格帧 + 资产参考图 | [→](skills/drama/short-drama-image-prompts/README.md) |
+| `drama.short-drama-storyboard` | 短剧分镜与冻结关键帧 | [→](skills/drama/short-drama-storyboard/README.md) |
+| `drama.short-drama-video-prompts` | 短剧视频提示词：逐镜运动/表演/摄影/声音 | [→](skills/drama/short-drama-video-prompts/README.md) |
+| `drama.short-drama-review` | 短剧独立审查：审查与修订路由 | [→](skills/drama/short-drama-review/README.md) |
+
 ### 数据分析
 
 #### data（已上线）— 探索性分析
@@ -248,7 +265,7 @@ gemini extensions uninstall skygazer42-skills
 | `backend.backend-implementation` | 否 | 是 | 是 | 是 |
 | `backend.backend-review` | 否 | 是 | 否 | 是 |
 | `backend.backend-debugging` | 否 | 是 | 否 | 是 |
-| `engineering.*`（19 个，见上表） | 否 | 是 | 是/否 | 是/否 |
+| `engineering.*`（20 个，见上表） | 否 | 是 | 是/否 | 是/否 |
 | `engineering.grill-me` | 否 | 否 | 否 | 否 |
 | `engineering.autoreview` | 是 | 是 | 是 | 是 |
 | `open-source.beautify-github-readme` | 否 | 是 | 是 | 否 |
@@ -260,6 +277,7 @@ gemini extensions uninstall skygazer42-skills
 | `security.code-audit` | 否 | 是 | 否 | 是 |
 | `marketing.seo` | 是 | 是 | 是 | 是 |
 | `research.last30days` | 是 | 是 | 否 | 是 |
+| `research.daily-ai-news` | 是 | 是 | 是 | 否 |
 | `writing.authentic-writing` | 否 | 是 | 是 | 否 |
 | `writing.humanizer` | 否 | 是 | 是 | 否 |
 | `writing.chinese-documentation` | 否 | 是 | 是 | 否 |
@@ -270,9 +288,18 @@ gemini extensions uninstall skygazer42-skills
 | `presentation.ppt-agent` | 是 | 是 | 是 | 是 |
 | `presentation.html-ppt` | 否 | 否 | 是 | 否 |
 | `data.exploratory-analysis` | 否 | 是 | 是 | 是 |
+| `drama.short-drama` | 否 | 是 | 是 | 是 |
+| `drama.short-drama-novel-analyze` | 否 | 是 | 是 | 是 |
+| `drama.short-drama-develop` | 否 | 是 | 是 | 是 |
+| `drama.short-drama-write` | 否 | 是 | 是 | 是 |
+| `drama.short-drama-assets` | 否 | 是 | 是 | 是 |
+| `drama.short-drama-image-prompts` | 否 | 是 | 是 | 是 |
+| `drama.short-drama-storyboard` | 否 | 是 | 是 | 是 |
+| `drama.short-drama-video-prompts` | 否 | 是 | 是 | 是 |
+| `drama.short-drama-review` | 否 | 是 | 是 | 是 |
 | `operations.incident-response` | 否 | 是 | 否 | 是 |
 
-> 注：`engineering.*`（19 个）统一网络关闭、可读文件；写文件与执行命令因 Skill 职责而异。`engineering.grill-me` 是纯对话入口，四项全部为否。`engineering.autoreview` 例外——需调用外部模型引擎（Codex/Claude/Pi），网络、读、写、执行四项全开。
+> 注：`engineering.*`（20 个）统一网络关闭、可读文件；写文件与执行命令因 Skill 职责而异。`engineering.grill-me` 是纯对话入口，四项全部为否。`engineering.autoreview` 例外——需调用外部模型引擎（Codex/Claude/Pi），网络、读、写、执行四项全开。`drama.*`（9 个）统一网络关闭、可读可写、执行命令开启——脚本均为 Python 3.10+ 标准库，无网络、无第三方依赖（信任边界见分类 README）。
 
 ## 仓库结构
 
@@ -280,16 +307,17 @@ gemini extensions uninstall skygazer42-skills
 skills/
 ├── web/                  (12 个：设计/实现/审查/测试/复刻/浏览器自动化/设计系统)
 ├── backend/              (3 个：实现/审查/排障)
-├── engineering/          (21 个：工程流程与编排)
+├── engineering/          (22 个：工程流程与编排)
 ├── data/                 (1 个：探索性数据分析)
 ├── operations/           (1 个：事故响应)
 ├── open-source/          (1 个：GitHub README 美化)
 ├── security/             (6 个：逆向/APK/移动端/恶意样本/API/源码审计)
 ├── marketing/            (1 个：SEO)
-├── research/             (1 个：last30days 多源调研)
+├── research/             (2 个：last30days 多源调研 / daily-ai-news AI 新闻简报)
 ├── writing/              (4 个：去 AI 味/排版规范)
 ├── art/                  (2 个：照片抽象编辑/GPT Image 生成)
-└── presentation/         (3 个：PPT/HTML PPT 生成)
+├── presentation/         (3 个：PPT/HTML PPT 生成)
+└── drama/                (9 个：短剧/漫剧创作套件，强耦合须同级目录)
 ```
 
 ## 贡献与维护

@@ -1,0 +1,15 @@
+schema_version: 1
+
+cases:
+  - id: write-asset-prompts
+    description: >
+      用户要求为已接受资产编写人物/场景/道具图片提示词。
+
+    must:
+      - "提示词可复制、可复用、可追溯（绑定资产身份）"
+      - "遵守套件 trust_boundary：只产出提示词文本、不生成图片"
+      - "把已接受视觉方向投影成风格帧与参考图提示词"
+
+    must_not:
+      - "调用图片生成 API 或媒体生成能力"
+      - "为未确认的资产编造视觉设定"

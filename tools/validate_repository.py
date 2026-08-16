@@ -77,7 +77,11 @@ def skill_directories(root: Path) -> list[Path]:
         if not category_dir.is_dir() or category_dir.name.startswith("."):
             continue
         for skill_dir in sorted(category_dir.iterdir()):
-            if skill_dir.is_dir() and not skill_dir.name.startswith("."):
+            # A category may hold non-skill directories (suite tools, demos,
+            # test harnesses) beside its skills; only a directory carrying the
+            # repository contract manifest is a skill. build_registry.py globs
+            # `skills/*/*/manifest.yaml`, so the two stay in agreement.
+            if skill_dir.is_dir() and (skill_dir / "manifest.yaml").is_file():
                 result.append(skill_dir)
     return result
 

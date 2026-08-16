@@ -1,0 +1,48 @@
+---
+schema_version: 1
+
+id: drama.short-drama-novel-analyze
+name: 长篇原著分析
+version: 0.3.0
+status: stable
+
+description: >
+  把长篇小说、连载网文或多集散稿拆成可追溯的原著分析：章节索引、改编价值快评、逐章功能提取、剧情单元与节奏聚合、人物与设定归并，最后给出改编价值判定与分集候选，交给开发环节。
+
+category: drama
+entrypoint: SKILL.md
+tags:
+  - drama
+  - novel
+  - adaptation
+  - analysis
+  - chapters
+
+contents:
+  references: references
+  scripts: scripts
+  assets: assets
+  agents: agents
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - python3
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml
+

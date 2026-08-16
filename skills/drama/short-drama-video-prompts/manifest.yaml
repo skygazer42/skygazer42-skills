@@ -1,0 +1,48 @@
+---
+schema_version: 1
+
+id: drama.short-drama-video-prompts
+name: 短剧视频提示词
+version: 0.3.0
+status: stable
+
+description: >
+  为已接受的短剧镜头与关键帧编写或修改可复制的通用视频提示词与运动规格，覆盖动作、表演过程、运镜、对白口型、环境运动、镜头时长与节奏。
+
+category: drama
+entrypoint: SKILL.md
+tags:
+  - drama
+  - video-prompts
+  - motion
+  - text-to-video
+  - cinematography
+
+contents:
+  references: references
+  scripts: scripts
+  assets: assets
+  agents: agents
+  tests: tests
+
+dependencies:
+  skills: []
+  commands:
+    - python3
+  environment_variables: []
+
+permissions:
+  network: false
+  read_files: true
+  write_files: true
+  execute_commands: true
+
+compatibility:
+  adapters: []
+
+evaluation:
+  cases: tests/cases.yaml
+
+provenance:
+  file: provenance.yaml
+
